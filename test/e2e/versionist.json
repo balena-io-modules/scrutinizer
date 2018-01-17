@@ -3,7 +3,7 @@
   "url": "git@github.com:resin-io/versionist.git",
   "reference": "8d26949be685c9427bc6c48893572a2d5b8fe974",
   "result": {
-    "license": "Other",
+    "license": "Apache-2.0",
     "contributing": null
   }
 }
