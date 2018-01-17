@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## v1.1.0 - 2018-01-17
+
+- Extract NPM dependencies from `package.json`
+
 ## v1.0.0 - 2018-01-17
 
 - Read license information from `package.json`
