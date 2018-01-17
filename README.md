@@ -4,6 +4,7 @@ Examinator
 [![npm](https://img.shields.io/npm/v/examinator.svg?style=flat-square)](https://npmjs.com/package/examinator)
 [![npm license](https://img.shields.io/npm/l/examinator.svg?style=flat-square)](https://npmjs.com/package/examinator)
 [![npm downloads](https://img.shields.io/npm/dm/examinator.svg?style=flat-square)](https://npmjs.com/package/examinator)
+[![travis](https://img.shields.io/travis/resin-io-modules/examinator/master.svg?style=flat-square&label=linux)](https://travis-ci.org/resin-io-modules/examinator)
 
 > Extract a git repository's metadata relying on open source
 > conventions
