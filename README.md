@@ -1,9 +1,9 @@
-Examinator
+scrutinizor
 ==========
 
-[![npm](https://img.shields.io/npm/v/examinator.svg?style=flat-square)](https://npmjs.com/package/examinator)
-[![npm license](https://img.shields.io/npm/l/examinator.svg?style=flat-square)](https://npmjs.com/package/examinator)
-[![npm downloads](https://img.shields.io/npm/dm/examinator.svg?style=flat-square)](https://npmjs.com/package/examinator)
+[![npm](https://img.shields.io/npm/v/scrutinizor.svg?style=flat-square)](https://npmjs.com/package/scrutinizor)
+[![npm license](https://img.shields.io/npm/l/scrutinizor.svg?style=flat-square)](https://npmjs.com/package/scrutinizor)
+[![npm downloads](https://img.shields.io/npm/dm/scrutinizor.svg?style=flat-square)](https://npmjs.com/package/scrutinizor)
 
 > Extract a git repository's metadata relying on open source
 > conventions
@@ -11,24 +11,24 @@ Examinator
 Installation
 ------------
 
-Install `examinator` by running:
+Install `scrutinizor` by running:
 
 ```sh
-npm install --save examinator
+npm install --save scrutinizor
 ```
 
 Documentation
 -------------
 
 
-* [examinator](#module_examinator)
-    * [.local(gitRepository, options)](#module_examinator.local) ⇒ <code>Promise</code>
-    * [.remote(gitRepository, options)](#module_examinator.remote) ⇒ <code>Promise</code>
+* [scrutinizor](#module_scrutinizor)
+    * [.local(gitRepository, options)](#module_scrutinizor.local) ⇒ <code>Promise</code>
+    * [.remote(gitRepository, options)](#module_scrutinizor.remote) ⇒ <code>Promise</code>
 
-<a name="module_examinator.local"></a>
+<a name="module_scrutinizor.local"></a>
 
-### examinator.local(gitRepository, options) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>examinator</code>](#module_examinator)  
+### scrutinizor.local(gitRepository, options) ⇒ <code>Promise</code>
+**Kind**: static method of [<code>scrutinizor</code>](#module_scrutinizor)  
 **Summary**: Examine a local git repository directory  
 **Access**: public  
 **Fulfil**: <code>Object</code> - examination results  
@@ -42,7 +42,7 @@ Documentation
 
 **Example**  
 ```js
-examinator.local('./foo/bar/baz', {
+scrutinizor.local('./foo/bar/baz', {
   reference: 'master',
   progress: (state) => {
     console.log(state.percentage)
@@ -51,13 +51,13 @@ examinator.local('./foo/bar/baz', {
   console.log(results)
 })
 ```
-<a name="module_examinator.remote"></a>
+<a name="module_scrutinizor.remote"></a>
 
-### examinator.remote(gitRepository, options) ⇒ <code>Promise</code>
+### scrutinizor.remote(gitRepository, options) ⇒ <code>Promise</code>
 If `$GITHUB_TOKEN` is set, it will be used to authenticate with
 GitHub to increase rate-limiting.
 
-**Kind**: static method of [<code>examinator</code>](#module_examinator)  
+**Kind**: static method of [<code>scrutinizor</code>](#module_scrutinizor)  
 **Summary**: Examine a remote git repository url  
 **Access**: public  
 **Fulfil**: <code>Object</code> - examination results  
@@ -71,7 +71,7 @@ GitHub to increase rate-limiting.
 
 **Example**  
 ```js
-examinator.remote('git@github.com:foo/bar.git', {
+scrutinizor.remote('git@github.com:foo/bar.git', {
   reference: 'master',
   progress: (state) => {
     console.log(state.percentage)
@@ -103,13 +103,13 @@ git submodule update --init --recursive
 npm test
 ```
 
-You may enable debug information by setting `DEBUG=examinator*`.
+You may enable debug information by setting `DEBUG=scrutinizor*`.
 
 Contribute
 ----------
 
-- Issue Tracker: [github.com/resin-io-modules/examinator/issues](https://github.com/resin-io-modules/examinator/issues)
-- Source Code: [github.com/resin-io-modules/examinator](https://github.com/resin-io-modules/examinator)
+- Issue Tracker: [github.com/resin-io-modules/scrutinizor/issues](https://github.com/resin-io-modules/scrutinizor/issues)
+- Source Code: [github.com/resin-io-modules/scrutinizor](https://github.com/resin-io-modules/scrutinizor)
 
 Before submitting a PR, please make sure that you include tests, and that the
 linter runs without any warning:
@@ -131,7 +131,7 @@ Make sure you use the `backend` object instead of falling back to `fs` or an
 API call, so the plugin works fine in both local and remote modes.
 
 You can do whatever you need here, including checking out other branches.
-`examinator` will make sure the project is properly reset before calling
+`scrutinizor` will make sure the project is properly reset before calling
 another plugin.
 
 3. Add the new plugin to `BUILTIN_PLUGINS` in `lib/index.js`
@@ -149,5 +149,5 @@ License
 This project is free software, and may be redistributed under the terms
 specified in the [license].
 
-[newissue]: https://github.com/resin-io-module/examinator/issues/new
-[license]: https://github.com/resin-io-module/examinator/blob/master/LICENSE
+[newissue]: https://github.com/resin-io-module/scrutinizor/issues/new
+[license]: https://github.com/resin-io-module/scrutinizor/blob/master/LICENSE

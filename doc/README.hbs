@@ -1,9 +1,9 @@
-Examinator
+scrutinizor
 ==========
 
-[![npm](https://img.shields.io/npm/v/examinator.svg?style=flat-square)](https://npmjs.com/package/examinator)
-[![npm license](https://img.shields.io/npm/l/examinator.svg?style=flat-square)](https://npmjs.com/package/examinator)
-[![npm downloads](https://img.shields.io/npm/dm/examinator.svg?style=flat-square)](https://npmjs.com/package/examinator)
+[![npm](https://img.shields.io/npm/v/scrutinizor.svg?style=flat-square)](https://npmjs.com/package/scrutinizor)
+[![npm license](https://img.shields.io/npm/l/scrutinizor.svg?style=flat-square)](https://npmjs.com/package/scrutinizor)
+[![npm downloads](https://img.shields.io/npm/dm/scrutinizor.svg?style=flat-square)](https://npmjs.com/package/scrutinizor)
 
 > Extract a git repository's metadata relying on open source
 > conventions
@@ -11,16 +11,16 @@ Examinator
 Installation
 ------------
 
-Install `examinator` by running:
+Install `scrutinizor` by running:
 
 ```sh
-npm install --save examinator
+npm install --save scrutinizor
 ```
 
 Documentation
 -------------
 
-{{#module name="examinator"}}
+{{#module name="scrutinizor"}}
 {{>body~}}
 {{>member-index~}}
 {{>separator~}}
@@ -49,13 +49,13 @@ git submodule update --init --recursive
 npm test
 ```
 
-You may enable debug information by setting `DEBUG=examinator*`.
+You may enable debug information by setting `DEBUG=scrutinizor*`.
 
 Contribute
 ----------
 
-- Issue Tracker: [github.com/resin-io-modules/examinator/issues](https://github.com/resin-io-modules/examinator/issues)
-- Source Code: [github.com/resin-io-modules/examinator](https://github.com/resin-io-modules/examinator)
+- Issue Tracker: [github.com/resin-io-modules/scrutinizor/issues](https://github.com/resin-io-modules/scrutinizor/issues)
+- Source Code: [github.com/resin-io-modules/scrutinizor](https://github.com/resin-io-modules/scrutinizor)
 
 Before submitting a PR, please make sure that you include tests, and that the
 linter runs without any warning:
@@ -77,7 +77,7 @@ Make sure you use the `backend` object instead of falling back to `fs` or an
 API call, so the plugin works fine in both local and remote modes.
 
 You can do whatever you need here, including checking out other branches.
-`examinator` will make sure the project is properly reset before calling
+`scrutinizor` will make sure the project is properly reset before calling
 another plugin.
 
 3. Add the new plugin to `BUILTIN_PLUGINS` in `lib/index.js`
@@ -95,5 +95,5 @@ License
 This project is free software, and may be redistributed under the terms
 specified in the [license].
 
-[newissue]: https://github.com/resin-io-module/examinator/issues/new
-[license]: https://github.com/resin-io-module/examinator/blob/master/LICENSE
+[newissue]: https://github.com/resin-io-module/scrutinizor/issues/new
+[license]: https://github.com/resin-io-module/scrutinizor/blob/master/LICENSE

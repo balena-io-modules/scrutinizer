@@ -16,7 +16,7 @@
 
 'use strict'
 
-const examinator = require('.')
+const scrutinizor = require('.')
 const project = process.argv[2]
 
 if (!project) {
@@ -24,7 +24,7 @@ if (!project) {
   process.exit(1)
 }
 
-examinator.local(project, {
+scrutinizor.local(project, {
   reference: 'master'
 }).then((result) => {
   console.log(JSON.stringify({

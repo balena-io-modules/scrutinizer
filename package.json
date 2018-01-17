@@ -1,12 +1,12 @@
 {
-  "name": "examinator",
+  "name": "scrutinizor",
   "version": "1.0.0",
   "description": "Extract a git repository's metadata relying on open source conventions",
   "main": "lib/index.js",
-  "homepage": "https://github.com/resin-io-modules/examinator",
+  "homepage": "https://github.com/resin-io-modules/scrutinizor",
   "repository": {
     "type": "git",
-    "url": "git@github.com:resin-io-modules/examinator.git"
+    "url": "git@github.com:resin-io-modules/scrutinizor.git"
   },
   "scripts": {
     "test": "npm run lint && nyc --reporter=lcov ava",
