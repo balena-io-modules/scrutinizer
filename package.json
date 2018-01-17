@@ -37,9 +37,9 @@
     "nyc": "^11.1.0"
   },
   "dependencies": {
+    "@octokit/rest": "^14.0.0",
     "bluebird": "^3.5.1",
     "debug": "^3.1.0",
-    "github": "^13.1.0",
     "lodash": "^4.17.4",
     "moment": "^2.20.1",
     "simple-git": "^1.85.0",
