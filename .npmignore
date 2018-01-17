@@ -1,0 +1,7 @@
+test
+coverage
+doc
+LICENSE
+*.md
+.editorconfig
+.eslintrc.yml
