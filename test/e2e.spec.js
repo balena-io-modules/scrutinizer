@@ -20,7 +20,7 @@ const ava = require('ava')
 const _ = require('lodash')
 const fs = require('fs')
 const path = require('path')
-const examinator = require('..')
+const scrutinizor = require('..')
 
 const CASES = _.map(fs.readdirSync(path.join(__dirname, 'e2e')), (testCase) => {
   return require(path.join(__dirname, 'e2e', testCase))
@@ -34,7 +34,7 @@ _.each(CASES, (testCase) => {
   }
 
   ava.test(`local: ${testCase.name} (${testCase.reference})`, (test) => {
-    return examinator.local(repositoryPath, {
+    return scrutinizor.local(repositoryPath, {
       reference: testCase.reference,
       progress: logProgress
     }).then((data) => {
@@ -43,7 +43,7 @@ _.each(CASES, (testCase) => {
   })
 
   ava.test(`remote: ${testCase.name} (${testCase.reference})`, (test) => {
-    return examinator.remote(testCase.url, {
+    return scrutinizor.remote(testCase.url, {
       reference: testCase.reference,
       progress: logProgress
     }).then((data) => {
