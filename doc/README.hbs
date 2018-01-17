@@ -1,6 +1,10 @@
 Examinator
 ==========
 
+[![npm](https://img.shields.io/npm/v/examinator.svg?style=flat-square)](https://npmjs.com/package/examinator)
+[![npm license](https://img.shields.io/npm/l/examinator.svg?style=flat-square)](https://npmjs.com/package/examinator)
+[![npm downloads](https://img.shields.io/npm/dm/examinator.svg?style=flat-square)](https://npmjs.com/package/examinator)
+
 > Extract a git repository's metadata relying on open source
 > conventions
 
