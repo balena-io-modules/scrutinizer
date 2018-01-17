@@ -11,6 +11,21 @@
       "Versionist",
       "appveyor",
       "travis-ci"
+    ],
+    "dependencies": [
+      "async",
+      "chalk",
+      "debug",
+      "handlebars",
+      "handlebars-helpers",
+      "js-yaml",
+      "lodash",
+      "markdown",
+      "replace-in-file",
+      "semver",
+      "touch",
+      "update-json",
+      "yargs"
     ]
   }
 }
