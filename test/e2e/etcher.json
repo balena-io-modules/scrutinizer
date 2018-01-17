@@ -1,0 +1,9 @@
+{
+  "name": "etcher",
+  "url": "git@github.com:resin-io/etcher.git",
+  "reference": "8d863638cc51994ed3de79ce25097f965b88ce04",
+  "result": {
+    "license": "Apache-2.0",
+    "contributing": null
+  }
+}

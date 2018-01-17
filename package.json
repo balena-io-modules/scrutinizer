@@ -1,0 +1,48 @@
+{
+  "name": "examinator",
+  "version": "0.0.1",
+  "description": "Extract a git repository's metadata relying on open source conventions",
+  "main": "lib/index.js",
+  "homepage": "https://github.com/resin-io-modules/examinator",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:resin-io-modules/examinator.git"
+  },
+  "scripts": {
+    "test": "npm run lint && nyc --reporter=lcov ava",
+    "readme": "jsdoc2md --template doc/README.hbs lib/index.js > README.md",
+    "lint": "eslint --ignore-pattern /test/repositories/* lib test"
+  },
+  "author": "Resin Inc. <hello@resin.io>",
+  "license": "Apache-2.0",
+  "ava": {
+    "concurrency": 1,
+    "verbose": true,
+    "files": [
+      "test/**/*.spec.js",
+      "!test/repositories/**/*.spec.js"
+    ]
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "eslint": "^4.5.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsdoc": "^3.1.2",
+    "eslint-plugin-lodash": "^2.4.5",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jsdoc-to-markdown": "^3.0.4",
+    "nyc": "^11.1.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "debug": "^3.1.0",
+    "github": "^13.1.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.20.1",
+    "simple-git": "^1.85.0",
+    "tmp": "0.0.33"
+  }
+}

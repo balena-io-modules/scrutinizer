@@ -1,0 +1,6 @@
+[submodule "test/repositories/etcher"]
+	path = test/repositories/etcher
+	url = git@github.com:resin-io/etcher.git
+[submodule "test/repositories/versionist"]
+	path = test/repositories/versionist
+	url = git@github.com:resin-io/versionist.git

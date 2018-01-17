@@ -1,0 +1,10 @@
+rules:
+  require-jsdoc:
+    - off
+  no-magic-numbers:
+    - off
+  id-length:
+    - error
+    - min: 2
+      exceptions:
+        - "_"
