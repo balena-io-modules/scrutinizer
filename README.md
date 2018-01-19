@@ -1,10 +1,10 @@
-scrutinizor
-==========
+scrutinizer
+===========
 
-[![npm](https://img.shields.io/npm/v/scrutinizor.svg?style=flat-square)](https://npmjs.com/package/scrutinizor)
-[![npm license](https://img.shields.io/npm/l/scrutinizor.svg?style=flat-square)](https://npmjs.com/package/scrutinizor)
-[![npm downloads](https://img.shields.io/npm/dm/scrutinizor.svg?style=flat-square)](https://npmjs.com/package/scrutinizor)
-[![travis](https://img.shields.io/travis/resin-io-modules/scrutinizor/master.svg?style=flat-square&label=linux)](https://travis-ci.org/resin-io-modules/scrutinizor)
+[![npm](https://img.shields.io/npm/v/scrutinizer.svg?style=flat-square)](https://npmjs.com/package/scrutinizer)
+[![npm license](https://img.shields.io/npm/l/scrutinizer.svg?style=flat-square)](https://npmjs.com/package/scrutinizer)
+[![npm downloads](https://img.shields.io/npm/dm/scrutinizer.svg?style=flat-square)](https://npmjs.com/package/scrutinizer)
+[![travis](https://img.shields.io/travis/resin-io-modules/scrutinizer/master.svg?style=flat-square&label=linux)](https://travis-ci.org/resin-io-modules/scrutinizer)
 
 > Extract a git repository's metadata relying on open source
 > conventions
@@ -12,24 +12,24 @@ scrutinizor
 Installation
 ------------
 
-Install `scrutinizor` by running:
+Install `scrutinizer` by running:
 
 ```sh
-npm install --save scrutinizor
+npm install --save scrutinizer
 ```
 
 Documentation
 -------------
 
 
-* [scrutinizor](#module_scrutinizor)
-    * [.local(gitRepository, options)](#module_scrutinizor.local) ⇒ <code>Promise</code>
-    * [.remote(gitRepository, options)](#module_scrutinizor.remote) ⇒ <code>Promise</code>
+* [scrutinizer](#module_scrutinizer)
+    * [.local(gitRepository, options)](#module_scrutinizer.local) ⇒ <code>Promise</code>
+    * [.remote(gitRepository, options)](#module_scrutinizer.remote) ⇒ <code>Promise</code>
 
-<a name="module_scrutinizor.local"></a>
+<a name="module_scrutinizer.local"></a>
 
-### scrutinizor.local(gitRepository, options) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>scrutinizor</code>](#module_scrutinizor)  
+### scrutinizer.local(gitRepository, options) ⇒ <code>Promise</code>
+**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)  
 **Summary**: Examine a local git repository directory  
 **Access**: public  
 **Fulfil**: <code>Object</code> - examination results  
@@ -43,7 +43,7 @@ Documentation
 
 **Example**  
 ```js
-scrutinizor.local('./foo/bar/baz', {
+scrutinizer.local('./foo/bar/baz', {
   reference: 'master',
   progress: (state) => {
     console.log(state.percentage)
@@ -52,13 +52,13 @@ scrutinizor.local('./foo/bar/baz', {
   console.log(results)
 })
 ```
-<a name="module_scrutinizor.remote"></a>
+<a name="module_scrutinizer.remote"></a>
 
-### scrutinizor.remote(gitRepository, options) ⇒ <code>Promise</code>
+### scrutinizer.remote(gitRepository, options) ⇒ <code>Promise</code>
 If `$GITHUB_TOKEN` is set, it will be used to authenticate with
 GitHub to increase rate-limiting.
 
-**Kind**: static method of [<code>scrutinizor</code>](#module_scrutinizor)  
+**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)  
 **Summary**: Examine a remote git repository url  
 **Access**: public  
 **Fulfil**: <code>Object</code> - examination results  
@@ -72,7 +72,7 @@ GitHub to increase rate-limiting.
 
 **Example**  
 ```js
-scrutinizor.remote('git@github.com:foo/bar.git', {
+scrutinizer.remote('git@github.com:foo/bar.git', {
   reference: 'master',
   progress: (state) => {
     console.log(state.percentage)
@@ -104,13 +104,13 @@ git submodule update --init --recursive
 npm test
 ```
 
-You may enable debug information by setting `DEBUG=scrutinizor*`.
+You may enable debug information by setting `DEBUG=scrutinizer*`.
 
 Contribute
 ----------
 
-- Issue Tracker: [github.com/resin-io-modules/scrutinizor/issues](https://github.com/resin-io-modules/scrutinizor/issues)
-- Source Code: [github.com/resin-io-modules/scrutinizor](https://github.com/resin-io-modules/scrutinizor)
+- Issue Tracker: [github.com/resin-io-modules/scrutinizer/issues](https://github.com/resin-io-modules/scrutinizer/issues)
+- Source Code: [github.com/resin-io-modules/scrutinizer](https://github.com/resin-io-modules/scrutinizer)
 
 Before submitting a PR, please make sure that you include tests, and that the
 linter runs without any warning:
@@ -132,7 +132,7 @@ Make sure you use the `backend` object instead of falling back to `fs` or an
 API call, so the plugin works fine in both local and remote modes.
 
 You can do whatever you need here, including checking out other branches.
-`scrutinizor` will make sure the project is properly reset before calling
+`scrutinizer` will make sure the project is properly reset before calling
 another plugin.
 
 3. Add the new plugin to `BUILTIN_PLUGINS` in `lib/index.js`
@@ -150,5 +150,5 @@ License
 This project is free software, and may be redistributed under the terms
 specified in the [license].
 
-[newissue]: https://github.com/resin-io-module/scrutinizor/issues/new
-[license]: https://github.com/resin-io-module/scrutinizor/blob/master/LICENSE
+[newissue]: https://github.com/resin-io-module/scrutinizer/issues/new
+[license]: https://github.com/resin-io-module/scrutinizer/blob/master/LICENSE
