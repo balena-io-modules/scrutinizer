@@ -10,7 +10,9 @@
     "integrations": [
       "Versionist",
       "appveyor",
-      "travis-ci"
+      "travis-ci",
+      "AutoMerges",
+      "Reviewers"
     ],
     "dependencies": [
       "async",
