@@ -6,8 +6,7 @@ scrutinizer
 [![npm downloads](https://img.shields.io/npm/dm/scrutinizer.svg?style=flat-square)](https://npmjs.com/package/scrutinizer)
 [![travis](https://img.shields.io/travis/resin-io-modules/scrutinizer/master.svg?style=flat-square&label=linux)](https://travis-ci.org/resin-io-modules/scrutinizer)
 
-> Extract a git repository's metadata relying on open source
-> conventions
+> Extract a git repository's metadata relying on open source conventions
 
 Installation
 ------------
@@ -29,10 +28,10 @@ Documentation
 <a name="module_scrutinizer.local"></a>
 
 ### scrutinizer.local(gitRepository, options) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)  
-**Summary**: Examine a local git repository directory  
-**Access**: public  
-**Fulfil**: <code>Object</code> - examination results  
+**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)
+**Summary**: Examine a local git repository directory
+**Access**: public
+**Fulfil**: <code>Object</code> - examination results
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -41,7 +40,7 @@ Documentation
 | options.reference | <code>String</code> | git reference to check |
 | [options.progress] | <code>function</code> | progress callback (state) |
 
-**Example**  
+**Example**
 ```js
 scrutinizer.local('./foo/bar/baz', {
   reference: 'master',
@@ -58,10 +57,10 @@ scrutinizer.local('./foo/bar/baz', {
 If `$GITHUB_TOKEN` is set, it will be used to authenticate with
 GitHub to increase rate-limiting.
 
-**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)  
-**Summary**: Examine a remote git repository url  
-**Access**: public  
-**Fulfil**: <code>Object</code> - examination results  
+**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)
+**Summary**: Examine a remote git repository url
+**Access**: public
+**Fulfil**: <code>Object</code> - examination results
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -70,7 +69,7 @@ GitHub to increase rate-limiting.
 | options.reference | <code>String</code> | git reference to check |
 | [options.progress] | <code>function</code> | progress callback (state) |
 
-**Example**  
+**Example**
 ```js
 scrutinizer.remote('git@github.com:foo/bar.git', {
   reference: 'master',
