@@ -8,11 +8,16 @@
     "contributing": null,
     "architecture": null,
     "integrations": [
-      "Versionist",
-      "appveyor",
-      "travis-ci",
-      "AutoMerges",
-      "Reviewers"
+      "ResinCI/check-commits/commits",
+      "ResinCI/check-files/license",
+      "ResinCI/check-files/readme",
+      "ResinCI/check-versionist/versionist",
+      "ResinCI/npm/linux-alpine-x86_64-node10",
+      "ResinCI/npm/linux-alpine-x86_64-node6",
+      "ResinCI/npm/linux-alpine-x86_64-node8",
+      "ResinCI/npm/store-npm",
+      "ResinCI/store-github/store-github",
+      "travis-ci"
     ],
     "dependencies": [
       "async",
