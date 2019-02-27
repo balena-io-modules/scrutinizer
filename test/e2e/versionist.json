@@ -9,7 +9,6 @@
     "architecture": null,
     "integrations": [
       "ResinCI/check-commits/commits",
-      "ResinCI/check-files/license",
       "ResinCI/check-files/readme",
       "ResinCI/check-versionist/versionist",
       "ResinCI/npm/linux-alpine-x86_64-node10",
