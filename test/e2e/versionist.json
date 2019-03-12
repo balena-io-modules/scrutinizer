@@ -7,13 +7,6 @@
     "license": "Apache-2.0",
     "contributing": null,
     "architecture": null,
-    "integrations": [
-      "Versionist",
-      "appveyor",
-      "travis-ci",
-      "AutoMerges",
-      "Reviewers"
-    ],
     "dependencies": [
       "async",
       "chalk",

@@ -37,7 +37,7 @@
     "nyc": "^11.1.0"
   },
   "dependencies": {
-    "@octokit/rest": "^14.0.0",
+    "@octokit/rest": "^16.0.0",
     "bluebird": "^3.5.1",
     "debug": "^3.1.0",
     "lodash": "^4.17.4",
