@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.2.0 - 2019-03-12
+
+* Dependencies: Upgrade @octokit/rest [Dimitrios Lytras]
+
 - Extract NPM dependencies from `package.json`
 
 ## v1.0.0 - 2018-01-17
