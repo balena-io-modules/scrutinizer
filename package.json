@@ -11,7 +11,8 @@
   "scripts": {
     "test": "npm run lint && nyc --reporter=lcov ava",
     "readme": "jsdoc2md --template doc/README.hbs lib/index.js > README.md",
-    "lint": "eslint --ignore-pattern /test/repositories/* lib test"
+    "lint": "eslint --ignore-pattern /test/repositories/* lib test",
+    "lint-fix": "eslint --ignore-pattern /test/repositories/* lib test --fix"
   },
   "bin": {
     "scrutinizer": "./bin/scrutinizer.js"
