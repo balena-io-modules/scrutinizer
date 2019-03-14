@@ -1,6 +1,3 @@
-[submodule "test/repositories/etcher"]
-	path = test/repositories/etcher
-	url = https://github.com/resin-io/etcher.git
-[submodule "test/repositories/versionist"]
-	path = test/repositories/versionist
-	url = https://github.com/resin-io/versionist.git
+[submodule "__tests__/repositories/etcher"]
+	path = __tests__/repositories/etcher
+	url = https://github.com/balena-io/etcher.git

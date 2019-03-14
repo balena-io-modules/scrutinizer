@@ -9,22 +9,22 @@
     "url": "git@github.com:resin-io-modules/scrutinizer.git"
   },
   "scripts": {
-    "test": "npm run lint && nyc --reporter=lcov ava",
+    "test": "npm run lint && jest",
     "readme": "jsdoc2md --template doc/README.hbs lib/index.js > README.md",
-    "lint": "eslint --ignore-pattern /test/repositories/* lib test"
+    "lint": "eslint --ignore-pattern /__test__/repositories/* lib test",
+    "lint-fix": "eslint --ignore-pattern /__test__/repositories/* lib test --fix"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "verbose": true,
+    "setupFilesAfterEnv": [
+      "jest-chain"
+    ],
+    "testPathIgnorePatterns": ["/node_modules/", "/__tests__/repositories/"]
   },
   "author": "Resin Inc. <hello@resin.io>",
   "license": "Apache-2.0",
-  "ava": {
-    "concurrency": 1,
-    "verbose": true,
-    "files": [
-      "test/**/*.spec.js",
-      "!test/repositories/**/*.spec.js"
-    ]
-  },
   "devDependencies": {
-    "ava": "^0.22.0",
     "eslint": "^4.5.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
@@ -33,8 +33,9 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "jsdoc-to-markdown": "^3.0.4",
-    "nyc": "^11.1.0"
+    "jest": "^24.5.0",
+    "jest-chain": "^1.1.2",
+    "jsdoc-to-markdown": "^3.0.4"
   },
   "dependencies": {
     "@octokit/rest": "^16.0.0",

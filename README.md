@@ -22,17 +22,23 @@ Documentation
 -------------
 
 
-* [scrutinizer](#module_scrutinizer)
-    * [.local(gitRepository, options)](#module_scrutinizer.local) ⇒ <code>Promise</code>
-    * [.remote(gitRepository, options)](#module_scrutinizer.remote) ⇒ <code>Promise</code>
+- [scrutinizer](#scrutinizer)
+  - [Installation](#installation)
+  - [Documentation](#documentation)
+    - [scrutinizer.local(gitRepository, options) ⇒ <code>Promise</code>](#scrutinizerlocalgitrepository-options-%E2%87%92-codepromisecode)
+    - [scrutinizer.remote(gitRepository, options) ⇒ <code>Promise</code>](#scrutinizerremotegitrepository-options-%E2%87%92-codepromisecode)
+  - [Tests](#tests)
+  - [Contribute](#contribute)
+  - [Support](#support)
+  - [License](#license)
 
 <a name="module_scrutinizer.local"></a>
 
 ### scrutinizer.local(gitRepository, options) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)  
-**Summary**: Examine a local git repository directory  
-**Access**: public  
-**Fulfil**: <code>Object</code> - examination results  
+**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)
+**Summary**: Examine a local git repository directory
+**Access**: public
+**Fulfil**: <code>Object</code> - examination results
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -41,7 +47,7 @@ Documentation
 | options.reference | <code>String</code> | git reference to check |
 | [options.progress] | <code>function</code> | progress callback (state) |
 
-**Example**  
+**Example**
 ```js
 scrutinizer.local('./foo/bar/baz', {
   reference: 'master',
@@ -58,10 +64,10 @@ scrutinizer.local('./foo/bar/baz', {
 If `$GITHUB_TOKEN` is set, it will be used to authenticate with
 GitHub to increase rate-limiting.
 
-**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)  
-**Summary**: Examine a remote git repository url  
-**Access**: public  
-**Fulfil**: <code>Object</code> - examination results  
+**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)
+**Summary**: Examine a remote git repository url
+**Access**: public
+**Fulfil**: <code>Object</code> - examination results
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -70,7 +76,7 @@ GitHub to increase rate-limiting.
 | options.reference | <code>String</code> | git reference to check |
 | [options.progress] | <code>function</code> | progress callback (state) |
 
-**Example**  
+**Example**
 ```js
 scrutinizer.remote('git@github.com:foo/bar.git', {
   reference: 'master',
@@ -84,11 +90,6 @@ scrutinizer.remote('git@github.com:foo/bar.git', {
 
 Tests
 -----
-
-Our test suite contains integration test cases that run this module against
-real projects. For that reason, we maintain a set of git submodules in
-`test/repositories`, where the actual test cases that assert their results live
-in `test/e2e`.
 
 1. Fetch all git submodules
 
@@ -119,6 +120,12 @@ linter runs without any warning:
 npm run lint
 ```
 
+In case of errors, you can try fixing them with
+
+```sh
+npm run lint-fix
+```
+
 One of the most valuable things you can contribute to this project is implement
 or improve plugins, which are small functions whose duty is to extract a
 certain facet about the repository, like license information.
@@ -137,7 +144,7 @@ another plugin.
 
 3. Add the new plugin to `BUILTIN_PLUGINS` in `lib/index.js`
 
-4. Update test cases in `test/e2e`
+4. Update test cases in `__test__`
 
 Support
 -------
