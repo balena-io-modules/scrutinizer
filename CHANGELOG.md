@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.3.2 - 2019-03-15
+
+* Plugins/license: Stop throwing error if package.json is missing [John (Jack) Brown]
+
 ## 1.3.1 - 2019-03-14
 
 * Maintenance: Remove leftover travis yaml file [Dimitrios Lytras]
