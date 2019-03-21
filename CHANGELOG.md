@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.4.0 - 2019-03-19
+
+* Test: Use a dedicated repo for the test cases [Dimitrios Lytras]
+
 ## 1.3.2 - 2019-03-15
 
 * Plugins/license: Stop throwing error if package.json is missing [John (Jack) Brown]
