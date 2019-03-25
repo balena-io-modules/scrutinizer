@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.5.0 - 2019-03-25
+
+* Drop momentjs [Dimitrios Lytras]
+
 ## 1.4.0 - 2019-03-19
 
 * Test: Use a dedicated repo for the test cases [Dimitrios Lytras]
