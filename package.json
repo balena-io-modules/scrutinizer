@@ -13,6 +13,9 @@
     "readme": "jsdoc2md --template doc/README.hbs lib/index.js > README.md",
     "lint": "eslint --ignore-pattern /test/repositories/* lib test"
   },
+  "bin": {
+    "scrutinizer": "./bin/scrutinizer.js"
+  },
   "author": "Resin Inc. <hello@resin.io>",
   "license": "Apache-2.0",
   "ava": {
@@ -39,6 +42,7 @@
   "dependencies": {
     "@octokit/rest": "^16.0.0",
     "bluebird": "^3.5.1",
+    "capitano": "^1.8.0",
     "debug": "^3.1.0",
     "fromnow": "^3.0.0",
     "lodash": "^4.17.4",
