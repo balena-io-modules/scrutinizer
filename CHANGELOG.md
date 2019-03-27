@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.6.0 - 2019-03-26
+
+* Cli: Add a CLI interface [John (Jack) Brown]
+* Test: Use a dedicated repo for the test cases [Dimitrios Lytras]
+
 ## 1.5.0 - 2019-03-25
 
 * Drop momentjs [Dimitrios Lytras]
