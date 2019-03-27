@@ -9,6 +9,7 @@
     "architecture": null,
     "lastCommitDate": "2019-02-18T15:44:04Z",
     "latestRelease": null,
+    "latestPreRelease": null,
     "dependencies": [
       "@octokit/rest",
       "bluebird",
