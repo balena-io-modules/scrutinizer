@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.7.0 - 2019-03-27
+
+* Add getPreRelease plugin [Giovanni Garufi]
+* Plugin: Introduce getLatestRelease [Dimitrios Lytras]
+
 ## 1.6.0 - 2019-03-26
 
 * Cli: Add a CLI interface [John (Jack) Brown]
