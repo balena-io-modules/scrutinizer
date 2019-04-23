@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.8.0 - 2019-04-23
+
+* Plugins: Add isFork plugin [Dimitrios Lytras]
+
 ## 1.7.0 - 2019-03-27
 
 * Add getPreRelease plugin [Giovanni Garufi]
