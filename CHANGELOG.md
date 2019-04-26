@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.8.1 - 2019-04-26
+
+* Check if candidate is null when fetching prerelease [Giovanni Garufi]
+
 ## 1.8.0 - 2019-04-23
 
 * Plugins: Add isFork plugin [Dimitrios Lytras]
