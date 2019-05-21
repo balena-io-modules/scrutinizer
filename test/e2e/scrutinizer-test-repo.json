@@ -3,6 +3,8 @@
   "url": "git@github.com:balena-io-modules/scrutinizer-test-repo",
   "reference": "39552d4a3bcc73e2fd8724631cb5c71e7aaa0bfa",
   "result": {
+    "name": "scrutinizer-test-repo",
+    "description": "A dummy repository to run scrutinizer's test suite against",
     "public": true,
     "fork": false,
     "license": "Apache-2.0",
