@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.10.0 - 2019-05-21
+
+* Plugins: Get name & description [Dimitrios Lytras]
+
 ## 1.9.0 - 2019-05-20
 
 * Plugin: Get Readme [Dimitrios Lytras]
