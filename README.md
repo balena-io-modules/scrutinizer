@@ -29,10 +29,10 @@ Documentation
 <a name="module_scrutinizer.local"></a>
 
 ### scrutinizer.local(gitRepository, options) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)  
-**Summary**: Examine a local git repository directory  
-**Access**: public  
-**Fulfil**: <code>Object</code> - examination results  
+**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)
+**Summary**: Examine a local git repository directory
+**Access**: public
+**Fulfil**: <code>Object</code> - examination results
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -41,7 +41,7 @@ Documentation
 | options.reference | <code>String</code> | git reference to check |
 | [options.progress] | <code>function</code> | progress callback (state) |
 
-**Example**  
+**Example**
 ```js
 scrutinizer.local('./foo/bar/baz', {
   reference: 'master',
@@ -58,10 +58,10 @@ scrutinizer.local('./foo/bar/baz', {
 If `$GITHUB_TOKEN` is set, it will be used to authenticate with
 GitHub to increase rate-limiting.
 
-**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)  
-**Summary**: Examine a remote git repository url  
-**Access**: public  
-**Fulfil**: <code>Object</code> - examination results  
+**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)
+**Summary**: Examine a remote git repository url
+**Access**: public
+**Fulfil**: <code>Object</code> - examination results
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -70,7 +70,7 @@ GitHub to increase rate-limiting.
 | options.reference | <code>String</code> | git reference to check |
 | [options.progress] | <code>function</code> | progress callback (state) |
 
-**Example**  
+**Example**
 ```js
 scrutinizer.remote('git@github.com:foo/bar.git', {
   reference: 'master',
@@ -97,6 +97,8 @@ git submodule update --init --recursive
 ```
 
 2. Set `$GITHUB_TOKEN`, to increase rate-limiting
+
+> We only access the repository details, so only need to have the `repo` scope selected for your token.
 
 3. Run the `test` npm script:
 
