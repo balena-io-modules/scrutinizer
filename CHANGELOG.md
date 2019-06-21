@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.10.1 - 2019-06-21
+
+* Clarify Github Token permissions [Dimitrios Lytras]
+
 ## 1.10.0 - 2019-05-21
 
 * Plugins: Get name & description [Dimitrios Lytras]
