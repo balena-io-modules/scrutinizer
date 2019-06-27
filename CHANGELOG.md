@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.11.0 - 2019-06-27
+
+* Plugin: Decide whether the project is also a NPM package [Dimitrios Lytras]
+
 ## 1.10.0 - 2019-05-21
 
 * Plugins: Get name & description [Dimitrios Lytras]
