@@ -250,9 +250,6 @@ rules:
   no-underscore-dangle:
     - error
     - allowAfterThis: false
-  object-curly-newline:
-    - error
-    - minProperties: 1
   object-curly-spacing:
     - error
     - always
