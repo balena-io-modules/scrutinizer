@@ -33,9 +33,6 @@
     "motivation": null,
     "installationSteps": null,
     "readme": "scrutinizer-test-repo\n===========\n\nThis repository serves as a playground for [Scrutinizer](https://github.com/balena-io-modules/scrutinizer).\n\nScrutinizer's test suite relies on various metadata including 'Integrations' and more. These properties can change at any time in an active project. Consequently, this repository will serve as a predictable point of reference for our tests.\n",
-    "changelog": {
-      "data": "# Change Log\n\nAll notable changes to this project will be documented in this file.\nThis project adheres to [Semantic Versioning](http://semver.org/).\n\n## v1.0.0 - 2019-02-18\n\n## 1.1.0 - 2019-02-18\n\n* Cases: Enable contributing plugin [Dimitrios Lytras]\n\n## 1.0.1 - 2019-02-18\n\n* Nit: Remove submodules [Dimitrios Lytras]\n\n* This was the last commit pre-versionist, tagged as v1.0.0.\n",
-      "url": "https://raw.githubusercontent.com/balena-io-modules/scrutinizer-test-repo/master/CHANGELOG.md"
-    }
+    "changelog": null
   }
 }
