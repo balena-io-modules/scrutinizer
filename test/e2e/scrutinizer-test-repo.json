@@ -7,6 +7,7 @@
     "description": "A dummy repository to run scrutinizer's test suite against",
     "public": true,
     "fork": false,
+    "stars": 0,
     "license": "Apache-2.0",
     "contributing": "This is a placeholder file.\n\nWe strongly urge you to checkout [Scrutinizer](https://github.com/balena-io-modules/scrutinizer) instead.\n",
     "architecture": null,
@@ -23,6 +24,12 @@
       "tmp"
     ],
     "codeOfConduct": null,
+    "owner": {
+      "avatar": "https://avatars0.githubusercontent.com/u/17724750?v=4",
+      "handle": "balena-io-modules",
+      "url": "https://github.com/balena-io-modules",
+      "type": "Organization"
+    },
     "readme": "scrutinizer-test-repo\n===========\n\nThis repository serves as a playground for [Scrutinizer](https://github.com/balena-io-modules/scrutinizer).\n\nScrutinizer's test suite relies on various metadata including 'Integrations' and more. These properties can change at any time in an active project. Consequently, this repository will serve as a predictable point of reference for our tests.\n"
   }
 }
