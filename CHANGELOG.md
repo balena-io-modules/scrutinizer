@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.13.0 - 2019-09-10
+
+* Readme-plugin: Add motivation && installationSteps parsers [Dimitrios Lytras]
+
 ## 1.12.0 - 2019-09-10
 
 * Github-meta: Expose Owner & Stars amount [Dimitrios Lytras]
