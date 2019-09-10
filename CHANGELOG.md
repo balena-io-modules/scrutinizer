@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.11.1 - 2019-09-10
+
+* Config: Relax some es-lint rules [Dimitrios Lytras]
+
 ## 1.11.0 - 2019-09-06
 
 * Plugin: Add CoC [Dimitrios Lytras]
