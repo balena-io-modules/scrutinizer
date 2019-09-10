@@ -22,6 +22,7 @@
       "simple-git",
       "tmp"
     ],
+    "codeOfConduct": null,
     "readme": "scrutinizer-test-repo\n===========\n\nThis repository serves as a playground for [Scrutinizer](https://github.com/balena-io-modules/scrutinizer).\n\nScrutinizer's test suite relies on various metadata including 'Integrations' and more. These properties can change at any time in an active project. Consequently, this repository will serve as a predictable point of reference for our tests.\n"
   }
 }
