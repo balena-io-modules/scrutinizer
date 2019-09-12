@@ -39,6 +39,16 @@
     "readme": "scrutinizer-test-repo\n===========\n\nThis repository serves as a playground for [Scrutinizer](https://github.com/balena-io-modules/scrutinizer).\n\nScrutinizer's test suite relies on various metadata including 'Integrations' and more. These properties can change at any time in an active project. Consequently, this repository will serve as a predictable point of reference for our tests.\n",
     "changelog": [],
     "faq": null,
-    "maintainers": []
+    "maintainers": [],
+    "contributors": [
+      {
+        "username": "dimitrisnl",
+        "avatar": "https://avatars2.githubusercontent.com/u/4951004?v=4"
+      },
+      {
+        "username": "balena-ci",
+        "avatar": "https://avatars0.githubusercontent.com/u/34882892?v=4"
+      }
+    ]
   }
 }
