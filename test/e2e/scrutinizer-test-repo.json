@@ -11,6 +11,7 @@
     "license": "Apache-2.0",
     "contributing": "This is a placeholder file.\n\nWe strongly urge you to checkout [Scrutinizer](https://github.com/balena-io-modules/scrutinizer) instead.\n",
     "architecture": null,
+    "security": null,
     "lastCommitDate": "2019-09-06T13:35:11Z",
     "latestRelease": null,
     "latestPreRelease": null,
