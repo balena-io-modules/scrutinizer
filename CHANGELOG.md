@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.15.0 - 2019-09-12
+
+* Plugin: Parse SECURITY.md [Dimitrios Lytras]
+
 ## 1.14.0 - 2019-09-10
 
 * Plugin: Fetch changelog [Dimitrios Lytras]
