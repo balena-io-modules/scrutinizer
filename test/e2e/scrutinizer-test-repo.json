@@ -9,7 +9,7 @@
     "fork": false,
     "stars": 0,
     "homepage": null,
-    "repository_url": "https://github.com/balena-io-modules/scrutinizer-test-repo.git",
+    "repositoryUrl": "https://github.com/balena-io-modules/scrutinizer-test-repo.git",
     "active": true,
     "license": "Apache-2.0",
     "contributing": "This is a placeholder file.\n\nWe strongly urge you to checkout [Scrutinizer](https://github.com/balena-io-modules/scrutinizer) instead.\n",
