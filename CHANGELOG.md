@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.16.1 - 2019-09-13
+
+* Fix: Use consistent camelCase for metadata [Dimitrios Lytras]
+
 ## 1.16.0 - 2019-09-12
 
 * Gh-metadata: Expose Homepage, Repo URL, Active [Dimitrios Lytras]
