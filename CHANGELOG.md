@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.16.2 - 2019-09-17
+
+* Bring e2e tests up to date [Dimitrios Lytras]
+
 ## 1.16.1 - 2019-09-13
 
 * Fix: Use consistent camelCase for metadata [Dimitrios Lytras]
