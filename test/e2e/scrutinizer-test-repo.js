@@ -3,7 +3,7 @@
 const data = {
   name: 'scrutinizer-test-repo',
   url: 'git@github.com:balena-io-modules/scrutinizer-test-repo',
-  reference: '78bde1ce02d9221bcb58069f51d6edd59ece6a39',
+  reference: 'e789054c637c957fb837691f81e5227faa5ebd82',
   result: {
     name: 'scrutinizer-test-repo',
     description: 'A dummy repository to run scrutinizer\'s test suite against',
@@ -19,7 +19,7 @@ const data = {
       'This is a placeholder file.\n\nWe strongly urge you to checkout [Scrutinizer](https://github.com/balena-io-modules/scrutinizer) instead.\n',
     architecture: null,
     security: null,
-    lastCommitDate: '2019-09-17T10:09:33Z',
+    lastCommitDate: '2019-09-17T13:42:54Z',
     latestRelease: null,
     latestPreRelease: null,
     dependencies: [
@@ -46,10 +46,29 @@ const data = {
       {
         commits: [
           {
+            subject: 'Populate more docs',
+            hash: '777ef844be3cb81a4e52a784e29740c589547f30',
+            body: '',
+            footer: {
+              'Change-type': 'minor',
+              'change-type': 'minor'
+            },
+            author: 'Dimitrios Lytras'
+          }
+        ],
+        version: '1.5.0',
+        date: new Date('2019-09-17T13:39:46.818Z')
+      },
+      {
+        commits: [
+          {
             subject: 'Update blog to test versioning',
             hash: '9ca1caa2bb5311b5fc3a79008cca24e6430b8f6a',
             body: '',
-            footer: { 'Change-type': 'minor', 'change-type': 'minor' },
+            footer: {
+              'Change-type': 'minor',
+              'change-type': 'minor'
+            },
             author: 'Dimitrios Lytras'
           }
         ],
@@ -62,7 +81,10 @@ const data = {
             subject: 'Update docs to test versioning',
             hash: 'f67bf137aa271aaf2baf8290dabcefa46ad46bce',
             body: '',
-            footer: { 'Change-type': 'minor', 'change-type': 'minor' },
+            footer: {
+              'Change-type': 'minor',
+              'change-type': 'minor'
+            },
             author: 'Dimitrios Lytras'
           }
         ],
@@ -75,14 +97,20 @@ const data = {
             subject: 'Add more blog & docs',
             hash: '09d434d045822bda7db7ceeabf821c5eae7db4d0',
             body: '',
-            footer: { 'Change-type': 'minor', 'change-type': 'minor' },
+            footer: {
+              'Change-type': 'minor',
+              'change-type': 'minor'
+            },
             author: 'Dimitrios Lytras'
           },
           {
             subject: 'Trigger new version',
             hash: 'eee589bb0901c504ed6d44407d81245d0510f9ad',
             body: '',
-            footer: { 'Change-type': 'patch', 'change-type': 'patch' },
+            footer: {
+              'Change-type': 'patch',
+              'change-type': 'patch'
+            },
             author: 'Dimitrios Lytras'
           }
         ],
@@ -91,7 +119,7 @@ const data = {
       }
     ],
     faq: null,
-    maintainers: [],
+    maintainers: [ '@dimitrisnl' ],
     contributors: [
       {
         username: 'dimitrisnl',
