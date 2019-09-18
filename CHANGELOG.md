@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.17.0 - 2019-09-17
+
+* Add Blog & Docs plugin [Dimitrios Lytras]
+
 ## 1.16.3 - 2019-09-17
 
 * Update CODEOWNER & Docs tests [Dimitrios Lytras]
