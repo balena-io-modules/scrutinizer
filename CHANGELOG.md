@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.19.0 - 2019-09-19
+
+* Include filenames in doc & blog files [Dimitrios Lytras]
+
 ## 1.18.1 - 2019-09-19
 
 * docs: Temporarily ignore subdirectories [Dimitrios Lytras]
