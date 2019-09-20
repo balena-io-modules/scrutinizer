@@ -133,10 +133,6 @@ const data = {
       {
         username: 'dimitrisnl',
         avatar: 'https://avatars2.githubusercontent.com/u/4951004?v=4'
-      },
-      {
-        username: 'balena-ci',
-        avatar: 'https://avatars0.githubusercontent.com/u/34882892?v=4'
       }
     ],
     openIssues: {
