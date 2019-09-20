@@ -9,10 +9,6 @@
       "avatar": "https://avatars2.githubusercontent.com/u/4951004?v=4"
     },
     {
-      "username": "balena-ci",
-      "avatar": "https://avatars0.githubusercontent.com/u/34882892?v=4"
-    },
-    {
       "username": "jviotti",
       "avatar": "https://avatars0.githubusercontent.com/u/2192773?v=4"
     },
@@ -65,8 +61,93 @@
     "simple-git",
     "tmp"
   ],
-  "lastCommitDate": "2019-09-20T08:56:23Z",
+  "lastCommitDate": "2019-09-20T09:11:45Z",
   "latestRelease": null,
   "latestPreRelease": null,
-  "version": "1.20.0"
+  "openIssues": {
+    "numberOfIssues": 26,
+    "latestIssues": [
+      {
+        "title": "Exclude balena-ci from contributors",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/95"
+      },
+      {
+        "title": "Parse docker-compose & dockerfile",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/81"
+      },
+      {
+        "title": "Get versioned docs",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/77"
+      },
+      {
+        "title": "Get 'used-by' projects",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/74"
+      },
+      {
+        "title": "plugin: Decide whether the project is also a NPM package",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/72"
+      },
+      {
+        "title": "plugin: Get repository logo",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/70"
+      },
+      {
+        "title": "The markdown output should be transformed in JsonML",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/68"
+      },
+      {
+        "title": "Figure out if the repo comes with an NPM package",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/67"
+      },
+      {
+        "title": "Parse markdown badges",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/66"
+      },
+      {
+        "title": "Extra the tagline from Readme ",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/65"
+      },
+      {
+        "title": "Extract the logo from Readme (if any)",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/64"
+      },
+      {
+        "title": "Mock remote HTTP calls in tests",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/63"
+      },
+      {
+        "title": "readme: Transform relative image links to absolute",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/59"
+      },
+      {
+        "title": "Relative paths to images in Readme are broken",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/58"
+      },
+      {
+        "title": "Clarify the permissions needed for GITHUB_TOKEN",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/56"
+      },
+      {
+        "title": "Split fs and github backends",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/46"
+      },
+      {
+        "title": "Consider using Typescript",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/43"
+      },
+      {
+        "title": "Backend functions hold all the logic instead of the plugins",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/41"
+      },
+      {
+        "title": "Reconsider the architecture in order to avoid duplicate calls",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/39"
+      },
+      {
+        "title": "Document the plugins",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/37"
+      }
+    ]
+  },
+  "version": "1.20.1"
 }
