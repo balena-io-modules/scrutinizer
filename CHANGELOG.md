@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.20.2 - 2019-09-20
+
+* readme: Transform relative image links to absolute [Dimitrios Lytras]
+
 ## 1.20.1 - 2019-09-20
 
 * contributors: Exclude balena-ci [Dimitrios Lytras]
