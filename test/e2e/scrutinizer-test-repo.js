@@ -138,7 +138,22 @@ const data = {
         username: 'balena-ci',
         avatar: 'https://avatars0.githubusercontent.com/u/34882892?v=4'
       }
-    ]
+    ],
+    openIssues: {
+      numberOfIssues: 2,
+      latestIssues: [
+        {
+          title: 'Issue #2',
+          url:
+            'https://github.com/balena-io-modules/scrutinizer-test-repo/issues/2'
+        },
+        {
+          title: 'Issue #1',
+          url:
+            'https://github.com/balena-io-modules/scrutinizer-test-repo/issues/1'
+        }
+      ]
+    }
   }
 }
 
