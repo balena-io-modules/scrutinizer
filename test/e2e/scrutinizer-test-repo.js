@@ -6,6 +6,7 @@ const data = {
   reference: 'e789054c637c957fb837691f81e5227faa5ebd82',
   result: {
     name: 'scrutinizer-test-repo',
+    version: '1.5.0',
     description: 'A dummy repository to run scrutinizer\'s test suite against',
     public: true,
     fork: false,
