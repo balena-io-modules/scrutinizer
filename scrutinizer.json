@@ -61,16 +61,12 @@
     "simple-git",
     "tmp"
   ],
-  "lastCommitDate": "2019-09-20T09:11:45Z",
+  "lastCommitDate": "2019-10-02T10:09:40Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 26,
+    "numberOfIssues": 25,
     "latestIssues": [
-      {
-        "title": "Exclude balena-ci from contributors",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/95"
-      },
       {
         "title": "Parse docker-compose & dockerfile",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/81"
@@ -146,8 +142,12 @@
       {
         "title": "Document the plugins",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/37"
+      },
+      {
+        "title": "Update issue templates",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/36"
       }
     ]
   },
-  "version": "1.20.1"
+  "version": "1.21.0"
 }
