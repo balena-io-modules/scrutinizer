@@ -61,7 +61,7 @@
     "simple-git",
     "tmp"
   ],
-  "lastCommitDate": "2019-10-03T10:41:52Z",
+  "lastCommitDate": "2019-10-08T09:46:52Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
@@ -149,5 +149,5 @@
       }
     ]
   },
-  "version": "1.21.1"
+  "version": "1.21.2"
 }
