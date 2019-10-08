@@ -7,6 +7,7 @@ const data = {
   result: {
     name: 'scrutinizer-test-repo',
     version: '1.5.0',
+    logo: null,
     description: 'A dummy repository to run scrutinizer\'s test suite against',
     public: true,
     fork: false,
