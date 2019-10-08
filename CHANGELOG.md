@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.22.0 - 2019-10-08
+
+* plugin: Get logo [Dimitrios Lytras]
+
 ## 1.21.2 - 2019-10-08
 
 * Fix version parsing for non NPM projects [Dimitrios Lytras]
