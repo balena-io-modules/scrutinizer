@@ -61,11 +61,11 @@
     "simple-git",
     "tmp"
   ],
-  "lastCommitDate": "2019-10-08T09:46:52Z",
+  "lastCommitDate": "2019-10-08T10:20:01Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 25,
+    "numberOfIssues": 24,
     "latestIssues": [
       {
         "title": "Parse docker-compose & dockerfile",
@@ -82,10 +82,6 @@
       {
         "title": "plugin: Decide whether the project is also a NPM package",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/72"
-      },
-      {
-        "title": "plugin: Get repository logo",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/70"
       },
       {
         "title": "The markdown output should be transformed in JsonML",
@@ -146,8 +142,13 @@
       {
         "title": "Update issue templates",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/36"
+      },
+      {
+        "title": "Improve our testing suite",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/35"
       }
     ]
   },
-  "version": "1.21.2"
+  "version": "1.22.0",
+  "logo": null
 }
