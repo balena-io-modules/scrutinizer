@@ -40,6 +40,7 @@ const data = {
       url: 'https://github.com/balena-io-modules',
       type: 'Organization'
     },
+    highlights: null,
     motivation: null,
     installationSteps: null,
     hardwareRequired: null,
