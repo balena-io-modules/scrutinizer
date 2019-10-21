@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.23.0 - 2019-10-21
+
+* plugins: Parse 'Hardware/Software required' sections from readme [Dimitrios Lytras]
+
 ## 1.22.0 - 2019-10-08
 
 * plugin: Get logo [Dimitrios Lytras]
