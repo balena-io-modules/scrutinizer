@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.26.0 - 2019-10-21
+
+* readme: Parse Examples section [Dimitrios Lytras]
+
 ## 1.25.0 - 2019-10-21
 
 * readme: Parse highlights [Dimitrios Lytras]
