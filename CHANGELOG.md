@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.26.3 - 2019-10-24
+
+* faq: Collect whole content of the entry [Dimitrios Lytras]
+
 ## 1.26.2 - 2019-10-23
 
 * Fix logo parsing [Dimitrios Lytras]
