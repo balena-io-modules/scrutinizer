@@ -33,6 +33,7 @@ const data = {
       'simple-git',
       'tmp'
     ],
+    screenshot: null,
     codeOfConduct: null,
     owner: {
       avatar: 'https://avatars0.githubusercontent.com/u/17724750?v=4',
