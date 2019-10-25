@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.27.2 - 2019-10-25
+
+* fix: Parse the last FAQ item [Dimitrios Lytras]
+
 ## 1.27.1 - 2019-10-25
 
 * Use base64 for screenshot [Dimitrios Lytras]
