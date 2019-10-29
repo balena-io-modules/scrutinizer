@@ -9,7 +9,7 @@ const data = {
     version: '1.5.0',
     logo: null,
     description: 'A dummy repository to run scrutinizer\'s test suite against',
-    public: true,
+    isPublic: true,
     fork: false,
     stars: 0,
     homepage: null,
