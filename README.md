@@ -4,7 +4,7 @@ scrutinizer
 [![npm](https://img.shields.io/npm/v/scrutinizer.svg?style=flat-square)](https://npmjs.com/package/scrutinizer)
 [![npm license](https://img.shields.io/npm/l/scrutinizer.svg?style=flat-square)](https://npmjs.com/package/scrutinizer)
 [![npm downloads](https://img.shields.io/npm/dm/scrutinizer.svg?style=flat-square)](https://npmjs.com/package/scrutinizer)
-[![travis](https://img.shields.io/travis/resin-io-modules/scrutinizer/master.svg?style=flat-square&label=linux)](https://travis-ci.org/resin-io-modules/scrutinizer)
+[![travis](https://img.shields.io/travis/balena-io-modules/scrutinizer/master.svg?style=flat-square&label=linux)](https://travis-ci.org/balena-io-modules/scrutinizer)
 
 > Extract a git repository's metadata relying on open source
 > conventions
@@ -15,7 +15,7 @@ Installation
 Install `scrutinizer` by running:
 
 ```sh
-npm install --save scrutinizer
+npm install scrutinizer
 ```
 
 Documentation
@@ -109,8 +109,8 @@ You may enable debug information by setting `DEBUG=scrutinizer*`.
 Contribute
 ----------
 
-- Issue Tracker: [github.com/resin-io-modules/scrutinizer/issues](https://github.com/resin-io-modules/scrutinizer/issues)
-- Source Code: [github.com/resin-io-modules/scrutinizer](https://github.com/resin-io-modules/scrutinizer)
+- Issue Tracker: [github.com/balena-io-modules/scrutinizer/issues](https://github.com/balena-io-modules/scrutinizer/issues)
+- Source Code: [github.com/balena-io-modules/scrutinizer](https://github.com/balena-io-modules/scrutinizer)
 
 Before submitting a PR, please make sure that you include tests, and that the
 linter runs without any warning:
@@ -150,5 +150,5 @@ License
 This project is free software, and may be redistributed under the terms
 specified in the [license].
 
-[newissue]: https://github.com/resin-io-modules/scrutinizer/issues/new
-[license]: https://github.com/resin-io-modules/scrutinizer/blob/master/LICENSE
+[newissue]: https://github.com/balena-io-modules/scrutinizer/issues/new
+[license]: https://github.com/balena-io-modules/scrutinizer/blob/master/LICENSE

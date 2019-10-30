@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 resin.io
+ * Copyright 2018 balena
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,10 +23,10 @@ ava.test(
   'constructor: should parse a GitHub git URL without a protocol',
   test => {
     const backend = new GitHubBackend(
-      'git@github.com:resin-io/etcher.git',
+      'git@github.com:balena-io/etcher.git',
       'master'
     );
-    test.is(backend.owner, 'resin-io');
+    test.is(backend.owner, 'balena-io');
     test.is(backend.repo, 'etcher');
   }
 );
@@ -35,10 +35,10 @@ ava.test(
   'constructor: should parse a GitHub git URL with a git+ssh protocol',
   test => {
     const backend = new GitHubBackend(
-      'git+ssh://git@github.com:resin-io/capitano.git',
+      'git+ssh://git@github.com:balena-io/capitano.git',
       'master'
     );
-    test.is(backend.owner, 'resin-io');
+    test.is(backend.owner, 'balena-io');
     test.is(backend.repo, 'capitano');
   }
 );
@@ -47,11 +47,11 @@ ava.test(
   'constructor: should parse a GitHub HTTPS URL with an extension',
   test => {
     const backend = new GitHubBackend(
-      'https://github.com/resin-io/resin-supervisor.git',
+      'https://github.com/balena-io/balena-supervisor.git',
       'master'
     );
-    test.is(backend.owner, 'resin-io');
-    test.is(backend.repo, 'resin-supervisor');
+    test.is(backend.owner, 'balena-io');
+    test.is(backend.repo, 'balena-supervisor');
   }
 );
 
@@ -59,10 +59,10 @@ ava.test(
   'constructor: should parse a GitHub HTTPS URL without an extension',
   test => {
     const backend = new GitHubBackend(
-      'https://github.com/resin-io/resin-supervisor',
+      'https://github.com/balena-io/balena-supervisor',
       'master'
     );
-    test.is(backend.owner, 'resin-io');
-    test.is(backend.repo, 'resin-supervisor');
+    test.is(backend.owner, 'balena-io');
+    test.is(backend.repo, 'balena-supervisor');
   }
 );
