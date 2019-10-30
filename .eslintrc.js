@@ -11,7 +11,6 @@ module.exports = {
     "ecmaVersion": 8
   },
   "rules": {
-    "no-console": "off",
-    "prettier/prettier": ["error", { "singleQuote": true }]
+    "no-console": "off"
   }
 };

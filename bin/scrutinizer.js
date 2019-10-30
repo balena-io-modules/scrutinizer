@@ -16,90 +16,98 @@
  * limitations under the License.
  */
 
-'use strict'
+'use strict';
 
-const capitano    = require('capitano')
-const { join }    = require('path')
-const scrutinizer = require(join(__dirname, '../lib'))
+const capitano = require('capitano');
+const { join } = require('path');
+const scrutinizer = require(join(__dirname, '../lib'));
 
 const showHelp = () => {
-  console.error(`Usage: scrutinizer <path> [--reference=master]`)
+  console.error(`Usage: scrutinizer <path> [--reference=master]`);
 
-  console.log('\nGlobal Options:\n')
+  console.log('\nGlobal Options:\n');
   for (const option of capitano.state.globalOptions) {
-    console.log(`\t  ${option.alias ? '-' + option.alias + ', ' : ''}--${option.signature}`)
-    if (option.description) console.log(`\t\t${option.description}`)
+    console.log(
+      `\t  ${option.alias ? '-' + option.alias + ', ' : ''}--${
+        option.signature
+      }`
+    );
+    if (option.description) console.log(`\t\t${option.description}`);
   }
 
-  console.log('Commands:\n')
+  console.log('Commands:\n');
   for (const command of capitano.state.commands) {
-    if (command.isWildcard()) continue
+    if (command.isWildcard()) continue;
 
-    console.log(`\t${command.signature}\t\t${command.description}`)
+    console.log(`\t${command.signature}\t\t${command.description}`);
     for (const option of command.options) {
-      console.log(`\t  ${option.alias ? '-' + option.alias + ', ' : ''}--${option.signature}`)
-      if (option.description) console.log(`\t\t${option.description}`)
+      console.log(
+        `\t  ${option.alias ? '-' + option.alias + ', ' : ''}--${
+          option.signature
+        }`
+      );
+      if (option.description) console.log(`\t\t${option.description}`);
     }
   }
-}
+};
 
 const prettyPrint = obj => {
-  console.log(JSON.stringify(obj, null, 2))
-}
+  console.log(JSON.stringify(obj, null, 2));
+};
 
 capitano.globalOption({
   signature: 'help',
   alias: ['h'],
   boolean: true,
-  required: false
-})
+  required: false,
+});
 
 capitano.globalOption({
   signature: 'reference',
   parameter: 'reference',
   alias: ['r'],
   required: false,
-  description: 'Git reference to scrutinize'
-})
+  description: 'Git reference to scrutinize',
+});
 
 capitano.command({
   signature: '*',
   action: () => {
-    showHelp()
-    process.exit(1)
-  }
-})
+    showHelp();
+    process.exit(1);
+  },
+});
 
 capitano.command({
   signature: 'local <path>',
   description: 'Retrieve metadata about a local checkout of a repo',
   action: ({ path }, { help, reference = 'master' }) => {
     if (help) {
-      showHelp()
-      process.exit(1)
+      showHelp();
+      process.exit(1);
     }
 
-    scrutinizer.local(path, { reference }).then(result => prettyPrint(result))
-  }
-})
+    scrutinizer.local(path, { reference }).then(result => prettyPrint(result));
+  },
+});
 
 capitano.command({
   signature: 'remote <url>',
-  description: 'Retrieve metadata about a remote repo. Set `GITHUB_TOKEN` as an env var for GitHub lookup',
+  description:
+    'Retrieve metadata about a remote repo. Set `GITHUB_TOKEN` as an env var for GitHub lookup',
   action: ({ url }, { help, reference = 'master' }) => {
     if (help) {
-      showHelp()
-      process.exit(1)
+      showHelp();
+      process.exit(1);
     }
 
-    scrutinizer.remote(url, { reference }).then(result => prettyPrint(result))
-  }
-})
+    scrutinizer.remote(url, { reference }).then(result => prettyPrint(result));
+  },
+});
 
 capitano.run(process.argv, err => {
-  if (!err) return
+  if (!err) return;
 
-  showHelp()
-  throw err
-})
-
+  showHelp();
+  throw err;
+});

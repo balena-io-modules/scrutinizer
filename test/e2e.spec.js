@@ -37,7 +37,7 @@ _.each(CASES, testCase => {
     return scrutinizer
       .local(repositoryPath, {
         reference: testCase.reference,
-        progress: logProgress
+        progress: logProgress,
       })
       .then(data => {
         test.deepEqual(data, testCase.result);
@@ -48,7 +48,7 @@ _.each(CASES, testCase => {
     return scrutinizer
       .remote(testCase.url, {
         reference: testCase.reference,
-        progress: logProgress
+        progress: logProgress,
       })
       .then(data => {
         test.deepEqual(data, testCase.result);
