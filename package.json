@@ -3,10 +3,10 @@
   "version": "1.29.0",
   "description": "Extract a git repository's metadata relying on open source conventions",
   "main": "lib/index.js",
-  "homepage": "https://github.com/resin-io-modules/scrutinizer",
+  "homepage": "https://github.com/balena-io-modules/scrutinizer",
   "repository": {
     "type": "git",
-    "url": "git@github.com:resin-io-modules/scrutinizer.git"
+    "url": "git@github.com:balena-io-modules/scrutinizer.git"
   },
   "scripts": {
     "test": "npm run lint && nyc --reporter=lcov ava",
@@ -17,7 +17,7 @@
   "bin": {
     "scrutinizer": "./bin/scrutinizer.js"
   },
-  "author": "Resin Inc. <hello@resin.io>",
+  "author": "Balena Inc. <hello@balena.io>",
   "license": "Apache-2.0",
   "ava": {
     "concurrency": 1,
