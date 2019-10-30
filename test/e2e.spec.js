@@ -14,40 +14,44 @@
  * limitations under the License.
  */
 
-'use strict'
+'use strict';
 
-const ava = require('ava')
-const _ = require('lodash')
-const fs = require('fs')
-const path = require('path')
-const scrutinizer = require('..')
+const ava = require('ava');
+const _ = require('lodash');
+const fs = require('fs');
+const path = require('path');
+const scrutinizer = require('..');
 
-const CASES = _.map(fs.readdirSync(path.join(__dirname, 'e2e')), (testCase) => {
-  return require(path.join(__dirname, 'e2e', testCase))
-})
+const CASES = _.map(fs.readdirSync(path.join(__dirname, 'e2e')), testCase => {
+  return require(path.join(__dirname, 'e2e', testCase));
+});
 
-_.each(CASES, (testCase) => {
-  const repositoryPath = path.join(__dirname, 'repositories', testCase.name)
+_.each(CASES, testCase => {
+  const repositoryPath = path.join(__dirname, 'repositories', testCase.name);
 
-  const logProgress = (state) => {
-    console.log(`${repositoryPath} -> ${state.percentage}%`)
-  }
+  const logProgress = state => {
+    console.log(`${repositoryPath} -> ${state.percentage}%`);
+  };
 
-  ava.test(`local: ${testCase.name} (${testCase.reference})`, (test) => {
-    return scrutinizer.local(repositoryPath, {
-      reference: testCase.reference,
-      progress: logProgress
-    }).then((data) => {
-      test.deepEqual(data, testCase.result)
-    })
-  })
+  ava.test(`local: ${testCase.name} (${testCase.reference})`, test => {
+    return scrutinizer
+      .local(repositoryPath, {
+        reference: testCase.reference,
+        progress: logProgress
+      })
+      .then(data => {
+        test.deepEqual(data, testCase.result);
+      });
+  });
 
-  ava.test(`remote: ${testCase.name} (${testCase.reference})`, (test) => {
-    return scrutinizer.remote(testCase.url, {
-      reference: testCase.reference,
-      progress: logProgress
-    }).then((data) => {
-      test.deepEqual(data, testCase.result)
-    })
-  })
-})
+  ava.test(`remote: ${testCase.name} (${testCase.reference})`, test => {
+    return scrutinizer
+      .remote(testCase.url, {
+        reference: testCase.reference,
+        progress: logProgress
+      })
+      .then(data => {
+        test.deepEqual(data, testCase.result);
+      });
+  });
+});

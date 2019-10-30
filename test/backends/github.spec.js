@@ -14,31 +14,55 @@
  * limitations under the License.
  */
 
-'use strict'
+'use strict';
 
-const ava = require('ava')
-const GitHubBackend = require('../../lib/backends/github')
+const ava = require('ava');
+const GitHubBackend = require('../../lib/backends/github');
 
-ava.test('constructor: should parse a GitHub git URL without a protocol', (test) => {
-  const backend = new GitHubBackend('git@github.com:resin-io/etcher.git', 'master')
-  test.is(backend.owner, 'resin-io')
-  test.is(backend.repo, 'etcher')
-})
+ava.test(
+  'constructor: should parse a GitHub git URL without a protocol',
+  test => {
+    const backend = new GitHubBackend(
+      'git@github.com:resin-io/etcher.git',
+      'master'
+    );
+    test.is(backend.owner, 'resin-io');
+    test.is(backend.repo, 'etcher');
+  }
+);
 
-ava.test('constructor: should parse a GitHub git URL with a git+ssh protocol', (test) => {
-  const backend = new GitHubBackend('git+ssh://git@github.com:resin-io/capitano.git', 'master')
-  test.is(backend.owner, 'resin-io')
-  test.is(backend.repo, 'capitano')
-})
+ava.test(
+  'constructor: should parse a GitHub git URL with a git+ssh protocol',
+  test => {
+    const backend = new GitHubBackend(
+      'git+ssh://git@github.com:resin-io/capitano.git',
+      'master'
+    );
+    test.is(backend.owner, 'resin-io');
+    test.is(backend.repo, 'capitano');
+  }
+);
 
-ava.test('constructor: should parse a GitHub HTTPS URL with an extension', (test) => {
-  const backend = new GitHubBackend('https://github.com/resin-io/resin-supervisor.git', 'master')
-  test.is(backend.owner, 'resin-io')
-  test.is(backend.repo, 'resin-supervisor')
-})
+ava.test(
+  'constructor: should parse a GitHub HTTPS URL with an extension',
+  test => {
+    const backend = new GitHubBackend(
+      'https://github.com/resin-io/resin-supervisor.git',
+      'master'
+    );
+    test.is(backend.owner, 'resin-io');
+    test.is(backend.repo, 'resin-supervisor');
+  }
+);
 
-ava.test('constructor: should parse a GitHub HTTPS URL without an extension', (test) => {
-  const backend = new GitHubBackend('https://github.com/resin-io/resin-supervisor', 'master')
-  test.is(backend.owner, 'resin-io')
-  test.is(backend.repo, 'resin-supervisor')
-})
+ava.test(
+  'constructor: should parse a GitHub HTTPS URL without an extension',
+  test => {
+    const backend = new GitHubBackend(
+      'https://github.com/resin-io/resin-supervisor',
+      'master'
+    );
+    test.is(backend.owner, 'resin-io');
+    test.is(backend.repo, 'resin-supervisor');
+  }
+);
