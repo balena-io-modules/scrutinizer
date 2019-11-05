@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.27.4 - 2019-11-04
+
+* Add specific chromium path when running on alpine [Giovanni Garufi]
+
 ## 1.27.3 - 2019-10-25
 
 * Fix Highlights parsing [Dimitrios Lytras]
