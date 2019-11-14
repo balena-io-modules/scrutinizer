@@ -32,13 +32,18 @@
   "architecture": null,
   "maintainers": [],
   "readme": "scrutinizer\n===========\n\n[![npm](https://img.shields.io/npm/v/scrutinizer.svg?style=flat-square)](https://npmjs.com/package/scrutinizer)\n[![npm license](https://img.shields.io/npm/l/scrutinizer.svg?style=flat-square)](https://npmjs.com/package/scrutinizer)\n[![npm downloads](https://img.shields.io/npm/dm/scrutinizer.svg?style=flat-square)](https://npmjs.com/package/scrutinizer)\n[![travis](https://img.shields.io/travis/resin-io-modules/scrutinizer/master.svg?style=flat-square&label=linux)](https://travis-ci.org/resin-io-modules/scrutinizer)\n\n> Extract a git repository's metadata relying on open source\n> conventions\n\nInstallation\n------------\n\nInstall `scrutinizer` by running:\n\n```sh\nnpm install --save scrutinizer\n```\n\nDocumentation\n-------------\n\n\n* [scrutinizer](#module_scrutinizer)\n    * [.local(gitRepository, options)](#module_scrutinizer.local) ⇒ <code>Promise</code>\n    * [.remote(gitRepository, options)](#module_scrutinizer.remote) ⇒ <code>Promise</code>\n\n<a name=\"module_scrutinizer.local\"></a>\n\n### scrutinizer.local(gitRepository, options) ⇒ <code>Promise</code>\n**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)  \n**Summary**: Examine a local git repository directory  \n**Access**: public  \n**Fulfil**: <code>Object</code> - examination results  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| gitRepository | <code>String</code> | path to git repository |\n| options | <code>Object</code> | options |\n| options.reference | <code>String</code> | git reference to check |\n| [options.progress] | <code>function</code> | progress callback (state) |\n\n**Example**  \n```js\nscrutinizer.local('./foo/bar/baz', {\n  reference: 'master',\n  progress: (state) => {\n    console.log(state.percentage)\n  }\n}).then((results) => {\n  console.log(results)\n})\n```\n<a name=\"module_scrutinizer.remote\"></a>\n\n### scrutinizer.remote(gitRepository, options) ⇒ <code>Promise</code>\nIf `$GITHUB_TOKEN` is set, it will be used to authenticate with\nGitHub to increase rate-limiting.\n\n**Kind**: static method of [<code>scrutinizer</code>](#module_scrutinizer)  \n**Summary**: Examine a remote git repository url  \n**Access**: public  \n**Fulfil**: <code>Object</code> - examination results  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| gitRepository | <code>String</code> | git repository url |\n| options | <code>Object</code> | options |\n| options.reference | <code>String</code> | git reference to check |\n| [options.progress] | <code>function</code> | progress callback (state) |\n\n**Example**  \n```js\nscrutinizer.remote('git@github.com:foo/bar.git', {\n  reference: 'master',\n  progress: (state) => {\n    console.log(state.percentage)\n  }\n}).then((results) => {\n  console.log(results)\n})\n```\n\nTests\n-----\n\nOur test suite contains integration test cases that run this module against\nreal projects. For that reason, we maintain a set of git submodules in\n`test/repositories`, where the actual test cases that assert their results live\nin `test/e2e`.\n\n1. Fetch all git submodules\n\n```sh\ngit submodule update --init --recursive\n```\n\n2. Set `$GITHUB_TOKEN`, to increase rate-limiting\n\n3. Run the `test` npm script:\n\n```sh\nnpm test\n```\n\nYou may enable debug information by setting `DEBUG=scrutinizer*`.\n\nContribute\n----------\n\n- Issue Tracker: [github.com/resin-io-modules/scrutinizer/issues](https://github.com/resin-io-modules/scrutinizer/issues)\n- Source Code: [github.com/resin-io-modules/scrutinizer](https://github.com/resin-io-modules/scrutinizer)\n\nBefore submitting a PR, please make sure that you include tests, and that the\nlinter runs without any warning:\n\n```sh\nnpm run lint\n```\n\nOne of the most valuable things you can contribute to this project is implement\nor improve plugins, which are small functions whose duty is to extract a\ncertain facet about the repository, like license information.\n\n1. Create a new file in `lib/plugins`, like `myplugin.js`\n\n2. Export a function that takes a single argument, `backend`, which contains\nevery function you need to interact with a git repository, like reading a file\n\nMake sure you use the `backend` object instead of falling back to `fs` or an\nAPI call, so the plugin works fine in both local and remote modes.\n\nYou can do whatever you need here, including checking out other branches.\n`scrutinizer` will make sure the project is properly reset before calling\nanother plugin.\n\n3. Add the new plugin to `BUILTIN_PLUGINS` in `lib/index.js`\n\n4. Update test cases in `test/e2e`\n\nSupport\n-------\n\nIf you're having any problem, please [raise an issue][newissue] on GitHub.\n\nLicense\n-------\n\nThis project is free software, and may be redistributed under the terms\nspecified in the [license].\n\n[newissue]: https://github.com/resin-io-modules/scrutinizer/issues/new\n[license]: https://github.com/resin-io-modules/scrutinizer/blob/master/LICENSE\n",
+  "highlights": null,
   "installationSteps": null,
+  "examples": null,
   "motivation": null,
+  "hardwareRequired": null,
+  "softwareRequired": null,
+  "introduction": null,
   "name": "scrutinizer",
   "public": true,
   "fork": false,
   "description": "Extract a git repository's metadata relying on open source conventions",
-  "stars": 2,
+  "stars": 3,
   "homepage": null,
   "repositoryUrl": "https://github.com/balena-io-modules/scrutinizer.git",
   "active": true,
@@ -55,18 +60,36 @@
     "debug",
     "fromnow",
     "js-yaml",
+    "linux-os-info",
     "lodash",
     "markdown",
     "nodegit",
+    "puppeteer",
     "simple-git",
     "tmp"
   ],
-  "lastCommitDate": "2019-10-08T10:20:01Z",
+  "lastCommitDate": "2019-11-14T12:43:26Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 24,
+    "numberOfIssues": 26,
     "latestIssues": [
+      {
+        "title": "screenshot: Support GIF images",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/118"
+      },
+      {
+        "title": "Version 2",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/116"
+      },
+      {
+        "title": "Fetch more contributors",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/111"
+      },
+      {
+        "title": "Version 2",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/107"
+      },
       {
         "title": "Parse docker-compose & dockerfile",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/81"
@@ -74,10 +97,6 @@
       {
         "title": "Get versioned docs",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/77"
-      },
-      {
-        "title": "Get 'used-by' projects",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/74"
       },
       {
         "title": "plugin: Decide whether the project is also a NPM package",
@@ -98,10 +117,6 @@
       {
         "title": "Extra the tagline from Readme ",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/65"
-      },
-      {
-        "title": "Extract the logo from Readme (if any)",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/64"
       },
       {
         "title": "Mock remote HTTP calls in tests",
@@ -138,17 +153,10 @@
       {
         "title": "Document the plugins",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/37"
-      },
-      {
-        "title": "Update issue templates",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/36"
-      },
-      {
-        "title": "Improve our testing suite",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/35"
       }
     ]
   },
-  "version": "1.22.0",
+  "version": "1.28.0",
+  "screenshot": null,
   "logo": null
 }
