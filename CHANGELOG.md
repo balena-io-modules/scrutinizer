@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.28.1 - 2019-11-15
+
+* Fix 'hightlights' parsing [Dimitrios Lytras]
+
 ## 1.28.0 - 2019-11-14
 
 * screenshot: Allow GIFs [Dimitrios Lytras]
