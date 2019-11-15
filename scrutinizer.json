@@ -68,20 +68,12 @@
     "simple-git",
     "tmp"
   ],
-  "lastCommitDate": "2019-11-15T11:54:21Z",
+  "lastCommitDate": "2019-11-15T12:47:29Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 27,
+    "numberOfIssues": 25,
     "latestIssues": [
-      {
-        "title": "Fix Highlights parsing, so to include anchors",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/121"
-      },
-      {
-        "title": "Group releases by Arch and OS. Filter metadata",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/120"
-      },
       {
         "title": "Version 2",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/116"
@@ -153,10 +145,18 @@
       {
         "title": "Reconsider the architecture in order to avoid duplicate calls",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/39"
+      },
+      {
+        "title": "Document the plugins",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/37"
+      },
+      {
+        "title": "Update issue templates",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/36"
       }
     ]
   },
-  "version": "1.28.1",
+  "version": "1.29.0",
   "screenshot": null,
   "logo": null
 }
