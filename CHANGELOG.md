@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 2.0.0 - 2019-11-15
+
+* eslint: Drop Standard in favour of recommended Eslint & Prettier configurations [Dimitrios Lytras]
+* github-meta: Rename 'public' to 'isPublic' to avoid name conficts [Dimitrios Lytras]
+
 ## 1.29.0 - 2019-11-15
 
 * Group downloads by arch & os [Dimitrios Lytras]
