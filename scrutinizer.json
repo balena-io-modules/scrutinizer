@@ -68,15 +68,19 @@
     "simple-git",
     "tmp"
   ],
-  "lastCommitDate": "2019-11-14T12:43:26Z",
+  "lastCommitDate": "2019-11-15T11:54:21Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 26,
+    "numberOfIssues": 27,
     "latestIssues": [
       {
-        "title": "screenshot: Support GIF images",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/118"
+        "title": "Fix Highlights parsing, so to include anchors",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/121"
+      },
+      {
+        "title": "Group releases by Arch and OS. Filter metadata",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/120"
       },
       {
         "title": "Version 2",
@@ -149,14 +153,10 @@
       {
         "title": "Reconsider the architecture in order to avoid duplicate calls",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/39"
-      },
-      {
-        "title": "Document the plugins",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/37"
       }
     ]
   },
-  "version": "1.28.0",
+  "version": "1.28.1",
   "screenshot": null,
   "logo": null
 }
