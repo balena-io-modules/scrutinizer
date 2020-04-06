@@ -4,6 +4,7 @@ const data = {
   name: 'scrutinizer-test-repo',
   url: 'git@github.com:balena-io-modules/scrutinizer-test-repo',
   reference: 'e789054c637c957fb837691f81e5227faa5ebd82',
+  plugins: [],
   result: {
     name: 'scrutinizer-test-repo',
     version: '1.5.0',
