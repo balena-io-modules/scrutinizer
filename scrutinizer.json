@@ -68,15 +68,19 @@
     "simple-git",
     "tmp"
   ],
-  "lastCommitDate": "2019-11-15T12:47:29Z",
+  "lastCommitDate": "2020-04-06T13:33:39Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 25,
+    "numberOfIssues": 23,
     "latestIssues": [
       {
-        "title": "Version 2",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/116"
+        "title": "Allow unauthenticated requests to the GitHub API",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/128"
+      },
+      {
+        "title": "scrutinizer.remote() fails without a GITHUB_TOKEN",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/127"
       },
       {
         "title": "Fetch more contributors",
@@ -93,10 +97,6 @@
       {
         "title": "Get versioned docs",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/77"
-      },
-      {
-        "title": "plugin: Decide whether the project is also a NPM package",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/72"
       },
       {
         "title": "The markdown output should be transformed in JsonML",
@@ -117,10 +117,6 @@
       {
         "title": "Mock remote HTTP calls in tests",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/63"
-      },
-      {
-        "title": "readme: Transform relative image links to absolute",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/59"
       },
       {
         "title": "Relative paths to images in Readme are broken",
@@ -151,12 +147,16 @@
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/37"
       },
       {
-        "title": "Update issue templates",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/36"
+        "title": "Improve our testing suite",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/35"
+      },
+      {
+        "title": "Update readme to include the CLI feature",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/31"
       }
     ]
   },
-  "version": "1.29.0",
+  "version": "1.29.1",
   "screenshot": null,
   "logo": null
 }
