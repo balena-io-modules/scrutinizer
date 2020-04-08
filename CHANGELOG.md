@@ -5,6 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.29.2 - 2020-04-08
+
+* Remove nodegit dependency [Tomás Migone]
+* Remove unnecessary Bluebird calls [Tomás Migone]
+* Fixes for local mode: [Tomás Migone]
+
 ## 1.29.1 - 2020-04-06
 
 * Don't try to log headers if they don't exist [Lucian Buzzo]
