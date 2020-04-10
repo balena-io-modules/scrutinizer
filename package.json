@@ -41,7 +41,7 @@
     "nyc": "^11.1.0"
   },
   "dependencies": {
-    "@octokit/rest": "^16.0.0",
+    "@octokit/rest": "^17.0.0",
     "bluebird": "^3.5.1",
     "capitano": "^1.8.0",
     "debug": "^3.1.0",
@@ -53,6 +53,7 @@
     "nodegit": "^0.26.0",
     "puppeteer": "^1.20.0",
     "simple-git": "^1.85.0",
+    "tesseract.js": "^2.1.1",
     "tmp": "0.0.33"
   }
 }
