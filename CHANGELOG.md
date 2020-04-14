@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.29.2 - 2020-04-11
+
+* Add support for retrieving screenshots inside docker containers [Lucian Buzzo]
+
 ## 1.29.1 - 2020-04-06
 
 * Don't try to log headers if they don't exist [Lucian Buzzo]
