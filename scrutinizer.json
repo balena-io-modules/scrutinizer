@@ -17,6 +17,10 @@
       "avatar": "https://avatars1.githubusercontent.com/u/6810908?v=4"
     },
     {
+      "username": "LucianBuzzo",
+      "avatar": "https://avatars0.githubusercontent.com/u/15064535?v=4"
+    },
+    {
       "username": "lekkas",
       "avatar": "https://avatars3.githubusercontent.com/u/5211478?v=4"
     },
@@ -68,12 +72,28 @@
     "simple-git",
     "tmp"
   ],
-  "lastCommitDate": "2020-04-06T13:33:39Z",
+  "lastCommitDate": "2020-04-14T05:54:29Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 23,
+    "numberOfIssues": 27,
     "latestIssues": [
+      {
+        "title": "Use OCR to detect text in logo",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/132"
+      },
+      {
+        "title": "Fixes for local mode:",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/131"
+      },
+      {
+        "title": "scrutinizer.local() fails if target project has no blog or docs folders",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/130"
+      },
+      {
+        "title": "Add plugin filter to local and remote calls",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/129"
+      },
       {
         "title": "Allow unauthenticated requests to the GitHub API",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/128"
@@ -137,26 +157,10 @@
       {
         "title": "Backend functions hold all the logic instead of the plugins",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/41"
-      },
-      {
-        "title": "Reconsider the architecture in order to avoid duplicate calls",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/39"
-      },
-      {
-        "title": "Document the plugins",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/37"
-      },
-      {
-        "title": "Improve our testing suite",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/35"
-      },
-      {
-        "title": "Update readme to include the CLI feature",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/31"
       }
     ]
   },
-  "version": "1.29.1",
+  "version": "1.29.2",
   "screenshot": null,
   "logo": null
 }
