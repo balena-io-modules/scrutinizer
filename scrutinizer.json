@@ -70,18 +70,15 @@
     "nodegit",
     "puppeteer",
     "simple-git",
+    "tesseract.js",
     "tmp"
   ],
-  "lastCommitDate": "2020-04-14T10:47:50Z",
+  "lastCommitDate": "2020-04-14T13:31:30Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 26,
+    "numberOfIssues": 25,
     "latestIssues": [
-      {
-        "title": "Use OCR to detect text in logo",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/132"
-      },
       {
         "title": "Fixes for local mode:",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/131"
@@ -157,10 +154,14 @@
       {
         "title": "Reconsider the architecture in order to avoid duplicate calls",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/39"
+      },
+      {
+        "title": "Document the plugins",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/37"
       }
     ]
   },
-  "version": "1.30.0",
+  "version": "1.31.0",
   "screenshot": null,
   "logo": null
 }
