@@ -36,7 +36,8 @@ _.each(CASES, (testCase) => {
   ava.test(`local: ${testCase.name} (${testCase.reference})`, (test) => {
     return scrutinizer.local(repositoryPath, {
       reference: testCase.reference,
-      progress: logProgress
+      progress: logProgress,
+      whitelistPlugins: testCase.plugins
     }).then((data) => {
       test.deepEqual(data, testCase.result)
     })
@@ -45,7 +46,8 @@ _.each(CASES, (testCase) => {
   ava.test(`remote: ${testCase.name} (${testCase.reference})`, (test) => {
     return scrutinizer.remote(testCase.url, {
       reference: testCase.reference,
-      progress: logProgress
+      progress: logProgress,
+      whitelistPlugins: testCase.plugins
     }).then((data) => {
       test.deepEqual(data, testCase.result)
     })

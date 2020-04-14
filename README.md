@@ -40,6 +40,7 @@ Documentation
 | options | <code>Object</code> | options |
 | options.reference | <code>String</code> | git reference to check |
 | [options.progress] | <code>function</code> | progress callback (state) |
+| [options.whitelistPlugins] | <code>Array.&lt;String&gt;</code> | list of plugins to run. Matches all if empty |
 
 **Example**  
 ```js
@@ -69,6 +70,7 @@ GitHub to increase rate-limiting.
 | options | <code>Object</code> | options |
 | options.reference | <code>String</code> | git reference to check |
 | [options.progress] | <code>function</code> | progress callback (state) |
+| [options.whitelistPlugins] | <code>Array.&lt;String&gt;</code> | list of plugins to run. Matches all if empty |
 
 **Example**  
 ```js

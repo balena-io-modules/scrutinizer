@@ -21,6 +21,7 @@
 const capitano    = require('capitano')
 const { join }    = require('path')
 const scrutinizer = require(join(__dirname, '../lib'))
+const _           = require('lodash')
 
 const showHelp = () => {
   console.error(`Usage: scrutinizer <path> [--reference=master]`)
@@ -47,6 +48,11 @@ const prettyPrint = obj => {
   console.log(JSON.stringify(obj, null, 2))
 }
 
+const parsePlugins = (plugins) => {
+  if (_.isUndefined(plugins) || !_.isString(plugins)) return []
+  return plugins.split(' ')
+}
+
 capitano.globalOption({
   signature: 'help',
   alias: ['h'],
@@ -71,28 +77,34 @@ capitano.command({
 })
 
 capitano.command({
-  signature: 'local <path>',
+  signature: 'local <path> [plugins...]',
   description: 'Retrieve metadata about a local checkout of a repo',
-  action: ({ path }, { help, reference = 'master' }) => {
+  action: ({ path, plugins }, { help, reference = 'master' }) => {
     if (help) {
       showHelp()
       process.exit(1)
     }
 
-    scrutinizer.local(path, { reference }).then(result => prettyPrint(result))
+    scrutinizer.local(path, {
+      reference,
+      whitelistPlugins: parsePlugins(plugins)
+    }).then(result => prettyPrint(result))
   }
 })
 
 capitano.command({
-  signature: 'remote <url>',
+  signature: 'remote <url> [plugins...]',
   description: 'Retrieve metadata about a remote repo. Set `GITHUB_TOKEN` as an env var for GitHub lookup',
-  action: ({ url }, { help, reference = 'master' }) => {
+  action: ({ url, plugins }, { help, reference = 'master' }) => {
     if (help) {
       showHelp()
       process.exit(1)
     }
 
-    scrutinizer.remote(url, { reference }).then(result => prettyPrint(result))
+    scrutinizer.remote(url, {
+      reference,
+      whitelistPlugins: parsePlugins(plugins)
+    }).then(result => prettyPrint(result))
   }
 })
 
@@ -102,4 +114,3 @@ capitano.run(process.argv, err => {
   showHelp()
   throw err
 })
-
