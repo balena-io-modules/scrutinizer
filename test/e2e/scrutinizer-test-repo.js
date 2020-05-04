@@ -141,6 +141,7 @@ const data = {
     contributors: [
       {
         username: 'dimitrisnl',
+        contributions: 16,
         avatar: 'https://avatars2.githubusercontent.com/u/4951004?v=4'
       }
     ],
