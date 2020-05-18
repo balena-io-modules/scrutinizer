@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.32.0 - 2020-05-18
+
+* List contributions count of contributors [Amit Solanki]
+
 ## 1.31.0 - 2020-04-14
 
 * Use OCR to detect text in logo [Lucian Buzzo]
