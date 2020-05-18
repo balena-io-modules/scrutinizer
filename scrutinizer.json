@@ -25,6 +25,10 @@
       "avatar": "https://avatars3.githubusercontent.com/u/5211478?v=4"
     },
     {
+      "username": "iamsolankiamit",
+      "avatar": "https://avatars3.githubusercontent.com/u/3483526?v=4"
+    },
+    {
       "username": "brownjohnf",
       "avatar": "https://avatars2.githubusercontent.com/u/1001049?v=4"
     }
@@ -73,12 +77,16 @@
     "tesseract.js",
     "tmp"
   ],
-  "lastCommitDate": "2020-04-14T13:31:30Z",
+  "lastCommitDate": "2020-05-18T11:38:27Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 25,
+    "numberOfIssues": 26,
     "latestIssues": [
+      {
+        "title": "Fallback to markdown changelog if yml changelog is not present",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/135"
+      },
       {
         "title": "Fixes for local mode:",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/131"
@@ -154,14 +162,10 @@
       {
         "title": "Reconsider the architecture in order to avoid duplicate calls",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/39"
-      },
-      {
-        "title": "Document the plugins",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/37"
       }
     ]
   },
-  "version": "1.31.0",
+  "version": "1.32.0",
   "screenshot": null,
   "logo": null
 }
