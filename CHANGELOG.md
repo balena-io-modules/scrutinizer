@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 1.33.0 - 2020-06-08
+
+* Extract leftover readme sections [Amit Solanki]
+
 ## 1.32.0 - 2020-05-18
 
 * List contributions count of contributors [Amit Solanki]
