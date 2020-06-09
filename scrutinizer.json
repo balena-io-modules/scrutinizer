@@ -21,16 +21,20 @@
       "avatar": "https://avatars0.githubusercontent.com/u/15064535?v=4"
     },
     {
-      "username": "lekkas",
-      "avatar": "https://avatars3.githubusercontent.com/u/5211478?v=4"
-    },
-    {
       "username": "iamsolankiamit",
       "avatar": "https://avatars3.githubusercontent.com/u/3483526?v=4"
     },
     {
+      "username": "lekkas",
+      "avatar": "https://avatars3.githubusercontent.com/u/5211478?v=4"
+    },
+    {
       "username": "brownjohnf",
       "avatar": "https://avatars2.githubusercontent.com/u/1001049?v=4"
+    },
+    {
+      "username": "bulldozer-balena[bot]",
+      "avatar": "https://avatars0.githubusercontent.com/in/58047?v=4"
     }
   ],
   "docs": [],
@@ -77,12 +81,20 @@
     "tesseract.js",
     "tmp"
   ],
-  "lastCommitDate": "2020-05-18T11:38:27Z",
+  "lastCommitDate": "2020-06-09T08:07:43Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 26,
+    "numberOfIssues": 28,
     "latestIssues": [
+      {
+        "title": "Banner extraction should handle all cases",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/139"
+      },
+      {
+        "title": "Better markdown parse",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/138"
+      },
       {
         "title": "Fallback to markdown changelog if yml changelog is not present",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/135"
@@ -154,18 +166,10 @@
       {
         "title": "Consider using Typescript",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/43"
-      },
-      {
-        "title": "Backend functions hold all the logic instead of the plugins",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/41"
-      },
-      {
-        "title": "Reconsider the architecture in order to avoid duplicate calls",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/39"
       }
     ]
   },
-  "version": "1.32.0",
+  "version": "1.33.0",
   "screenshot": null,
   "logo": null
 }
