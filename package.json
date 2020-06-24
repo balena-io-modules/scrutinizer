@@ -50,10 +50,20 @@
     "linux-os-info": "^2.0.0",
     "lodash": "^4.17.4",
     "markdown": "^0.5.0",
+    "mmmagic": "^0.5.3",
     "nodegit": "^0.26.0",
     "puppeteer": "^1.20.0",
+    "rehype-raw": "^4.0.2",
+    "rehype-remark": "^8.0.0",
+    "rehype-stringify": "^8.0.0",
+    "remark-parse": "^8.0.2",
+    "remark-rehype": "^7.0.0",
+    "remark-stringify": "^8.1.0",
+    "sharp": "^0.25.4",
     "simple-git": "^1.85.0",
     "tesseract.js": "^2.1.1",
-    "tmp": "0.0.33"
+    "tmp": "0.0.33",
+    "unified": "^9.0.0",
+    "unified-stream": "^1.0.6"
   }
 }
