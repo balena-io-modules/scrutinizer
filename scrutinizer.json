@@ -55,7 +55,7 @@
   "public": true,
   "fork": false,
   "description": "Extract a git repository's metadata relying on open source conventions",
-  "stars": 3,
+  "stars": 4,
   "homepage": null,
   "repositoryUrl": "https://github.com/balena-io-modules/scrutinizer.git",
   "active": true,
@@ -75,18 +75,32 @@
     "linux-os-info",
     "lodash",
     "markdown",
+    "mmmagic",
     "nodegit",
     "puppeteer",
+    "rehype-raw",
+    "rehype-remark",
+    "rehype-stringify",
+    "remark-parse",
+    "remark-rehype",
+    "remark-stringify",
+    "sharp",
     "simple-git",
     "tesseract.js",
-    "tmp"
+    "tmp",
+    "unified",
+    "unified-stream"
   ],
-  "lastCommitDate": "2020-06-09T08:07:43Z",
+  "lastCommitDate": "2020-06-24T20:16:30Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 28,
+    "numberOfIssues": 29,
     "latestIssues": [
+      {
+        "title": "MD is processed and returned as md instead of tree",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/141"
+      },
       {
         "title": "Banner extraction should handle all cases",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/139"
@@ -162,14 +176,10 @@
       {
         "title": "Split fs and github backends",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/46"
-      },
-      {
-        "title": "Consider using Typescript",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/43"
       }
     ]
   },
-  "version": "1.33.0",
+  "version": "1.34.0",
   "screenshot": null,
   "logo": null
 }
