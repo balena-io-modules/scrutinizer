@@ -113,6 +113,7 @@ const data = {
     lastCommitDate: '2019-09-17T13:42:54Z',
     latestRelease: null,
     latestPreRelease: null,
+    deployWithBalenaUrl: null,
     dependencies: [
       '@octokit/rest',
       'bluebird',
