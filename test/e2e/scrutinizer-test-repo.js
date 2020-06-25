@@ -1,5 +1,94 @@
 'use strict'
 
+/* eslint-disable max-len */
+
+const readmeLeftover = `# scrutinizer-test-repo
+
+This repository serves as a playground for [Scrutinizer](https://github.com/balena-io-modules/scrutinizer).
+
+Scrutinizer's test suite relies on various metadata including 'Integrations' and more. These properties can change at any time in an active project. Consequently, this repository will serve as a predictable point of reference for our tests.
+`
+
+const docsContent = `Getting Started
+===============
+
+Welcome to Landr! Setting up Landr in your project is extremely easy. First,
+make sure you install the \`landr\` CLI from npmjs.org if you haven't already by
+running:
+
+\`\`\`sh
+npm install --global landr
+\`\`\`
+
+Lets also install the excellent [\`serve\`](https://www.npmjs.com/package/serve)
+static HTTP server as a way to preview our site:
+
+\`\`\`sh
+npm install --global serve
+\`\`\`
+
+Now that everything is in place, head over to your project's repository and
+run:
+
+\`\`\`sh
+landr build
+\`\`\`
+
+Give it a bunch of seconds, and you should get various HTML, CSS, and
+JavaScript files in the \`dist\` directory. You can preview your site by running:
+
+\`\`\`sh
+serve dist
+\`\`\`
+
+And pointing your browser to \`localhost:5000\`.
+
+At this point, you have working, but not perfect, website. Landr generates
+websites based on the content of the repository and relies on various OSS
+conventions for doing its job. Making sure your repository is well structured
+and follows the community conventions will do wonders for you website, and for
+your repository overall!
+
+Once you are happy with your site, run the following command to deploy to Netlify:
+
+\`\`\`
+NETLIFY_AUTH_TOKEN=<token> landr deploy
+\`\`\`
+
+Passing your Netlify authentication token as an environment variable.
+
+Version 2
+`
+
+const docsDummyContent = `Dummy
+=====
+
+Test
+`
+
+const contributing = `This is a placeholder file.
+
+We strongly urge you to checkout [Scrutinizer](https://github.com/balena-io-modules/scrutinizer) instead.
+`
+
+const blogContent = `# Dummy article
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec nisi ligula. Cras orci nulla, venenatis vel tincidunt sed, tristique eget lorem. Pellentesque sit amet blandit elit, in tincidunt augue. Proin hendrerit dolor purus, a tincidunt eros porttitor sed. Integer libero nibh, auctor id eros fermentum, dignissim maximus tellus. In nulla ligula, dapibus sed nisi et, fringilla imperdiet justo. Sed volutpat ligula non sapien ornare tempus. Vivamus tincidunt dapibus placerat. Vestibulum eu sem lorem. Maecenas massa lacus, tempus vitae tempus quis, laoreet at leo. Vivamus placerat vestibulum diam, ac gravida lectus pretium at. Nullam gravida justo libero, sed ornare nulla cursus et. Curabitur ac neque sit amet lacus congue consectetur. Etiam varius facilisis lacus, sed bibendum libero interdum id. Pellentesque vitae pharetra massa. Cras ut sapien id turpis semper commodo.
+
+In non suscipit mi, non finibus nunc. Vivamus vehicula venenatis sapien, vitae dictum elit maximus non. Quisque bibendum facilisis nibh, at bibendum turpis porta vel. Curabitur finibus faucibus orci id rutrum. Nulla et dictum neque. Aenean suscipit mattis tempus. Ut id risus tristique, semper turpis sed, hendrerit neque. Vivamus tellus metus, pellentesque at sapien non, vulputate aliquet elit. Donec sodales ligula augue. Duis fermentum libero massa, quis egestas nibh pellentesque eget. Ut at consequat urna. Sed non diam dapibus, rutrum neque ac, pretium nulla. Proin finibus pulvinar varius. Vestibulum eget tincidunt lorem.
+
+Version 2
+`
+
+const readme = `scrutinizer-test-repo
+===========
+
+This repository serves as a playground for [Scrutinizer](https://github.com/balena-io-modules/scrutinizer).
+
+Scrutinizer's test suite relies on various metadata including 'Integrations' and more. These properties can change at any time in an active project. Consequently, this repository will serve as a predictable point of reference for our tests.
+`
+/* eslint-enable */
+
 const data = {
   name: 'scrutinizer-test-repo',
   url: 'git@github.com:balena-io-modules/scrutinizer-test-repo',
@@ -18,8 +107,7 @@ const data = {
       'https://github.com/balena-io-modules/scrutinizer-test-repo.git',
     active: true,
     license: 'Apache-2.0',
-    contributing:
-      'This is a placeholder file.\n\nWe strongly urge you to checkout [Scrutinizer](https://github.com/balena-io-modules/scrutinizer) instead.\n',
+    contributing,
     architecture: null,
     security: null,
     lastCommitDate: '2019-09-17T13:42:54Z',
@@ -42,50 +130,28 @@ const data = {
       url: 'https://github.com/balena-io-modules',
       type: 'Organization'
     },
-    examples: null,
-    highlights: null,
-    motivation: null,
+    examples: '',
+    highlights: '',
+    motivation: '',
     installationSteps: null,
-    hardwareRequired: null,
-    softwareRequired: null,
-    introduction: null,
-    readmeLeftover: [
-      [
-        'header',
-        {
-          level: 1
-        },
-        'scrutinizer-test-repo'
-      ],
-      [
-        'para',
-        'This repository serves as a playground for ',
-        [
-          'link',
-          {
-            href: 'https://github.com/balena-io-modules/scrutinizer'
-          },
-          'Scrutinizer'
-        ],
-        '.'
-      ],
-      [
-        'para',
-        // eslint-disable-next-line max-len
-        'Scrutinizer\'s test suite relies on various metadata including \'Integrations\' and more. These properties can change at any time in an active project. Consequently, this repository will serve as a predictable point of reference for our tests.'
-      ]
-    ],
+    hardwareRequired: '',
+    softwareRequired: '',
+    introduction: '',
+    readmeLeftover,
     docs: [
-      // eslint-disable-next-line max-len
-      { filename: 'docs/01-getting-started.md', contents: 'Getting Started\n===============\n\nWelcome to Landr! Setting up Landr in your project is extremely easy. First,\nmake sure you install the `landr` CLI from npmjs.org if you haven\'t already by\nrunning:\n\n```sh\nnpm install --global landr\n```\n\nLets also install the excellent [`serve`](https://www.npmjs.com/package/serve)\nstatic HTTP server as a way to preview our site:\n\n```sh\nnpm install --global serve\n```\n\nNow that everything is in place, head over to your project\'s repository and\nrun:\n\n```sh\nlandr build\n```\n\nGive it a bunch of seconds, and you should get various HTML, CSS, and\nJavaScript files in the `dist` directory. You can preview your site by running:\n\n```sh\nserve dist\n```\n\nAnd pointing your browser to `localhost:5000`.\n\nAt this point, you have working, but not perfect, website. Landr generates\nwebsites based on the content of the repository and relies on various OSS\nconventions for doing its job. Making sure your repository is well structured\nand follows the community conventions will do wonders for you website, and for\nyour repository overall!\n\nOnce you are happy with your site, run the following command to deploy to Netlify:\n\n```\nNETLIFY_AUTH_TOKEN=<token> landr deploy\n```\n\nPassing your Netlify authentication token as an environment variable.\n\nVersion 2\n' },
-      { filename: 'docs/02-dummy.md', contents: 'Dummy\n=====\n\nTest\n' }
+      {
+        filename: 'docs/01-getting-started.md',
+        contents: docsContent
+      },
+      { filename: 'docs/02-dummy.md', contents: docsDummyContent }
     ],
     blog: [
-      // eslint-disable-next-line max-len
-      { filename: 'blog/2019-07-08-hello-from-scrutinizer.md', contents: '# Dummy article\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec nisi ligula. Cras orci nulla, venenatis vel tincidunt sed, tristique eget lorem. Pellentesque sit amet blandit elit, in tincidunt augue. Proin hendrerit dolor purus, a tincidunt eros porttitor sed. Integer libero nibh, auctor id eros fermentum, dignissim maximus tellus. In nulla ligula, dapibus sed nisi et, fringilla imperdiet justo. Sed volutpat ligula non sapien ornare tempus. Vivamus tincidunt dapibus placerat. Vestibulum eu sem lorem. Maecenas massa lacus, tempus vitae tempus quis, laoreet at leo. Vivamus placerat vestibulum diam, ac gravida lectus pretium at. Nullam gravida justo libero, sed ornare nulla cursus et. Curabitur ac neque sit amet lacus congue consectetur. Etiam varius facilisis lacus, sed bibendum libero interdum id. Pellentesque vitae pharetra massa. Cras ut sapien id turpis semper commodo.\n\nIn non suscipit mi, non finibus nunc. Vivamus vehicula venenatis sapien, vitae dictum elit maximus non. Quisque bibendum facilisis nibh, at bibendum turpis porta vel. Curabitur finibus faucibus orci id rutrum. Nulla et dictum neque. Aenean suscipit mattis tempus. Ut id risus tristique, semper turpis sed, hendrerit neque. Vivamus tellus metus, pellentesque at sapien non, vulputate aliquet elit. Donec sodales ligula augue. Duis fermentum libero massa, quis egestas nibh pellentesque eget. Ut at consequat urna. Sed non diam dapibus, rutrum neque ac, pretium nulla. Proin finibus pulvinar varius. Vestibulum eget tincidunt lorem.\n\nVersion 2\n' }
+      {
+        filename: 'blog/2019-07-08-hello-from-scrutinizer.md',
+        contents: blogContent
+      }
     ],
-    readme:
-      'scrutinizer-test-repo\n===========\n\nThis repository serves as a playground for [Scrutinizer](https://github.com/balena-io-modules/scrutinizer).\n\nScrutinizer\'s test suite relies on various metadata including \'Integrations\' and more. These properties can change at any time in an active project. Consequently, this repository will serve as a predictable point of reference for our tests.\n',
+    readme,
     changelog: [
       {
         commits: [

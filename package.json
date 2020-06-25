@@ -10,6 +10,7 @@
   },
   "scripts": {
     "test": "npm run lint && nyc --reporter=lcov ava",
+    "watch:test": "ava --watch",
     "readme": "jsdoc2md --template doc/README.hbs lib/index.js > README.md",
     "lint": "eslint --ignore-pattern /test/repositories/* lib test",
     "lint-fix": "eslint --ignore-pattern /test/repositories/* lib test --fix"
@@ -56,14 +57,14 @@
     "rehype-raw": "^4.0.2",
     "rehype-remark": "^8.0.0",
     "rehype-stringify": "^8.0.0",
+    "sharp": "^0.25.4",
+    "unified-stream": "^1.0.6",
     "remark-parse": "^8.0.2",
     "remark-rehype": "^7.0.0",
     "remark-stringify": "^8.1.0",
-    "sharp": "^0.25.4",
     "simple-git": "^1.85.0",
     "tesseract.js": "^2.1.1",
     "tmp": "0.0.33",
-    "unified": "^9.0.0",
-    "unified-stream": "^1.0.6"
+    "unified": "^9.0.0"
   }
 }
