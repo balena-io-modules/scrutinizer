@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 2.0.0 - 2020-06-25
+
+* Detect and report deploy to balena buttons [Amit Solanki]
+* MD is processed and returned as md instead of tree [Amit Solanki]
+
 ## 1.34.0 - 2020-06-24
 
 * Support for all logo formats and sources [Amit Solanki]
