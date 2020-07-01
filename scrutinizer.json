@@ -29,12 +29,12 @@
       "avatar": "https://avatars3.githubusercontent.com/u/5211478?v=4"
     },
     {
-      "username": "brownjohnf",
-      "avatar": "https://avatars2.githubusercontent.com/u/1001049?v=4"
-    },
-    {
       "username": "bulldozer-balena[bot]",
       "avatar": "https://avatars0.githubusercontent.com/in/58047?v=4"
+    },
+    {
+      "username": "brownjohnf",
+      "avatar": "https://avatars2.githubusercontent.com/u/1001049?v=4"
     }
   ],
   "docs": [],
@@ -81,25 +81,25 @@
     "rehype-raw",
     "rehype-remark",
     "rehype-stringify",
+    "sharp",
+    "unified-stream",
     "remark-parse",
     "remark-rehype",
     "remark-stringify",
-    "sharp",
     "simple-git",
     "tesseract.js",
     "tmp",
-    "unified",
-    "unified-stream"
+    "unified"
   ],
-  "lastCommitDate": "2020-06-24T20:16:30Z",
+  "lastCommitDate": "2020-07-01T08:32:30Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
     "numberOfIssues": 29,
     "latestIssues": [
       {
-        "title": "MD is processed and returned as md instead of tree",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/141"
+        "title": "Convert svg logo to png",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/142"
       },
       {
         "title": "Banner extraction should handle all cases",
@@ -179,7 +179,7 @@
       }
     ]
   },
-  "version": "1.34.0",
+  "version": "2.0.0",
   "screenshot": null,
   "logo": null
 }
