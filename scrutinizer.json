@@ -17,20 +17,20 @@
       "avatar": "https://avatars1.githubusercontent.com/u/6810908?v=4"
     },
     {
-      "username": "LucianBuzzo",
-      "avatar": "https://avatars0.githubusercontent.com/u/15064535?v=4"
-    },
-    {
       "username": "iamsolankiamit",
       "avatar": "https://avatars3.githubusercontent.com/u/3483526?v=4"
     },
     {
-      "username": "lekkas",
-      "avatar": "https://avatars3.githubusercontent.com/u/5211478?v=4"
+      "username": "LucianBuzzo",
+      "avatar": "https://avatars0.githubusercontent.com/u/15064535?v=4"
     },
     {
       "username": "bulldozer-balena[bot]",
       "avatar": "https://avatars0.githubusercontent.com/in/58047?v=4"
+    },
+    {
+      "username": "lekkas",
+      "avatar": "https://avatars3.githubusercontent.com/u/5211478?v=4"
     },
     {
       "username": "brownjohnf",
@@ -81,25 +81,25 @@
     "rehype-raw",
     "rehype-remark",
     "rehype-stringify",
-    "sharp",
-    "unified-stream",
     "remark-parse",
     "remark-rehype",
     "remark-stringify",
+    "sharp",
     "simple-git",
     "tesseract.js",
     "tmp",
-    "unified"
+    "unified",
+    "unified-stream"
   ],
-  "lastCommitDate": "2020-07-01T08:32:30Z",
+  "lastCommitDate": "2020-07-06T13:47:10Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
     "numberOfIssues": 29,
     "latestIssues": [
       {
-        "title": "Convert svg logo to png",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/142"
+        "title": "Only test for node versions 10 & 12.",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/143"
       },
       {
         "title": "Banner extraction should handle all cases",
@@ -179,7 +179,7 @@
       }
     ]
   },
-  "version": "2.0.0",
+  "version": "2.1.0",
   "screenshot": null,
   "logo": null
 }
