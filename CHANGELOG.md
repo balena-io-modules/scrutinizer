@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 2.1.0 - 2020-07-03
+
+* Convert svg logo to png [Amit Solanki]
+
 ## 2.0.0 - 2020-06-25
 
 * Detect and report deploy to balena buttons [Amit Solanki]
