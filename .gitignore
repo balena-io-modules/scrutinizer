@@ -67,3 +67,7 @@ typings/
 
 # tesseract
 eng.traineddata
+
+# docker local
+.dockerignore
+dockerfile
