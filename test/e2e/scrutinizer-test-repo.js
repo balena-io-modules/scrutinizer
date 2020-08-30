@@ -146,6 +146,7 @@ const data = {
     introduction: '',
     leftoverSections,
     readmeLeftover,
+    tagline: '',
     docs: [
       {
         filename: 'docs/01-getting-started.md',

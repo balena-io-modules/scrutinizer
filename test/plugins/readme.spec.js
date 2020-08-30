@@ -21,7 +21,8 @@ const {
   getMarkdownSection,
   getHighlights,
   getLeftoverSections,
-  getInstallationSteps
+  getInstallationSteps,
+  getTagline
 } = require('../../lib/utils/markdown')
 
 /* eslint-disable max-len */
@@ -101,6 +102,9 @@ Head over to our [docs](https://sound.balenalabs.io) for detailed installation a
 `
 ]
 
+const tagline = `**Starter project enabling you to add multi-room audio streaming via Bluetooth, Airplay or Spotify Connect to any old speakers or Hi-Fi using just a Raspberry Pi.**
+`
+
 /* eslint-enable */
 
 ava.test('given a header extracts content until next header', async(test) => {
@@ -168,4 +172,10 @@ ava.test('extracts installation steps from markdown', async(test) => {
     ],
     footer: 'footer content of the installation\n'
   })
+})
+
+ava.test('extracts Tagline from markdown', async(test) => {
+  const response = await getTagline(fullTest)
+
+  test.is(response, tagline)
 })
