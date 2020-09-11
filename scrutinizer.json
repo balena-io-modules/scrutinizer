@@ -91,12 +91,16 @@
     "unified",
     "unified-stream"
   ],
-  "lastCommitDate": "2020-07-06T13:47:10Z",
+  "lastCommitDate": "2020-09-11T13:53:44Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 29,
+    "numberOfIssues": 30,
     "latestIssues": [
+      {
+        "title": "Extract tagline from readme",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/144"
+      },
       {
         "title": "Only test for node versions 10 & 12.",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/143"
@@ -172,14 +176,10 @@
       {
         "title": "Clarify the permissions needed for GITHUB_TOKEN",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/56"
-      },
-      {
-        "title": "Split fs and github backends",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/46"
       }
     ]
   },
-  "version": "2.1.0",
+  "version": "2.1.1",
   "screenshot": null,
   "logo": null
 }
