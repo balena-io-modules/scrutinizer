@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 2.1.1 - 2020-09-11
+
+* Handle blank headings in markdown [Amit Solanki]
+
 ## 2.1.0 - 2020-07-03
 
 * Convert svg logo to png [Amit Solanki]
