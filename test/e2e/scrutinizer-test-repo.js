@@ -98,6 +98,7 @@ const data = {
     name: 'scrutinizer-test-repo',
     version: '1.5.0',
     logo: null,
+    logoBrandMark: null,
     description: 'A dummy repository to run scrutinizer\'s test suite against',
     public: true,
     fork: false,
@@ -126,7 +127,7 @@ const data = {
     screenshot: null,
     codeOfConduct: null,
     owner: {
-      avatar: 'https://avatars0.githubusercontent.com/u/17724750?v=4',
+      avatar: 'https://avatars.githubusercontent.com/u/17724750?v=4',
       handle: 'balena-io-modules',
       url: 'https://github.com/balena-io-modules',
       type: 'Organization'
@@ -235,7 +236,7 @@ const data = {
       {
         username: 'dimitrisnl',
         contributions: 16,
-        avatar: 'https://avatars2.githubusercontent.com/u/4951004?v=4'
+        avatar: 'https://avatars.githubusercontent.com/u/4951004?v=4'
       }
     ],
     openIssues: {

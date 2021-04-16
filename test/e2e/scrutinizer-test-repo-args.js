@@ -16,7 +16,7 @@ const data = {
       'https://github.com/balena-io-modules/scrutinizer-test-repo.git',
     active: true,
     owner: {
-      avatar: 'https://avatars0.githubusercontent.com/u/17724750?v=4',
+      avatar: 'https://avatars.githubusercontent.com/u/17724750?v=4',
       handle: 'balena-io-modules',
       url: 'https://github.com/balena-io-modules',
       type: 'Organization'
