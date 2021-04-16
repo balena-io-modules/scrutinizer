@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 2.1.3 - 2021-04-16
+
+* Fetch Brandmark logo from a repo [Amit Solanki]
+
 ## 2.1.2 - 2020-09-16
 
 * Handle blank headings [Amit Solanki]
