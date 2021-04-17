@@ -88,18 +88,18 @@ const setupContent = `Running this project is as simple as deploying it to a bal
 [![](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy)
 `
 
-const readmeLeftoverContent = `**Starter project enabling you to add multi-room audio streaming via Bluetooth, Airplay or Spotify Connect to any old speakers or Hi-Fi using just a Raspberry Pi.**
-
-# Setup and configuration
+const readmeLeftoverContent = [
+  `# Setup and configuration
 
 Running this project is as simple as deploying it to a balenaCloud application. You can do it in just one click by using the button below:
 
 [![](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy)
-
-# Documentation
+`,
+  `# Documentation
 
 Head over to our [docs](https://sound.balenalabs.io) for detailed installation and usage instructions, customization options and more!
 `
+]
 
 /* eslint-enable */
 
@@ -153,10 +153,7 @@ ava.test('removes provided sections from markdown', async(test) => {
     ],
     true
   )
-  test.is(
-    response,
-    readmeLeftoverContent
-  )
+  test.deepEqual(response, readmeLeftoverContent)
 })
 
 ava.test('extracts installation steps from markdown', async(test) => {
