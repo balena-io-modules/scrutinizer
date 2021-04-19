@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 2.3.0 - 2021-04-19
+
+* Mark leftover readme sections headers [Amit Solanki]
+
 ## 2.2.0 - 2021-04-19
 
 * Extract tagline from readme [Amit Solanki]
