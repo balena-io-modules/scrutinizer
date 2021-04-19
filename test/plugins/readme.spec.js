@@ -90,16 +90,21 @@ const setupContent = `Running this project is as simple as deploying it to a bal
 `
 
 const readmeLeftoverContent = [
-  `# Setup and configuration
-
-Running this project is as simple as deploying it to a balenaCloud application. You can do it in just one click by using the button below:
+  {
+    title: `# Setup and configuration
+`,
+    description: `Running this project is as simple as deploying it to a balenaCloud application. You can do it in just one click by using the button below:
 
 [![](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy)
-`,
-  `# Documentation
-
-Head over to our [docs](https://sound.balenalabs.io) for detailed installation and usage instructions, customization options and more!
 `
+  },
+  {
+    title: `# Documentation
+`,
+    description:
+      `Head over to our [docs](https://sound.balenalabs.io) for detailed installation and usage instructions, customization options and more!
+`
+  }
 ]
 
 const tagline = `**Starter project enabling you to add multi-room audio streaming via Bluetooth, Airplay or Spotify Connect to any old speakers or Hi-Fi using just a Raspberry Pi.**
@@ -144,19 +149,15 @@ ava.test('extracts highlights as list of markdown', async(test) => {
 })
 
 ava.test('removes provided sections from markdown', async(test) => {
-  const response = await getLeftoverSections(
-    fullTest,
-    [
-      'Introduction',
-      'Motivation',
-      'Highlights',
-      'Examples',
-      'Installation',
-      'Hardware required',
-      'Software required'
-    ],
-    true
-  )
+  const response = await getLeftoverSections(fullTest, [
+    'Introduction',
+    'Motivation',
+    'Highlights',
+    'Examples',
+    'Installation',
+    'Hardware required',
+    'Software required'
+  ])
   test.deepEqual(response, readmeLeftoverContent)
 })
 
