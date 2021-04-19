@@ -91,15 +91,15 @@
     "unified",
     "unified-stream"
   ],
-  "lastCommitDate": "2021-04-17T16:30:36Z",
+  "lastCommitDate": "2021-04-19T12:41:30Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
     "numberOfIssues": 30,
     "latestIssues": [
       {
-        "title": "Extract tagline from readme",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/144"
+        "title": "Mark leftover readme sections headers",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/149"
       },
       {
         "title": "Only test for node versions 10 & 12.",
@@ -179,7 +179,7 @@
       }
     ]
   },
-  "version": "2.1.4",
+  "version": "2.2.0",
   "screenshot": null,
   "logo": null
 }
