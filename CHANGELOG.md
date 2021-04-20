@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 2.3.1 - 2021-04-20
+
+* Encode brandmark logo into base64 [Amit Solanki]
+
 ## 2.3.0 - 2021-04-19
 
 * Mark leftover readme sections headers [Amit Solanki]
