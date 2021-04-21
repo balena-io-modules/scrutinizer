@@ -91,7 +91,7 @@
     "unified",
     "unified-stream"
   ],
-  "lastCommitDate": "2021-04-21T05:45:45Z",
+  "lastCommitDate": "2021-04-21T06:31:17Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
@@ -179,7 +179,7 @@
       }
     ]
   },
-  "version": "2.3.2",
+  "version": "2.3.3",
   "screenshot": null,
   "logo": null
 }
