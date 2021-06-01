@@ -78,8 +78,10 @@
     "mmmagic",
     "nodegit",
     "puppeteer",
+    "rehype-autolink-headings",
     "rehype-raw",
     "rehype-remark",
+    "rehype-slug",
     "rehype-stringify",
     "remark-parse",
     "remark-rehype",
@@ -91,7 +93,7 @@
     "unified",
     "unified-stream"
   ],
-  "lastCommitDate": "2021-04-21T06:31:17Z",
+  "lastCommitDate": "2021-06-01T09:13:41Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
@@ -179,7 +181,7 @@
       }
     ]
   },
-  "version": "2.3.3",
+  "version": "2.4.0",
   "screenshot": null,
   "logo": null
 }
