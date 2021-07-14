@@ -233,6 +233,16 @@ const data = {
         username: 'dimitrisnl',
         contributions: 16,
         avatar: 'https://avatars.githubusercontent.com/u/4951004?v=4'
+      },
+      {
+        avatar: 'https://avatars.githubusercontent.com/u/22801822?v=4',
+        contributions: 1,
+        username: 'vipulgupta2048'
+      },
+      {
+        avatar: 'https://avatars.githubusercontent.com/in/58047?v=4',
+        contributions: 1,
+        username: 'bulldozer-balena[bot]'
       }
     ],
     openIssues: {
@@ -240,13 +250,11 @@ const data = {
       latestIssues: [
         {
           title: 'Issue #2',
-          url:
-            'https://github.com/balena-io-modules/scrutinizer-test-repo/issues/2'
+          url: 'https://github.com/balena-io-modules/scrutinizer-test-repo/issues/2'
         },
         {
           title: 'Issue #1',
-          url:
-            'https://github.com/balena-io-modules/scrutinizer-test-repo/issues/1'
+          url: 'https://github.com/balena-io-modules/scrutinizer-test-repo/issues/1'
         }
       ]
     }
