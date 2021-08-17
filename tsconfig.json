@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "commonjs",
+    "target": "es2018",
+    "outDir": "build",
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typings"
+    ],
+    "preserveSymlinks": true,
+    "resolveJsonModule": true,
+    "allowJs": true
+  },
+  "include": ["./lib/**/*", "./typings/**/*", "./bin/*"]
+}

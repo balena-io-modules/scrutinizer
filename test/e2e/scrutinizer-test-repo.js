@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
 /* eslint-disable max-len */
 
 const readmeLeftover = `
-`
+`;
 
 const docsContent = `# [](#getting-started)Getting Started
 
@@ -42,17 +42,17 @@ Once you are happy with your site, run the following command to deploy to Netlif
 Passing your Netlify authentication token as an environment variable.
 
 Version 2
-`
+`;
 
 const docsDummyContent = `# [](#dummy)Dummy
 
 Test
-`
+`;
 
 const contributing = `This is a placeholder file.
 
 We strongly urge you to checkout [Scrutinizer](https://github.com/balena-io-modules/scrutinizer) instead.
-`
+`;
 
 const blogContent = `# Dummy article
 
@@ -61,7 +61,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec nisi ligula. C
 In non suscipit mi, non finibus nunc. Vivamus vehicula venenatis sapien, vitae dictum elit maximus non. Quisque bibendum facilisis nibh, at bibendum turpis porta vel. Curabitur finibus faucibus orci id rutrum. Nulla et dictum neque. Aenean suscipit mattis tempus. Ut id risus tristique, semper turpis sed, hendrerit neque. Vivamus tellus metus, pellentesque at sapien non, vulputate aliquet elit. Donec sodales ligula augue. Duis fermentum libero massa, quis egestas nibh pellentesque eget. Ut at consequat urna. Sed non diam dapibus, rutrum neque ac, pretium nulla. Proin finibus pulvinar varius. Vestibulum eget tincidunt lorem.
 
 Version 2
-`
+`;
 
 const readme = `scrutinizer-test-repo
 ===========
@@ -69,196 +69,210 @@ const readme = `scrutinizer-test-repo
 This repository serves as a playground for [Scrutinizer](https://github.com/balena-io-modules/scrutinizer).
 
 Scrutinizer's test suite relies on various metadata including 'Integrations' and more. These properties can change at any time in an active project. Consequently, this repository will serve as a predictable point of reference for our tests.
-`
+`;
 const leftoverSections = [
-  {
-    title: `# [](#scrutinizer-test-repo)scrutinizer-test-repo
+	{
+		title: `# [](#scrutinizer-test-repo)scrutinizer-test-repo
 `,
-    description: `This repository serves as a playground for [Scrutinizer](https://github.com/balena-io-modules/scrutinizer).
+		description: `This repository serves as a playground for [Scrutinizer](https://github.com/balena-io-modules/scrutinizer).
 
 Scrutinizer's test suite relies on various metadata including 'Integrations' and more. These properties can change at any time in an active project. Consequently, this repository will serve as a predictable point of reference for our tests.
-`
-  }
-]
+`,
+	},
+];
 /* eslint-enable */
 
 const data = {
-  name: 'scrutinizer-test-repo',
-  url: 'git@github.com:balena-io-modules/scrutinizer-test-repo',
-  reference: 'e789054c637c957fb837691f81e5227faa5ebd82',
-  plugins: [],
-  result: {
-    name: 'scrutinizer-test-repo',
-    version: '1.5.0',
-    logo: null,
-    logoBrandMark: null,
-    description: 'A dummy repository to run scrutinizer\'s test suite against',
-    public: true,
-    fork: false,
-    stars: 0,
-    homepage: null,
-    repositoryUrl:
-      'https://github.com/balena-io-modules/scrutinizer-test-repo.git',
-    active: true,
-    license: 'Apache-2.0',
-    contributing,
-    architecture: null,
-    security: null,
-    lastCommitDate: '2019-09-17T13:42:54Z',
-    latestRelease: null,
-    latestPreRelease: null,
-    deployWithBalenaUrl: null,
-    dependencies: [
-      '@octokit/rest',
-      'bluebird',
-      'debug',
-      'lodash',
-      'moment',
-      'simple-git',
-      'tmp'
-    ],
-    screenshot: null,
-    codeOfConduct: null,
-    owner: {
-      avatar: 'https://avatars.githubusercontent.com/u/17724750?v=4',
-      handle: 'balena-io-modules',
-      url: 'https://github.com/balena-io-modules',
-      type: 'Organization'
-    },
-    examples: '',
-    highlights: '',
-    motivation: '',
-    setup: '',
-    installationSteps: null,
-    hardwareRequired: '',
-    softwareRequired: '',
-    introduction: '',
-    leftoverSections,
-    readmeLeftover,
-    tagline: '',
-    docs: [
-      {
-        filename: 'docs/01-getting-started.md',
-        contents: docsContent
-      },
-      { filename: 'docs/02-dummy.md', contents: docsDummyContent }
-    ],
-    blog: [
-      {
-        filename: 'blog/2019-07-08-hello-from-scrutinizer.md',
-        contents: blogContent
-      }
-    ],
-    readme,
-    changelog: [
-      {
-        commits: [
-          {
-            subject: 'Populate more docs',
-            hash: '777ef844be3cb81a4e52a784e29740c589547f30',
-            body: '',
-            footer: {
-              'Change-type': 'minor',
-              'change-type': 'minor'
-            },
-            author: 'Dimitrios Lytras'
-          }
-        ],
-        version: '1.5.0',
-        date: new Date('2019-09-17T13:39:46.818Z')
-      },
-      {
-        commits: [
-          {
-            subject: 'Update blog to test versioning',
-            hash: '9ca1caa2bb5311b5fc3a79008cca24e6430b8f6a',
-            body: '',
-            footer: {
-              'Change-type': 'minor',
-              'change-type': 'minor'
-            },
-            author: 'Dimitrios Lytras'
-          }
-        ],
-        version: '1.4.0',
-        date: new Date('2019-09-17T10:06:27.111Z')
-      },
-      {
-        commits: [
-          {
-            subject: 'Update docs to test versioning',
-            hash: 'f67bf137aa271aaf2baf8290dabcefa46ad46bce',
-            body: '',
-            footer: {
-              'Change-type': 'minor',
-              'change-type': 'minor'
-            },
-            author: 'Dimitrios Lytras'
-          }
-        ],
-        version: '1.3.0',
-        date: new Date('2019-09-17T09:51:57.404Z')
-      },
-      {
-        commits: [
-          {
-            subject: 'Add more blog & docs',
-            hash: '09d434d045822bda7db7ceeabf821c5eae7db4d0',
-            body: '',
-            footer: {
-              'Change-type': 'minor',
-              'change-type': 'minor'
-            },
-            author: 'Dimitrios Lytras'
-          },
-          {
-            subject: 'Trigger new version',
-            hash: 'eee589bb0901c504ed6d44407d81245d0510f9ad',
-            body: '',
-            footer: {
-              'Change-type': 'patch',
-              'change-type': 'patch'
-            },
-            author: 'Dimitrios Lytras'
-          }
-        ],
-        version: '1.2.0',
-        date: new Date('2019-09-17T09:41:52.933Z')
-      }
-    ],
-    faq: null,
-    maintainers: [ '@dimitrisnl' ],
-    contributors: [
-      {
-        username: 'dimitrisnl',
-        contributions: 16,
-        avatar: 'https://avatars.githubusercontent.com/u/4951004?v=4'
-      },
-      {
-        avatar: 'https://avatars.githubusercontent.com/u/22801822?v=4',
-        contributions: 1,
-        username: 'vipulgupta2048'
-      },
-      {
-        avatar: 'https://avatars.githubusercontent.com/in/58047?v=4',
-        contributions: 1,
-        username: 'bulldozer-balena[bot]'
-      }
-    ],
-    openIssues: {
-      numberOfIssues: 2,
-      latestIssues: [
-        {
-          title: 'Issue #2',
-          url: 'https://github.com/balena-io-modules/scrutinizer-test-repo/issues/2'
-        },
-        {
-          title: 'Issue #1',
-          url: 'https://github.com/balena-io-modules/scrutinizer-test-repo/issues/1'
-        }
-      ]
-    }
-  }
-}
+	testIndex: 2,
+	name: 'scrutinizer-test-repo',
+	url: 'git@github.com:balena-io-modules/scrutinizer-test-repo',
+	reference: '0976c940fb413193974ec1e7a320aa1bae92f4ff',
+	plugins: [],
+	result: {
+		name: 'scrutinizer-test-repo',
+		version: '1.5.1',
+		logo: null,
+		logoBrandMark: null,
+		description: "A dummy repository to run scrutinizer's test suite against",
+		public: true,
+		fork: false,
+		stars: 0,
+		homepage: null,
+		repositoryUrl:
+			'https://github.com/balena-io-modules/scrutinizer-test-repo.git',
+		active: true,
+		license: 'Apache-2.0',
+		contributing,
+		architecture: null,
+		security: null,
+		lastCommitDate: '2021-07-15T14:14:36Z',
+		latestRelease: null,
+		latestPreRelease: null,
+		deployWithBalenaUrl: null,
+		dependencies: [
+			'@octokit/rest',
+			'bluebird',
+			'debug',
+			'lodash',
+			'moment',
+			'simple-git',
+			'tmp',
+		],
+		screenshot: null,
+		codeOfConduct: null,
+		owner: {
+			avatar: 'https://avatars.githubusercontent.com/u/17724750?v=4',
+			handle: 'balena-io-modules',
+			url: 'https://github.com/balena-io-modules',
+			type: 'Organization',
+		},
+		examples: null,
+		highlights: '',
+		motivation: '',
+		setup: '',
+		installationSteps: null,
+		hardwareRequired: '',
+		softwareRequired: '',
+		introduction: '',
+		leftoverSections,
+		readmeLeftover,
+		tagline: '',
+		docs: [
+			{
+				filename: 'docs/01-getting-started.md',
+				contents: docsContent,
+			},
+			{ filename: 'docs/02-dummy.md', contents: docsDummyContent },
+		],
+		blog: [
+			{
+				filename: 'blog/2019-07-08-hello-from-scrutinizer.md',
+				contents: blogContent,
+			},
+		],
+		readme,
+		changelog: [
+			{
+				commits: [
+					{
+						author: 'Vipul Gupta',
+						body: '',
+						footer: {},
+						hash: '7631fbb047f0a1cbc5b5acc9a543fba0352b3c73',
+						subject: 'patch: Delete Codeowners',
+					},
+				],
+				date: new Date('2021-07-01T10:55:55.467Z'),
+				version: '1.5.1',
+			},
+			{
+				commits: [
+					{
+						subject: 'Populate more docs',
+						hash: '777ef844be3cb81a4e52a784e29740c589547f30',
+						body: '',
+						footer: {
+							'Change-type': 'minor',
+							'change-type': 'minor',
+						},
+						author: 'Dimitrios Lytras',
+					},
+				],
+				version: '1.5.0',
+				date: new Date('2019-09-17T13:39:46.818Z'),
+			},
+			{
+				commits: [
+					{
+						subject: 'Update blog to test versioning',
+						hash: '9ca1caa2bb5311b5fc3a79008cca24e6430b8f6a',
+						body: '',
+						footer: {
+							'Change-type': 'minor',
+							'change-type': 'minor',
+						},
+						author: 'Dimitrios Lytras',
+					},
+				],
+				version: '1.4.0',
+				date: new Date('2019-09-17T10:06:27.111Z'),
+			},
+			{
+				commits: [
+					{
+						subject: 'Update docs to test versioning',
+						hash: 'f67bf137aa271aaf2baf8290dabcefa46ad46bce',
+						body: '',
+						footer: {
+							'Change-type': 'minor',
+							'change-type': 'minor',
+						},
+						author: 'Dimitrios Lytras',
+					},
+				],
+				version: '1.3.0',
+				date: new Date('2019-09-17T09:51:57.404Z'),
+			},
+			{
+				commits: [
+					{
+						subject: 'Add more blog & docs',
+						hash: '09d434d045822bda7db7ceeabf821c5eae7db4d0',
+						body: '',
+						footer: {
+							'Change-type': 'minor',
+							'change-type': 'minor',
+						},
+						author: 'Dimitrios Lytras',
+					},
+					{
+						subject: 'Trigger new version',
+						hash: 'eee589bb0901c504ed6d44407d81245d0510f9ad',
+						body: '',
+						footer: {
+							'Change-type': 'patch',
+							'change-type': 'patch',
+						},
+						author: 'Dimitrios Lytras',
+					},
+				],
+				version: '1.2.0',
+				date: new Date('2019-09-17T09:41:52.933Z'),
+			},
+		],
+		faq: null,
+		maintainers: [],
+		contributors: [
+			{
+				username: 'dimitrisnl',
+				contributions: 16,
+				avatar: 'https://avatars.githubusercontent.com/u/4951004?v=4',
+			},
+			{
+				avatar: 'https://avatars.githubusercontent.com/u/22801822?v=4',
+				contributions: 1,
+				username: 'vipulgupta2048',
+			},
+			{
+				avatar: 'https://avatars.githubusercontent.com/in/58047?v=4',
+				contributions: 1,
+				username: 'bulldozer-balena[bot]',
+			},
+		],
+		openIssues: {
+			numberOfIssues: 2,
+			latestIssues: [
+				{
+					title: 'Issue #2',
+					url: 'https://github.com/balena-io-modules/scrutinizer-test-repo/issues/2',
+				},
+				{
+					title: 'Issue #1',
+					url: 'https://github.com/balena-io-modules/scrutinizer-test-repo/issues/1',
+				},
+			],
+		},
+	},
+};
 
-module.exports = data
+module.exports = data;

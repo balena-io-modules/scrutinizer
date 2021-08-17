@@ -2,7 +2,7 @@
   "name": "scrutinizer",
   "version": "2.4.2",
   "description": "Extract a git repository's metadata relying on open source conventions",
-  "main": "lib/index.js",
+  "main": "build/lib/index.js",
   "homepage": "https://github.com/resin-io-modules/scrutinizer",
   "repository": {
     "type": "git",
@@ -11,43 +11,56 @@
   "scripts": {
     "test": "npm run lint && nyc --reporter=lcov ava",
     "watch:test": "ava --watch",
+    "build": "tsc",
     "readme": "jsdoc2md --template doc/README.hbs lib/index.js > README.md",
-    "lint": "eslint --ignore-pattern /test/repositories/* lib test",
-    "lint-fix": "eslint --ignore-pattern /test/repositories/* lib test --fix"
+    "lint": "balena-lint -e ts -e js --typescript --fix lib test",
+    "prepublishOnly": "npm run build"
   },
   "bin": {
-    "scrutinizer": "./bin/scrutinizer.js"
+    "scrutinizer": "build/bin/scrutinizer.js"
   },
+  "files": [
+    "build/"
+  ],
   "author": "Resin Inc. <hello@resin.io>",
   "license": "Apache-2.0",
   "ava": {
     "concurrency": 1,
     "verbose": true,
     "files": [
-      "test/**/*.spec.js",
+      "test/**/*.spec.ts",
       "!test/repositories/**/*.spec.js"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
     ]
   },
   "devDependencies": {
-    "ava": "^0.22.0",
-    "eslint": "^4.5.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsdoc": "^3.1.2",
-    "eslint-plugin-lodash": "^2.4.5",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
+    "@balena/lint": "^6.1.1",
+    "@types/bluebird": "^3.5.36",
+    "@types/debug": "^4.1.7",
+    "@types/js-yaml": "^4.0.2",
+    "@types/lodash": "^4.14.171",
+    "@types/mmmagic": "^0.4.30",
+    "@types/puppeteer": "^5.4.4",
+    "@types/sharp": "^0.28.5",
+    "@types/tmp": "^0.2.1",
+    "ava": "^3.15.0",
     "jsdoc-to-markdown": "^3.0.4",
-    "nyc": "^11.1.0"
+    "nyc": "^11.1.0",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
   },
   "dependencies": {
-    "@octokit/rest": "^17.0.0",
-    "bluebird": "^3.5.1",
+    "@octokit/rest": "^18.9.1",
+    "bluebird": "^3.7.2",
     "capitano": "^1.8.0",
-    "debug": "^3.1.0",
+    "debug": "^3.2.7",
     "fromnow": "^3.0.0",
-    "js-yaml": "^3.13.1",
+    "js-yaml": "^4.1.0",
     "linux-os-info": "^2.0.0",
     "lodash": "^4.17.4",
     "markdown": "^0.5.0",
@@ -65,7 +78,7 @@
     "sharp": "^0.25.4",
     "simple-git": "^1.85.0",
     "tesseract.js": "^2.1.1",
-    "tmp": "0.0.33",
+    "tmp": "^0.2.1",
     "unified": "^9.0.0",
     "unified-stream": "^1.0.6"
   },
