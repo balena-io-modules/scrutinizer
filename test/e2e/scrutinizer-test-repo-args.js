@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /* eslint-disable max-len */
 const docsContent = `# [](#getting-started)Getting Started
@@ -38,43 +38,44 @@ Once you are happy with your site, run the following command to deploy to Netlif
 Passing your Netlify authentication token as an environment variable.
 
 Version 2
-`
+`;
 
 const dummyContent = `# [](#dummy)Dummy
 
 Test
-`
+`;
 
 /* eslint-enable */
 
 const data = {
-  name: 'scrutinizer-test-repo',
-  url: 'git@github.com:balena-io-modules/scrutinizer-test-repo',
-  reference: 'e789054c637c957fb837691f81e5227faa5ebd82',
-  plugins: [ 'docs', 'faq', 'github-metadata' ],
-  result: {
-    name: 'scrutinizer-test-repo',
-    description: 'A dummy repository to run scrutinizer\'s test suite against',
-    public: true,
-    fork: false,
-    stars: 0,
-    homepage: null,
-    repositoryUrl:
-      'https://github.com/balena-io-modules/scrutinizer-test-repo.git',
-    active: true,
-    owner: {
-      avatar: 'https://avatars.githubusercontent.com/u/17724750?v=4',
-      handle: 'balena-io-modules',
-      url: 'https://github.com/balena-io-modules',
-      type: 'Organization'
-    },
-    docs: [
-      // eslint-disable-next-line max-len
-      { filename: 'docs/01-getting-started.md', contents: docsContent },
-      { filename: 'docs/02-dummy.md', contents: dummyContent }
-    ],
-    faq: null
-  }
-}
+	testIndex: 1,
+	name: 'scrutinizer-test-repo',
+	url: 'git@github.com:balena-io-modules/scrutinizer-test-repo',
+	reference: 'e789054c637c957fb837691f81e5227faa5ebd82',
+	plugins: ['docs', 'faq', 'github-metadata'],
+	result: {
+		name: 'scrutinizer-test-repo',
+		description: "A dummy repository to run scrutinizer's test suite against",
+		public: true,
+		fork: false,
+		stars: 0,
+		homepage: null,
+		repositoryUrl:
+			'https://github.com/balena-io-modules/scrutinizer-test-repo.git',
+		active: true,
+		owner: {
+			avatar: 'https://avatars.githubusercontent.com/u/17724750?v=4',
+			handle: 'balena-io-modules',
+			url: 'https://github.com/balena-io-modules',
+			type: 'Organization',
+		},
+		docs: [
+			// eslint-disable-next-line max-len
+			{ filename: 'docs/01-getting-started.md', contents: docsContent },
+			{ filename: 'docs/02-dummy.md', contents: dummyContent },
+		],
+		faq: null,
+	},
+};
 
-module.exports = data
+module.exports = data;

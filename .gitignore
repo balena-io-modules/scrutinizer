@@ -40,7 +40,7 @@ node_modules/
 jspm_packages/
 
 # Typescript v1 declaration files
-typings/
+# typings/
 
 # Optional npm cache directory
 .npm
@@ -71,3 +71,5 @@ eng.traineddata
 # docker local
 .dockerignore
 dockerfile
+
+build/
