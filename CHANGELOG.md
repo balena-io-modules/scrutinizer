@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 3.0.0 - 2021-08-30
+
+* Move to typescript [Amit Solanki]
+
 ## 2.4.2 - 2021-08-30
 
 * Only test for node versions 10 & 12. [Carlo Miguel Cruz]
