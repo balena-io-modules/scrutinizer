@@ -19,9 +19,6 @@
   "bin": {
     "scrutinizer": "build/bin/scrutinizer.js"
   },
-  "files": [
-    "build/"
-  ],
   "author": "Resin Inc. <hello@resin.io>",
   "license": "Apache-2.0",
   "ava": {
