@@ -97,19 +97,15 @@
     "unified",
     "unified-stream"
   ],
-  "lastCommitDate": "2021-08-30T17:52:37Z",
+  "lastCommitDate": "2021-08-30T18:54:10Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 30,
+    "numberOfIssues": 29,
     "latestIssues": [
       {
         "title": "Drop node 10 support",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/156"
-      },
-      {
-        "title": "Move to typescript",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/155"
       },
       {
         "title": "Banner extraction should handle all cases",
@@ -182,10 +178,14 @@
       {
         "title": "Clarify the permissions needed for GITHUB_TOKEN",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/56"
+      },
+      {
+        "title": "Split fs and github backends",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/46"
       }
     ]
   },
-  "version": "2.4.2",
+  "version": "3.0.0",
   "screenshot": null,
   "logo": null
 }
