@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 2.4.2 - 2021-08-30
+
+* Only test for node versions 10 & 12. [Carlo Miguel Cruz]
+
 ## 2.4.1 - 2021-07-15
 
 * Upgrade nodegit version [Amit Solanki]
