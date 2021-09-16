@@ -22,6 +22,10 @@ import raw from 'rehype-raw';
 import rehype2remark from 'rehype-remark';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutoLinkHeadings from 'rehype-autolink-headings';
+import Slugger from 'github-slugger';
+import convert from 'unist-util-is/convert';
+import toString from 'mdast-util-to-string';
+import visit from 'unist-util-visit';
 
 export interface Node {
 	type: string;
@@ -30,6 +34,11 @@ export interface Node {
 	url?: string;
 	depth?: number;
 	ordered?: boolean;
+	data?: {
+		hProperties?: {
+			id: string;
+		};
+	};
 }
 
 export const markdownAST = (content: string): Node => {
@@ -509,6 +518,55 @@ const getLeftoverReadme = async (readme: string): Promise<string> => {
 		.stringify(mdast as any);
 };
 
+export interface TableOfContentTree {
+	title: string;
+	id: string;
+	depth: number;
+	content: string;
+}
+
+const slugs = new Slugger();
+
+const getTableOfContent = async (
+	content: string,
+): Promise<TableOfContentTree[]> => {
+	const markdownContent = await convertHtmlToMD(content);
+	const mdast = unified()
+		.use(remarkParse, { gfm: true })
+		.parse(markdownContent) as Node;
+	// @ts-expect-error
+	const parents = convert((d) => d === mdast);
+
+	slugs.reset();
+	// let opening: Node | undefined;
+	// let index;
+	const map: TableOfContentTree[] = [];
+	// let endIndex: Number | undefined;
+	// @ts-expect-error
+	visit(mdast, 'heading', (node, _position, parent) => {
+		const value = toString(node);
+
+		// @ts-expect-error
+		const id = node?.data?.hProperties?.id;
+
+		const slug = slugs.slug(id || value);
+
+		if (!parents(parent)) {
+			return;
+		}
+
+		map.push({
+			depth: node.depth as number,
+			content: unified()
+				.use(remarkStringify)
+				.stringify({ children: node.children, type: 'root' }),
+			id: slug,
+			title: value,
+		});
+	});
+	return map;
+};
+
 /**
  * @summary detects if deploy url exists in markdown
  *
@@ -531,5 +589,6 @@ export {
 	getInstallationSteps,
 	getTagline,
 	hasDeployButton,
+	getTableOfContent,
 	getLeftoverReadme,
 };

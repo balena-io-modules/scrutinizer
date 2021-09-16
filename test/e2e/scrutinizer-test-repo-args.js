@@ -37,15 +37,37 @@ Once you are happy with your site, run the following command to deploy to Netlif
 
 Passing your Netlify authentication token as an environment variable.
 
-Version 2
-`;
+Version 2`;
 
 const dummyContent = `# [](#dummy)Dummy
 
-Test
-`;
+Test`;
 
 /* eslint-enable */
+
+const docsTableOfContent = [
+	{
+		content: `[](#getting-started)
+
+Getting Started
+`,
+		depth: 1,
+		id: 'getting-started',
+		title: 'Getting Started',
+	},
+];
+
+const dummyTableOfContent = [
+	{
+		content: `[](#dummy)
+
+Dummy
+`,
+		depth: 1,
+		id: 'dummy',
+		title: 'Dummy',
+	},
+];
 
 const data = {
 	testIndex: 1,
@@ -71,8 +93,16 @@ const data = {
 		},
 		docs: [
 			// eslint-disable-next-line max-len
-			{ filename: 'docs/01-getting-started.md', contents: docsContent },
-			{ filename: 'docs/02-dummy.md', contents: dummyContent },
+			{
+				filename: 'docs/01-getting-started.md',
+				contents: docsContent,
+				tableOfContent: docsTableOfContent,
+			},
+			{
+				filename: 'docs/02-dummy.md',
+				contents: dummyContent,
+				tableOfContent: dummyTableOfContent,
+			},
 		],
 		faq: null,
 	},
