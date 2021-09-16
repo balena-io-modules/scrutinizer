@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 3.2.0 - 2021-09-16
+
+* List table of contents of docs [Amit Solanki]
+
 ## 3.1.0 - 2021-08-31
 
 * Drop node 10 support [Amit Solanki]
