@@ -41,13 +41,11 @@ Once you are happy with your site, run the following command to deploy to Netlif
 
 Passing your Netlify authentication token as an environment variable.
 
-Version 2
-`;
+Version 2`;
 
 const docsDummyContent = `# [](#dummy)Dummy
 
-Test
-`;
+Test`;
 
 const contributing = `This is a placeholder file.
 
@@ -81,6 +79,30 @@ Scrutinizer's test suite relies on various metadata including 'Integrations' and
 	},
 ];
 /* eslint-enable */
+
+const docsTableOfContent = [
+	{
+		content: `[](#getting-started)
+
+Getting Started
+`,
+		depth: 1,
+		id: 'getting-started',
+		title: 'Getting Started',
+	},
+];
+
+const dummyTableOfContent = [
+	{
+		content: `[](#dummy)
+
+Dummy
+`,
+		depth: 1,
+		id: 'dummy',
+		title: 'Dummy',
+	},
+];
 
 const data = {
 	testIndex: 2,
@@ -141,8 +163,13 @@ const data = {
 			{
 				filename: 'docs/01-getting-started.md',
 				contents: docsContent,
+				tableOfContent: docsTableOfContent,
 			},
-			{ filename: 'docs/02-dummy.md', contents: docsDummyContent },
+			{
+				filename: 'docs/02-dummy.md',
+				contents: docsDummyContent,
+				tableOfContent: dummyTableOfContent,
+			},
 		],
 		blog: [
 			{
