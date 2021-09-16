@@ -75,10 +75,12 @@
     "capitano",
     "debug",
     "fromnow",
+    "github-slugger",
     "js-yaml",
     "linux-os-info",
     "lodash",
     "markdown",
+    "mdast-util-to-string",
     "mmmagic",
     "nodegit",
     "puppeteer",
@@ -95,9 +97,11 @@
     "tesseract.js",
     "tmp",
     "unified",
-    "unified-stream"
+    "unified-stream",
+    "unist-util-is",
+    "unist-util-visit"
   ],
-  "lastCommitDate": "2021-08-31T13:58:11Z",
+  "lastCommitDate": "2021-09-16T14:07:04Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
@@ -185,7 +189,7 @@
       }
     ]
   },
-  "version": "3.1.0",
+  "version": "3.2.0",
   "screenshot": null,
   "logo": null
 }
