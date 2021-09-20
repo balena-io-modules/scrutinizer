@@ -15,27 +15,21 @@ test('returns a table of content', async (t) => {
 
 	t.deepEqual(result, [
 		{
-			content: `[](#heading-one)
-
-heading one
+			content: `heading one
 `,
 			depth: 1,
 			id: 'heading-one',
 			title: 'heading one',
 		},
 		{
-			content: `[](#heading-two)
-
-heading two
+			content: `heading two
 `,
 			depth: 2,
 			id: 'heading-two',
 			title: 'heading two',
 		},
 		{
-			content: `[](#heading-three)
-
-heading three
+			content: `heading three
 `,
 			depth: 3,
 			id: 'heading-three',

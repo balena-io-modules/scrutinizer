@@ -89,7 +89,7 @@ const setupContent = `Running this project is as simple as deploying it to a bal
 
 const readmeLeftoverContent = [
 	{
-		title: `# [](#setup-and-configuration)Setup and configuration
+		title: `# Setup and configuration
 `,
 		description: `Running this project is as simple as deploying it to a balenaCloud application. You can do it in just one click by using the button below:
 
@@ -97,7 +97,7 @@ const readmeLeftoverContent = [
 `,
 	},
 	{
-		title: `# [](#documentation)Documentation
+		title: `# Documentation
 `,
 		description: `Head over to our [docs](https://sound.balenalabs.io) for detailed installation and usage instructions, customization options and more!
 `,

@@ -5,7 +5,7 @@
 const readmeLeftover = `
 `;
 
-const docsContent = `# [](#getting-started)Getting Started
+const docsContent = `# Getting Started
 
 Welcome to Landr! Setting up Landr in your project is extremely easy. First, make sure you install the \`landr\` CLI from npmjs.org if you haven't already by running:
 
@@ -43,7 +43,7 @@ Passing your Netlify authentication token as an environment variable.
 
 Version 2`;
 
-const docsDummyContent = `# [](#dummy)Dummy
+const docsDummyContent = `# Dummy
 
 Test`;
 
@@ -70,7 +70,7 @@ Scrutinizer's test suite relies on various metadata including 'Integrations' and
 `;
 const leftoverSections = [
 	{
-		title: `# [](#scrutinizer-test-repo)scrutinizer-test-repo
+		title: `# scrutinizer-test-repo
 `,
 		description: `This repository serves as a playground for [Scrutinizer](https://github.com/balena-io-modules/scrutinizer).
 
@@ -82,9 +82,7 @@ Scrutinizer's test suite relies on various metadata including 'Integrations' and
 
 const docsTableOfContent = [
 	{
-		content: `[](#getting-started)
-
-Getting Started
+		content: `Getting Started
 `,
 		depth: 1,
 		id: 'getting-started',
@@ -94,9 +92,7 @@ Getting Started
 
 const dummyTableOfContent = [
 	{
-		content: `[](#dummy)
-
-Dummy
+		content: `Dummy
 `,
 		depth: 1,
 		id: 'dummy',
