@@ -1,7 +1,7 @@
 'use strict';
 
 /* eslint-disable max-len */
-const docsContent = `# [](#getting-started)Getting Started
+const docsContent = `# Getting Started
 
 Welcome to Landr! Setting up Landr in your project is extremely easy. First, make sure you install the \`landr\` CLI from npmjs.org if you haven't already by running:
 
@@ -39,7 +39,7 @@ Passing your Netlify authentication token as an environment variable.
 
 Version 2`;
 
-const dummyContent = `# [](#dummy)Dummy
+const dummyContent = `# Dummy
 
 Test`;
 
@@ -47,9 +47,7 @@ Test`;
 
 const docsTableOfContent = [
 	{
-		content: `[](#getting-started)
-
-Getting Started
+		content: `Getting Started
 `,
 		depth: 1,
 		id: 'getting-started',
@@ -59,9 +57,7 @@ Getting Started
 
 const dummyTableOfContent = [
 	{
-		content: `[](#dummy)
-
-Dummy
+		content: `Dummy
 `,
 		depth: 1,
 		id: 'dummy',

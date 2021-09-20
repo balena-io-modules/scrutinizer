@@ -20,8 +20,6 @@ import remarkStringify from 'remark-stringify';
 import remark2rehype from 'remark-rehype';
 import raw from 'rehype-raw';
 import rehype2remark from 'rehype-remark';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutoLinkHeadings from 'rehype-autolink-headings';
 import Slugger from 'github-slugger';
 import convert from 'unist-util-is/convert';
 import toString from 'mdast-util-to-string';
@@ -121,8 +119,6 @@ const convertHtmlToMD = async (markdown: string): Promise<any> => {
 		.use(remarkParse, { gfm: true })
 		.use(remark2rehype, { allowDangerousHtml: true })
 		.use(raw)
-		.use(rehypeSlug)
-		.use(rehypeAutoLinkHeadings)
 		.use(rehype2remark)
 		.use(remarkStringify)
 		.process(markdown);
