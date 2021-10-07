@@ -157,7 +157,6 @@ export default class GitHubBackend {
 				owner: this.owner,
 				repo: this.owner,
 				path: file,
-				ref: this.reference,
 			})) as {
 				headers: ResponseHeaders;
 				data: {
