@@ -151,6 +151,61 @@ export default class GitHubBackend {
 		}
 	}
 
+	async readOrgFile(file: string): Promise<any> {
+		try {
+			const results = (await this.github.repos.getContent({
+				owner: this.owner,
+				repo: this.owner,
+				path: file,
+				ref: this.reference,
+			})) as {
+				headers: ResponseHeaders;
+				data: {
+					type: string;
+					encoding: BufferEncoding;
+					size: number;
+					name: string;
+					path: string;
+					content: string;
+					sha: string;
+					url: string;
+					git_url: string | null;
+					html_url: string | null;
+					download_url: string | null;
+				};
+			};
+
+			logGitHubRateLimitingInformation(results.headers);
+			if (!(results.data instanceof Array)) {
+				if (results.data.type === 'file') {
+					const buffer = Buffer.from(
+						results.data.content,
+						results.data.encoding,
+					);
+
+					if (
+						results.data.encoding === 'base64' &&
+						imageFileExtensions.includes(
+							results.data.name.split('.').reverse()[0],
+						)
+					) {
+						return buffer.toString('base64');
+					}
+
+					return buffer.toString();
+				}
+			}
+			throw new Error(`Can't handle response: ${results.data}`);
+		} catch (error) {
+			logGitHubRateLimitingInformation(error.response.headers);
+			if (error.status === 404) {
+				return null;
+			}
+
+			throw error;
+		}
+	}
+
 	/**
 	 * @summary Read the contents of a file
 	 * @function
