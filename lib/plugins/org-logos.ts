@@ -90,19 +90,30 @@ export default async (backend: Backend) => {
 		svg_logo_brandmark: backend.readOrgFile('logo.svg'),
 		png_logo_brandmark: backend.readOrgFile('logo.png'),
 	});
+	let svgFullLogo = null;
+	let svgLogoBrandmark = null;
+	let pngFullLogo = null;
+	let pngLogoBrandmark = null;
 
-	const svgFullLogo = files.svg_full_logo
+	svgFullLogo = files.svg_full_logo
 		? await getLogoFromUrl(files.svg_full_logo)
 		: null;
-	const pngFullLogo = files.png_full_logo
-		? await getLogoFromUrl(files.png_full_logo)
-		: null;
-	const pngLogoBrandmark = files.png_logo_brandmark
-		? await getLogoFromUrl(files.png_logo_brandmark)
-		: null;
-	const svgLogoBrandmark = files.svg_logo_brandmark
+
+	if (!svgFullLogo) {
+		pngFullLogo = files.png_full_logo
+			? await getLogoFromUrl(files.png_full_logo)
+			: null;
+	}
+
+	svgLogoBrandmark = files.svg_logo_brandmark
 		? await getLogoFromUrl(files.svg_logo_brandmark)
 		: null;
+
+	if (!svgLogoBrandmark) {
+		pngLogoBrandmark = files.png_logo_brandmark
+			? await getLogoFromUrl(files.png_logo_brandmark)
+			: null;
+	}
 
 	return {
 		orgLogoFull: svgFullLogo || pngFullLogo || null,
