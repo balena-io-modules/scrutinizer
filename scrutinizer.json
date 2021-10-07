@@ -101,7 +101,7 @@
     "unist-util-is",
     "unist-util-visit"
   ],
-  "lastCommitDate": "2021-09-20T16:05:44Z",
+  "lastCommitDate": "2021-10-07T09:11:38Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
@@ -189,7 +189,7 @@
       }
     ]
   },
-  "version": "3.3.0",
+  "version": "3.4.0",
   "screenshot": null,
   "logo": null
 }
