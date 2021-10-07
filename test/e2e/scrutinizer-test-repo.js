@@ -138,6 +138,11 @@ const data = {
 		],
 		screenshot: null,
 		codeOfConduct: null,
+		balena: {
+			yml: null,
+		},
+		orgLogoBrandmark: null,
+		orgLogoFull: null,
 		owner: {
 			avatar: 'https://avatars.githubusercontent.com/u/17724750?v=4',
 			handle: 'balena-io-modules',

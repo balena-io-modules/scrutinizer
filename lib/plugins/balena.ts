@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 balena
+ * Copyright 2018 resin.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,24 +14,20 @@
  * limitations under the License.
  */
 
+import { load } from 'js-yaml';
 import { props } from 'bluebird';
 import { Backend } from '../../typings/types';
-import { hasDeployButton } from '../utils/markdown';
-
-const DEPLOY_WITH_BALENA_URL = 'https://dashboard.balena-cloud.com/deploy';
-
+import { Entity, injectImages } from '../utils/paths';
 export default async (backend: Backend) => {
 	const files = await props({
-		readme: backend.readFile('README.md'),
+		yml: backend.readFile('balena.yaml') || backend.readFile('balena.yml'),
 	});
-	const repoUrl = await backend.getRepositoryUrl();
-	if (!repoUrl || !files.readme) {
-		return { deployWithBalenaUrl: null };
+	if (!files.yml) {
+		return { balena: { yml: null } };
 	}
-
 	return {
-		deployWithBalenaUrl: hasDeployButton(files.readme, DEPLOY_WITH_BALENA_URL)
-			? `${DEPLOY_WITH_BALENA_URL}?repoUrl=${repoUrl}`
-			: null,
+		balena: {
+			yml: await injectImages(backend)(load(files.yml) as Entity, ''),
+		},
 	};
 };

@@ -105,6 +105,10 @@ export default class FileSystemBackend {
 		return this.github.readDirectoryFilePaths(directory);
 	}
 
+	async readOrgFile(_file: string): Promise<any> {
+		return null;
+	}
+
 	/**
 	 * @summary Read the contents of a file
 	 * @function

@@ -51,6 +51,8 @@ import deployButtons from './plugins/deployButtons';
 import screenshot from './plugins/screenshot';
 import logo from './plugins/logo';
 import logoBrandmark from './plugins/logo-brandmark';
+import balena from './plugins/balena';
+import orgLogos from './plugins/org-logos';
 const debugLog = debug(`${name}`);
 const dirAsync = promisify(dir);
 setGracefulCleanup();
@@ -96,6 +98,8 @@ const BUILTIN_PLUGINS: Plugins = {
 	screenshot,
 	logo,
 	logoBrandMark: logoBrandmark,
+	balena,
+	'org-logos': orgLogos,
 };
 
 type valueOf<T> = T[keyof T];
