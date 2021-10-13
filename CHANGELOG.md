@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 3.4.2 - 2021-10-13
+
+* Use snapshots for testing [Amit Solanki]
+
 ## 3.4.1 - 2021-10-07
 
 * Fetch files from master branch in org repo [Amit Solanki]
