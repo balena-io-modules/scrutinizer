@@ -77,41 +77,11 @@ software
 Head over to our [docs](https://sound.balenalabs.io) for detailed installation and usage instructions, customization options and more!
 
 `;
-const motivationContent = `motivation para _one_
-
-**Strong** content
-`;
-
-const setupContent = `Running this project is as simple as deploying it to a balenaCloud application. You can do it in just one click by using the button below:
-
-[![](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy)
-`;
-
-const readmeLeftoverContent = [
-	{
-		title: `# Setup and configuration
-`,
-		description: `Running this project is as simple as deploying it to a balenaCloud application. You can do it in just one click by using the button below:
-
-[![](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy)
-`,
-	},
-	{
-		title: `# Documentation
-`,
-		description: `Head over to our [docs](https://sound.balenalabs.io) for detailed installation and usage instructions, customization options and more!
-`,
-	},
-];
-
-const tagline = `**Starter project enabling you to add multi-room audio streaming via Bluetooth, Airplay or Spotify Connect to any old speakers or Hi-Fi using just a Raspberry Pi.**
-`;
-
 /* eslint-enable */
 
 ava('given a header extracts content until next header', async (t) => {
 	const response = await getMarkdownSection(fullTest, 'Motivation');
-	t.is(response, motivationContent);
+	t.snapshot(response);
 });
 
 ava('given a header extracts content until the last line', async (t) => {
@@ -119,27 +89,12 @@ ava('given a header extracts content until the last line', async (t) => {
 		fullTest,
 		'Setup and configuration',
 	);
-	t.is(response, setupContent);
+	t.snapshot(response);
 });
 
 ava('extracts highlights as list of markdown', async (t) => {
 	const response = await getHighlights(fullTest);
-	t.deepEqual(response, [
-		{
-			title: '**Bluetooth, Airplay, Spotify Connect and UPnP**',
-			description:
-				' Stream audio from your favorite music services or directly from your smartphone/computer using bluetooth or UPnP.',
-		},
-		{
-			title: '**Multi-room synchronous playing**',
-			description:
-				' Play perfectly synchronized audio on multiple devices all over your place.',
-		},
-		{
-			title: '**Extended DAC support**',
-			description: ' Upgrade your audio quality with one of our supported DACs',
-		},
-	]);
+	t.snapshot(response);
 });
 
 ava('removes provided sections from markdown', async (t) => {
@@ -152,25 +107,17 @@ ava('removes provided sections from markdown', async (t) => {
 		'Hardware required',
 		'Software required',
 	]);
-	t.deepEqual(response, readmeLeftoverContent);
+	t.snapshot(response);
 });
 
 ava('extracts installation steps from markdown', async (t) => {
 	const response = await getInstallationSteps(fullTest);
 
-	t.deepEqual(response, {
-		headers: [],
-		steps: [
-			'installation step 1\n',
-			'installation step 2\n',
-			'installation step 3\n',
-		],
-		footer: 'footer content of the installation\n',
-	});
+	t.snapshot(response);
 });
 
 ava('extracts Tagline from markdown', async (t) => {
 	const response = await getTagline(fullTest);
 
-	t.is(response, tagline);
+	t.snapshot(response);
 });

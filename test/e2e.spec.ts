@@ -48,7 +48,7 @@ each(
 					progress: logProgress,
 					whitelistPlugins: testCase.plugins,
 				});
-				t.deepEqual(data, testCase.result);
+				t.snapshot(data);
 			},
 		);
 
@@ -60,7 +60,7 @@ each(
 					progress: logProgress,
 					whitelistPlugins: testCase.plugins,
 				});
-				t.deepEqual(data, testCase.result);
+				t.snapshot(data);
 			},
 		);
 	},
