@@ -53,6 +53,8 @@ import logo from './plugins/logo';
 import logoBrandmark from './plugins/logo-brandmark';
 import balena from './plugins/balena';
 import orgLogos from './plugins/org-logos';
+import netlifyConfig from './plugins/netlify';
+
 const debugLog = debug(`${name}`);
 const dirAsync = promisify(dir);
 setGracefulCleanup();
@@ -100,6 +102,7 @@ const BUILTIN_PLUGINS: Plugins = {
 	logoBrandMark: logoBrandmark,
 	balena,
 	'org-logos': orgLogos,
+	netlifyConfig,
 };
 
 type valueOf<T> = T[keyof T];
