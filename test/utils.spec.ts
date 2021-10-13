@@ -32,7 +32,7 @@ test('image: Should return the base64 representation of a remote image using HTT
 	const image = await convertRemoteImageToBase64(
 		imageUrl.replace('https', 'http'),
 	);
-	t.is(image, imageAsBase64);
+	t.snapshot(image);
 });
 
 test('image: Should not return the base64 representation of a image with relative path', async (t) => {
