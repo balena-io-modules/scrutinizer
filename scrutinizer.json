@@ -9,12 +9,12 @@
       "avatar": "https://avatars.githubusercontent.com/u/4951004?v=4"
     },
     {
-      "username": "jviotti",
-      "avatar": "https://avatars.githubusercontent.com/u/2192773?v=4"
-    },
-    {
       "username": "iamsolankiamit",
       "avatar": "https://avatars.githubusercontent.com/u/3483526?v=4"
+    },
+    {
+      "username": "jviotti",
+      "avatar": "https://avatars.githubusercontent.com/u/2192773?v=4"
     },
     {
       "username": "bulldozer-balena[bot]",
@@ -96,12 +96,13 @@
     "simple-git",
     "tesseract.js",
     "tmp",
+    "toml",
     "unified",
     "unified-stream",
     "unist-util-is",
     "unist-util-visit"
   ],
-  "lastCommitDate": "2021-10-07T12:34:58Z",
+  "lastCommitDate": "2021-10-13T05:52:50Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
@@ -189,7 +190,7 @@
       }
     ]
   },
-  "version": "3.4.1",
+  "version": "3.4.2",
   "screenshot": null,
   "logo": null
 }
