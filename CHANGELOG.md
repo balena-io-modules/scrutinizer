@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 3.5.0 - 2021-10-13
+
+* Add netlify config plugin [Amit Solanki]
+
 ## 3.4.2 - 2021-10-13
 
 * Use snapshots for testing [Amit Solanki]
