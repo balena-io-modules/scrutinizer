@@ -13,12 +13,12 @@
       "avatar": "https://avatars.githubusercontent.com/u/3483526?v=4"
     },
     {
-      "username": "jviotti",
-      "avatar": "https://avatars.githubusercontent.com/u/2192773?v=4"
-    },
-    {
       "username": "bulldozer-balena[bot]",
       "avatar": "https://avatars.githubusercontent.com/in/58047?v=4"
+    },
+    {
+      "username": "jviotti",
+      "avatar": "https://avatars.githubusercontent.com/u/2192773?v=4"
     },
     {
       "username": "nazrhom",
@@ -102,7 +102,7 @@
     "unist-util-is",
     "unist-util-visit"
   ],
-  "lastCommitDate": "2021-10-13T14:35:39Z",
+  "lastCommitDate": "2021-10-14T13:07:00Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
@@ -190,7 +190,7 @@
       }
     ]
   },
-  "version": "3.5.0",
+  "version": "3.6.0",
   "screenshot": null,
   "logo": null
 }
