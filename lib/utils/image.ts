@@ -151,6 +151,20 @@ const imageFileExtensions = [
 	'tif',
 ];
 
+export const mimeTypes = {
+	apng: 'image/apng',
+	png: 'image/png',
+	avif: 'image/avif',
+	gif: 'image/gif',
+	jpg: 'image/jpeg',
+	jpeg: 'image/jpeg',
+	jfif: 'image/jpeg',
+	pjpeg: 'image/jpeg',
+	pjp: 'image/jpeg',
+	svg: 'image/svg+xml',
+	webp: 'image/webp',
+};
+
 export {
 	imageFileExtensions,
 	convertLocalImageToBase64,

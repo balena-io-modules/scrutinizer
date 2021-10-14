@@ -1,6 +1,6 @@
 import path from 'path';
 import { Backend } from '../../typings/types';
-import { convertLocalImageToBase64, imageFileExtensions } from './image';
+import { imageFileExtensions, mimeTypes } from './image';
 
 export const isImagePath = (currentPath: string) => {
 	return imageFileExtensions.some((ext) =>
@@ -31,8 +31,11 @@ export const injectImages = (backend: Backend) => {
 			const relativePath = resolveRelativeToRoot(entity);
 			if (isImagePath(relativePath)) {
 				const fileContent = await backend.readFile(relativePath);
+				const mimeType =
+					// @ts-expect-error
+					mimeTypes[relativePath.split('.').reverse()[0].toLowerCase()];
 				return {
-					base64: await convertLocalImageToBase64(fileContent, 'base64'),
+					base64: `data:${mimeType};base64,${fileContent}`,
 				};
 			}
 			return relativePath;

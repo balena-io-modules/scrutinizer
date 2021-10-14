@@ -54,6 +54,7 @@ import logoBrandmark from './plugins/logo-brandmark';
 import balena from './plugins/balena';
 import orgLogos from './plugins/org-logos';
 import netlifyConfig from './plugins/netlify';
+import contract from './plugins/contract';
 
 const debugLog = debug(`${name}`);
 const dirAsync = promisify(dir);
@@ -103,6 +104,7 @@ const BUILTIN_PLUGINS: Plugins = {
 	balena,
 	'org-logos': orgLogos,
 	netlifyConfig,
+	contract,
 };
 
 type valueOf<T> = T[keyof T];
