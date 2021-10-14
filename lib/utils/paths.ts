@@ -1,11 +1,11 @@
 import path from 'path';
 import { Backend } from '../../typings/types';
-import { convertLocalImageToBase64 } from './image';
-
-const IMAGE_EXTENSIONS = ['.png', '.jpeg', '.jpg', '.bmp', '.webp'];
+import { convertLocalImageToBase64, imageFileExtensions } from './image';
 
 export const isImagePath = (currentPath: string) => {
-	return IMAGE_EXTENSIONS.some((ext) => currentPath.endsWith(ext));
+	return imageFileExtensions.some((ext) =>
+		currentPath.toLowerCase().endsWith(ext),
+	);
 };
 
 export const resolveRelativeToRoot = (
