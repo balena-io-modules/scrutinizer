@@ -184,8 +184,8 @@ export default class GitHubBackend {
 
 					if (
 						results.data.encoding === 'base64' &&
-						imageFileExtensions.includes(
-							results.data.name.split('.').reverse()[0],
+						imageFileExtensions.some((ext) =>
+							results.data.name.toLowerCase().endsWith(ext),
 						)
 					) {
 						return buffer.toString('base64');
@@ -252,8 +252,8 @@ export default class GitHubBackend {
 
 					if (
 						results.data.encoding === 'base64' &&
-						imageFileExtensions.includes(
-							results.data.name.split('.').reverse()[0],
+						imageFileExtensions.some((ext) =>
+							results.data.name.toLowerCase().endsWith(ext),
 						)
 					) {
 						return buffer.toString('base64');
