@@ -123,7 +123,7 @@ export default class FileSystemBackend {
 	 *   console.log(contents)
 	 * })
 	 */
-	async readFile(file: string): Promise<any> {
+	async readFile(file: string, _options?: { base64: boolean }): Promise<any> {
 		try {
 			const fileContent = await fs.promises.readFile(
 				join(this.repository, file),
