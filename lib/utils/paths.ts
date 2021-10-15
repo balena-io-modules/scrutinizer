@@ -30,7 +30,9 @@ export const injectImages = (backend: Backend) => {
 		if (typeof entity === 'string') {
 			const relativePath = resolveRelativeToRoot(entity);
 			if (isImagePath(relativePath)) {
-				const fileContent = await backend.readFile(relativePath);
+				const fileContent = await backend.readFile(relativePath, {
+					base64: true,
+				});
 				const mimeType =
 					// @ts-expect-error
 					mimeTypes[relativePath.split('.').reverse()[0].toLowerCase()];

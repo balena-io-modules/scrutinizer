@@ -219,7 +219,7 @@ export default class GitHubBackend {
 	 *   console.log(contents)
 	 * })
 	 */
-	async readFile(file: string): Promise<any> {
+	async readFile(file: string, options?: { base64: boolean }): Promise<any> {
 		try {
 			const results = (await this.github.repos.getContent({
 				owner: this.owner,
@@ -259,6 +259,9 @@ export default class GitHubBackend {
 						return buffer.toString('base64');
 					}
 
+					if (options?.base64) {
+						return buffer.toString('base64');
+					}
 					return buffer.toString();
 				}
 			}
