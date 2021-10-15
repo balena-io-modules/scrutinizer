@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 3.8.0 - 2021-10-15
+
+* Add table of contents to blog [Amit Solanki]
+
 ## 3.7.0 - 2021-10-14
 
 * Add contracts plugin [Amit Solanki]
