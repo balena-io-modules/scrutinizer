@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 3.9.0 - 2021-10-15
+
+* Force base64 on images [Amit Solanki]
+
 ## 3.8.0 - 2021-10-15
 
 * Add table of contents to blog [Amit Solanki]
