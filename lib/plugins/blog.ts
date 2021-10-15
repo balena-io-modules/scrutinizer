@@ -17,6 +17,7 @@
 import { map } from 'bluebird';
 import { isEmpty } from 'lodash';
 import { Backend } from '../../typings/types';
+import { convertHtmlToMD, getTableOfContent } from '../utils/markdown';
 
 export default async (backend: Backend) => {
 	const paths = await backend.readDirectoryFilePaths('blog');
@@ -26,10 +27,14 @@ export default async (backend: Backend) => {
 		};
 	}
 	const blog = await map(paths, async (path: string) => {
-		const contents = await backend.readFile(path);
+		const post = await backend.readFile(path);
+		const contents =
+			((await convertHtmlToMD(post)).contents || '').trim() || '';
+		const tableOfContent = (await getTableOfContent(post)) || [];
 		return {
 			filename: path,
 			contents,
+			tableOfContent,
 		};
 	});
 	return {
