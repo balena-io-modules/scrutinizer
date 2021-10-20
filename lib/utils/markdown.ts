@@ -24,6 +24,8 @@ import Slugger from 'github-slugger';
 import convert from 'unist-util-is/convert';
 import toString from 'mdast-util-to-string';
 import visit from 'unist-util-visit';
+import remarkFrontmatter from 'remark-frontmatter';
+import yaml from 'yaml';
 
 export interface Node {
 	type: string;
@@ -563,6 +565,98 @@ const getTableOfContent = async (
 	return map;
 };
 
+const extractMetaData = async (markdown: string) => {
+	let yamlContent = {};
+	const markdownBody: Node[] = [];
+	await unified()
+		.use(remarkParse)
+		.use(remarkStringify)
+		.use(remarkFrontmatter, ['yaml'])
+		.use(() => (tree: Node) => {
+			tree.children?.map((node) => {
+				if (node.type === 'yaml') {
+					yamlContent = yaml.parse(node.value || '');
+				} else {
+					markdownBody.push(node);
+				}
+			});
+		})
+		.process(markdown);
+	return {
+		contents: unified()
+			.use(remarkStringify)
+			.stringify({ type: 'root', children: markdownBody }),
+		frontmatter: yamlContent,
+	};
+};
+
+export type sectionHeadingDepth = 2 | 3;
+export interface MarkdownSection {
+	title: string;
+	content: string;
+}
+
+const getSections = async (
+	markdown: string,
+	headingDepth: sectionHeadingDepth = 2,
+): Promise<MarkdownSection[]> => {
+	const mdast = markdownAST(await convertHtmlToMD(markdown));
+	if (!mdast.children) {
+		return [];
+	}
+	const initialValue: MarkdownSection[] = [];
+	let currentTitle: string | null = null;
+	let currentNodes: Node[] = [];
+	const map: MarkdownSection[] = mdast.children.reduce((list, node, index) => {
+		if (currentTitle) {
+			if (node.type === `heading` && node.depth === headingDepth) {
+				const newList = [
+					...list,
+					{
+						title: currentTitle,
+						content: currentNodes.length
+							? unified().use(remarkStringify).stringify({
+									children: currentNodes,
+									type: 'root',
+							  })
+							: '',
+					},
+				];
+				const value = toString(node as any);
+				if (mdast.children && index + 1 === mdast.children.length) {
+					return [...newList, { title: value, content: '' }];
+				}
+				currentTitle = value;
+				currentNodes = [];
+				return newList;
+			}
+			currentNodes.push(node);
+		}
+		if (node.type === `heading` && node.depth === headingDepth) {
+			const value = toString(node as any);
+			currentTitle = value;
+		}
+		if (mdast.children && index + 1 === mdast.children.length) {
+			if (currentTitle) {
+				return [
+					...list,
+					{
+						title: currentTitle,
+						content: currentNodes.length
+							? unified().use(remarkStringify).stringify({
+									children: currentNodes,
+									type: 'root',
+							  })
+							: '',
+					},
+				];
+			}
+		}
+		return list;
+	}, initialValue);
+	return map;
+};
+
 /**
  * @summary detects if deploy url exists in markdown
  *
@@ -587,4 +681,6 @@ export {
 	hasDeployButton,
 	getTableOfContent,
 	getLeftoverReadme,
+	getSections,
+	extractMetaData,
 };

@@ -15,11 +15,10 @@
  */
 
 import { props } from 'bluebird';
-import { markdown } from 'markdown';
-import { isEmpty, tail, findIndex, first, last } from 'lodash';
+import { isEmpty } from 'lodash';
 import { Backend } from '../../typings/types';
+import { getSections } from '../utils/markdown';
 
-declare type markdownNode = [string, string | markdownNode | { level: string }];
 export default async (backend: Backend) => {
 	const { faq } = await props({
 		faq: backend.readFile('FAQ.md'),
@@ -27,29 +26,5 @@ export default async (backend: Backend) => {
 	if (isEmpty(faq)) {
 		return { faq: null };
 	}
-	const tree: markdownNode[] = tail(markdown.parse(faq));
-	const result: Array<{ title: string; content: string }> = [];
-	tree.forEach((node: markdownNode, index) => {
-		if (node[0] === 'header') {
-			const rest = tree.slice(index + 1);
-			const endIndex = findIndex(rest, (nextNode) => {
-				return (
-					first(node) === 'header' &&
-					(nextNode[1] as { level: string }).level ===
-						(node[1] as { level: string })?.level
-				);
-			});
-
-			const content =
-				endIndex === -1
-					? (rest as unknown as string)
-					: (rest.slice(0, endIndex) as unknown as string);
-
-			result.push({
-				title: last(node) as string,
-				content,
-			});
-		}
-	});
-	return { faq: result };
+	return { faq: getSections(faq) };
 };

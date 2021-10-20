@@ -14,16 +14,24 @@
  * limitations under the License.
  */
 
-import { join } from 'path';
-import { props } from 'bluebird';
-import { Backend } from '../../typings/types';
+import { join } from "path";
+import { props } from "bluebird";
+import { Backend } from "../../typings/types";
+import { convertHtmlToMD } from "../utils/markdown";
 
 export default async (backend: Backend) => {
-	const files = await props({
-		contributing: backend.readFile('CONTRIBUTING.md'),
-		docsContributing: backend.readFile(join('docs', 'CONTRIBUTING.md')),
-	});
-	return {
-		contributing: files.contributing || files.docsContributing || null,
-	};
+  const files = await props({
+    contributing: backend.readFile("CONTRIBUTING.md"),
+    docsContributing: backend.readFile(join("docs", "CONTRIBUTING.md")),
+  });
+  return {
+    contributing:
+      (
+        (await convertHtmlToMD(files.contributing || "")).contents || ""
+      ).trim() ||
+      (
+        (await convertHtmlToMD(files.docsContributing || "")).contents || ""
+      ).trim() ||
+      null,
+  };
 };

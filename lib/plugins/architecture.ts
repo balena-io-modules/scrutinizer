@@ -25,8 +25,8 @@ export default async (backend: Backend) => {
 	});
 	return {
 		architecture:
-			(await convertHtmlToMD(files.architecture)).contents.trim() ||
-			(await convertHtmlToMD(files.docsArchitecture)).contents.trim() ||
+			((await convertHtmlToMD(files.architecture)).contents || '').trim() ||
+			((await convertHtmlToMD(files.docsArchitecture)).contents || '').trim() ||
 			null,
 	};
 };
