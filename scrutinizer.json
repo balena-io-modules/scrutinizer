@@ -89,6 +89,8 @@
     "rehype-remark",
     "rehype-slug",
     "rehype-stringify",
+    "remark-extract-frontmatter",
+    "remark-frontmatter",
     "remark-parse",
     "remark-rehype",
     "remark-stringify",
@@ -100,9 +102,10 @@
     "unified",
     "unified-stream",
     "unist-util-is",
-    "unist-util-visit"
+    "unist-util-visit",
+    "yaml"
   ],
-  "lastCommitDate": "2021-10-15T10:52:49Z",
+  "lastCommitDate": "2021-10-20T06:47:12Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
@@ -190,7 +193,7 @@
       }
     ]
   },
-  "version": "3.9.0",
+  "version": "3.10.0",
   "screenshot": null,
   "logo": null
 }
