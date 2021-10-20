@@ -1,6 +1,6 @@
 {
   "name": "scrutinizer",
-  "version": "3.10.0",
+  "version": "3.10.1",
   "description": "Extract a git repository's metadata relying on open source conventions",
   "main": "build/lib/index.js",
   "homepage": "https://github.com/resin-io-modules/scrutinizer",
@@ -90,6 +90,6 @@
     "yaml": "^1.10.2"
   },
   "versionist": {
-    "publishedAt": "2021-10-20T06:40:17.468Z"
+    "publishedAt": "2021-10-20T12:12:48.222Z"
   }
 }
