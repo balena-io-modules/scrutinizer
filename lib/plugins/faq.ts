@@ -26,5 +26,5 @@ export default async (backend: Backend) => {
 	if (isEmpty(faq)) {
 		return { faq: null };
 	}
-	return { faq: getSections(faq) };
+	return { faq: await getSections(faq) };
 };
