@@ -14,14 +14,18 @@
  * limitations under the License.
  */
 
-import { props } from 'bluebird';
-import { Backend } from '../../typings/types';
+import { props } from "bluebird";
+import { Backend } from "../../typings/types";
+import { convertHtmlToMD } from "../utils/markdown";
 
 export default async (backend: Backend) => {
-	const files = await props({
-		codeOfConduct: backend.readFile('CODE_OF_CONDUCT.md'),
-	});
-	return {
-		codeOfConduct: files.codeOfConduct || null,
-	};
+  const files = await props({
+    codeOfConduct: backend.readFile("CODE_OF_CONDUCT.md"),
+  });
+  return {
+    codeOfConduct:
+      (
+        (await convertHtmlToMD(files.codeOfConduct || "")).contents || ""
+      ).trim() || null,
+  };
 };
