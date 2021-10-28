@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 3.11.0 - 2021-10-28
+
+* Fix logo fetch from README [Amit Solanki]
+
 ## 3.10.1 - 2021-10-20
 
 * Wait for sections promise in faqs [Amit Solanki]
