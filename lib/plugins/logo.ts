@@ -28,6 +28,7 @@ import { Backend } from '../../typings/types';
 import {
 	convertHtmlToMD,
 	getFirstImageIndex,
+	isParagraph,
 	markdownAST,
 } from '../utils/markdown';
 
@@ -177,11 +178,14 @@ export default async (backend: Backend) => {
 
 	let imageUrl;
 	if (imageIndex !== -1) {
-		imageUrl = mdast.children[imageIndex].url;
+		imageUrl = isParagraph(mdast.children[imageIndex])
+			? mdast.children[imageIndex].children?.[0].url
+			: mdast.children[imageIndex].url;
 	}
 
 	if (imageUrl) {
-		return getLogoFromUrl(imageUrl, backend);
+		const { logo } = await getLogoFromUrl(imageUrl, backend);
+		return { logo };
 	}
 
 	return { logo: null };
