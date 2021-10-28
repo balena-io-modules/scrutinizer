@@ -71,7 +71,7 @@ const isHeading = (node: Node): boolean => {
  * @example
  * isHeading(node)
  */
-const isParagraph = (node: Node): boolean => {
+export const isParagraph = (node: Node): boolean => {
 	return node.type === 'paragraph';
 };
 
