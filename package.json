@@ -66,7 +66,6 @@
     "markdown": "^0.5.0",
     "mdast-util-to-string": "^2.0.0",
     "mmmagic": "^0.5.3",
-    "nodegit": "^0.27.0",
     "puppeteer": "^1.20.0",
     "rehype-autolink-headings": "^5.1.0",
     "rehype-raw": "^4.0.2",
