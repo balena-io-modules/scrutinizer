@@ -83,13 +83,10 @@
     "mdast-util-to-string",
     "mmmagic",
     "puppeteer",
-    "rehype-autolink-headings",
     "rehype-raw",
     "rehype-remark",
-    "rehype-slug",
-    "rehype-stringify",
-    "remark-extract-frontmatter",
     "remark-frontmatter",
+    "remark-gfm",
     "remark-parse",
     "remark-rehype",
     "remark-stringify",
@@ -99,17 +96,20 @@
     "tmp",
     "toml",
     "unified",
-    "unified-stream",
     "unist-util-is",
     "unist-util-visit",
     "yaml"
   ],
-  "lastCommitDate": "2021-11-28T06:03:14Z",
+  "lastCommitDate": "2021-11-28T14:31:46Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 29,
+    "numberOfIssues": 30,
     "latestIssues": [
+      {
+        "title": "Fix github backend types",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/175"
+      },
       {
         "title": "Add org contract plugin",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/172"
@@ -185,14 +185,10 @@
       {
         "title": "Clarify the permissions needed for GITHUB_TOKEN",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/56"
-      },
-      {
-        "title": "Split fs and github backends",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/46"
       }
     ]
   },
-  "version": "3.12.0",
+  "version": "3.12.1",
   "screenshot": null,
   "logo": null
 }
