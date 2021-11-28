@@ -100,16 +100,12 @@
     "unist-util-visit",
     "yaml"
   ],
-  "lastCommitDate": "2021-11-28T14:31:46Z",
+  "lastCommitDate": "2021-11-28T14:43:35Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 30,
+    "numberOfIssues": 29,
     "latestIssues": [
-      {
-        "title": "Fix github backend types",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/175"
-      },
       {
         "title": "Add org contract plugin",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/172"
@@ -185,10 +181,14 @@
       {
         "title": "Clarify the permissions needed for GITHUB_TOKEN",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/56"
+      },
+      {
+        "title": "Split fs and github backends",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/46"
       }
     ]
   },
-  "version": "3.12.1",
+  "version": "3.12.2",
   "screenshot": null,
   "logo": null
 }
