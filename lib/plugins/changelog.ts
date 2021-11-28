@@ -21,8 +21,15 @@ import { Backend } from '../../typings/types';
 export default async (backend: Backend) => {
 	const contents = await backend.readFile('.versionbot/CHANGELOG.yml');
 	if (isEmpty(contents)) {
+		const markdown = await backend.readFile('CHANGELOG.md');
+		if (isEmpty(markdown)) {
+			return {
+				changelog: [],
+			};
+		}
+
 		return {
-			changelog: [],
+			changelog: markdown,
 		};
 	}
 	const changelog = load(contents);
