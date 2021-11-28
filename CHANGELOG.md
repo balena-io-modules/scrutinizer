@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 3.13.0 - 2021-11-28
+
+* Add org contract plugin [Amit Solanki]
+
 ## 3.12.2 - 2021-11-28
 
 * Fix github backend types [Amit Solanki]
