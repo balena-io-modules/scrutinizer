@@ -15,7 +15,7 @@
  */
 
 import http from 'http';
-import { launch, LaunchOptions } from 'puppeteer';
+import { BrowserLaunchArgumentOptions, launch, LaunchOptions } from 'puppeteer';
 import { fileSync } from 'tmp';
 import { readFileSync } from 'fs';
 import https from 'https';
@@ -111,7 +111,7 @@ const convertLocalImageToBase64 = async (
  */
 const getScreenshot = async (website: string): Promise<string> => {
 	const info = await osInfo();
-	const opts: LaunchOptions = {
+	const opts: BrowserLaunchArgumentOptions & LaunchOptions = {
 		args: ['--no-sandbox', '--disable-setuid-sandbox'],
 	};
 	if (info.name === 'Alpine') {
