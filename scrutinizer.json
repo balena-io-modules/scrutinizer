@@ -104,12 +104,16 @@
     "unist-util-visit",
     "yaml"
   ],
-  "lastCommitDate": "2021-11-23T09:58:54Z",
+  "lastCommitDate": "2021-11-28T06:03:14Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 28,
+    "numberOfIssues": 29,
     "latestIssues": [
+      {
+        "title": "Add org contract plugin",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/172"
+      },
       {
         "title": "Banner extraction should handle all cases",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/139"
@@ -185,14 +189,10 @@
       {
         "title": "Split fs and github backends",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/46"
-      },
-      {
-        "title": "Consider using Typescript",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/43"
       }
     ]
   },
-  "version": "3.11.1",
+  "version": "3.12.0",
   "screenshot": null,
   "logo": null
 }
