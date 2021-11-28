@@ -22,7 +22,7 @@ import debug from 'debug';
 import { name as _name } from '../../package.json';
 import { imageFileExtensions } from '../utils/image';
 import { OctokitOptions } from '@octokit/core/dist-types/types';
-import { ResponseHeaders } from '@octokit/types';
+import { ResponseHeaders, RequestError } from '@octokit/types';
 
 const debugGithub = debug(`${_name}:backends:github`);
 /**
@@ -141,7 +141,7 @@ export default class GitHubBackend {
 			}
 
 			throw new Error('Not a directory');
-		} catch (error) {
+		} catch (error: any | RequestError) {
 			logGitHubRateLimitingInformation(error.response.headers);
 			if (error.status === 404) {
 				return null;
@@ -195,7 +195,7 @@ export default class GitHubBackend {
 				}
 			}
 			throw new Error(`Can't handle response: ${results.data}`);
-		} catch (error) {
+		} catch (error: any | RequestError) {
 			logGitHubRateLimitingInformation(error.response.headers);
 			if (error.status === 404) {
 				return null;
@@ -266,7 +266,7 @@ export default class GitHubBackend {
 				}
 			}
 			throw new Error(`Can't handle response: ${results.data}`);
-		} catch (error) {
+		} catch (error: any | RequestError) {
 			logGitHubRateLimitingInformation(error.response.headers);
 			if (error.status === 404) {
 				return null;
@@ -363,7 +363,7 @@ export default class GitHubBackend {
 				null,
 			);
 			return commitDate;
-		} catch (error) {
+		} catch (error: any | RequestError) {
 			if (error.status === 404) {
 				debugGithub(
 					'Cannot get the last commit (have you passed $GITHUB_TOKEN ?)',
@@ -403,7 +403,7 @@ export default class GitHubBackend {
 					contributions,
 				};
 			});
-		} catch (error) {
+		} catch (error: any | RequestError) {
 			if (error.status === 404) {
 				debugGithub(
 					'Cannot get the contributors list (have you passed $GITHUB_TOKEN ?)',
@@ -449,7 +449,7 @@ export default class GitHubBackend {
 				tagName: results.data.tag_name,
 				asssets: releaseAssets,
 			};
-		} catch (error) {
+		} catch (error: any | RequestError) {
 			if (error.status === 404) {
 				debugGithub(
 					'Cannot get the latest release (have you passed $GITHUB_TOKEN ?)',
@@ -508,7 +508,7 @@ export default class GitHubBackend {
 					};
 				}),
 			};
-		} catch (error) {
+		} catch (error: any | RequestError) {
 			if (error.status === 404) {
 				debugGithub(
 					'Cannot get the latest release (have you passed $GITHUB_TOKEN ?)',
