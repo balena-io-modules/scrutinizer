@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.0.0 - 2021-11-28
+
+* Fallback to markdown changelog if yml changelog is not present [Lucian Buzzo]
+
 ## 3.13.0 - 2021-11-28
 
 * Add org contract plugin [Amit Solanki]
