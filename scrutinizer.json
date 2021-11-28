@@ -100,11 +100,11 @@
     "unist-util-visit",
     "yaml"
   ],
-  "lastCommitDate": "2021-11-28T16:22:59Z",
+  "lastCommitDate": "2021-11-28T16:39:45Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 27,
+    "numberOfIssues": 26,
     "latestIssues": [
       {
         "title": "Banner extraction should handle all cases",
@@ -113,10 +113,6 @@
       {
         "title": "Better markdown parse",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/138"
-      },
-      {
-        "title": "Fallback to markdown changelog if yml changelog is not present",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/135"
       },
       {
         "title": "Fixes for local mode:",
@@ -185,10 +181,14 @@
       {
         "title": "Backend functions hold all the logic instead of the plugins",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/41"
+      },
+      {
+        "title": "Reconsider the architecture in order to avoid duplicate calls",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/39"
       }
     ]
   },
-  "version": "3.13.0",
+  "version": "4.0.0",
   "screenshot": null,
   "logo": null
 }
