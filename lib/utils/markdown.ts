@@ -16,6 +16,7 @@
 
 import unified from 'unified';
 import remarkParse from 'remark-parse';
+import remarkGFM from 'remark-gfm';
 import remarkStringify from 'remark-stringify';
 import remark2rehype from 'remark-rehype';
 import raw from 'rehype-raw';
@@ -42,7 +43,7 @@ export interface Node {
 }
 
 export const markdownAST = (content: string): Node => {
-	return unified().use(remarkParse, { gfm: true }).parse(content);
+	return unified().use(remarkParse).use(remarkGFM).parse(content);
 };
 
 /**
@@ -118,7 +119,8 @@ const isBold = (node: Node): boolean => {
  */
 const convertHtmlToMD = async (markdown: string): Promise<any> => {
 	return unified()
-		.use(remarkParse, { gfm: true })
+		.use(remarkParse)
+		.use(remarkGFM)
 		.use(remark2rehype, { allowDangerousHtml: true })
 		.use(raw)
 		.use(rehype2remark)
@@ -145,7 +147,8 @@ const getMarkdownSection = async (
 	const convertedMarkdown = await convertHtmlToMD(readme);
 
 	const mdast = unified()
-		.use(remarkParse, { gfm: true })
+		.use(remarkParse)
+		.use(remarkGFM)
 		.parse(convertedMarkdown) as unknown as { children: Node[] };
 
 	const startIndex = mdast.children.findIndex((node) => {
@@ -199,8 +202,11 @@ const getHighlights = async (
 	const content = await getMarkdownSection(readme, 'Highlights');
 
 	const mdast = unified()
-		.use(remarkParse, { gfm: true })
-		.parse(content) as unknown as { children: Node[] };
+		.use(remarkParse)
+		.use(remarkGFM)
+		.parse(content) as unknown as {
+		children: Node[];
+	};
 
 	const listIndex = mdast.children.findIndex((node) => {
 		return node.type === 'list';
@@ -254,8 +260,11 @@ const getTagline = async (readme: string): Promise<string> => {
 	const content = await convertHtmlToMD(readme);
 
 	const mdast = unified()
-		.use(remarkParse, { gfm: true })
-		.parse(content) as unknown as { children: Node[] };
+		.use(remarkParse)
+		.use(remarkGFM)
+		.parse(content) as unknown as {
+		children: Node[];
+	};
 
 	const imageIndex = mdast.children.findIndex((node) => {
 		return (
@@ -307,8 +316,11 @@ const getLeftoverSections = async (
 	const content = await convertHtmlToMD(readme);
 
 	const mdast = unified()
-		.use(remarkParse, { gfm: true })
-		.parse(content) as unknown as { children: Node[] };
+		.use(remarkParse)
+		.use(remarkGFM)
+		.parse(content) as unknown as {
+		children: Node[];
+	};
 
 	sections.forEach((section) => {
 		const sectionStartIndex = mdast.children.findIndex((node) => {
@@ -416,8 +428,11 @@ const getInstallationSteps = async (
 	}
 
 	const mdast = unified()
-		.use(remarkParse, { gfm: true })
-		.parse(content) as unknown as { children: Node[] };
+		.use(remarkParse)
+		.use(remarkGFM)
+		.parse(content) as unknown as {
+		children: Node[];
+	};
 
 	let steps = [];
 
@@ -478,7 +493,8 @@ const getLeftoverReadme = async (readme: string): Promise<string> => {
 	const content = await convertHtmlToMD(readme.replace(tagline, ''));
 
 	const mdast = unified()
-		.use(remarkParse, { gfm: true })
+		.use(remarkParse)
+		.use(remarkGFM)
 		.parse(content) as Node;
 	if (!mdast.children) {
 		return '';
@@ -530,7 +546,8 @@ const getTableOfContent = async (
 ): Promise<TableOfContentTree[]> => {
 	const markdownContent = await convertHtmlToMD(content);
 	const mdast = unified()
-		.use(remarkParse, { gfm: true })
+		.use(remarkParse)
+		.use(remarkGFM)
 		.parse(markdownContent) as Node;
 	// @ts-expect-error
 	const parents = convert((d) => d === mdast);
@@ -570,6 +587,7 @@ const extractMetaData = async (markdown: string) => {
 	const markdownBody: Node[] = [];
 	await unified()
 		.use(remarkParse)
+		.use(remarkGFM)
 		.use(remarkStringify)
 		.use(remarkFrontmatter, ['yaml'])
 		.use(() => (tree: Node) => {
