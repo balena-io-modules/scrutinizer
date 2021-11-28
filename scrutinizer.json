@@ -100,16 +100,12 @@
     "unist-util-visit",
     "yaml"
   ],
-  "lastCommitDate": "2021-11-28T14:43:35Z",
+  "lastCommitDate": "2021-11-28T16:22:59Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 29,
+    "numberOfIssues": 27,
     "latestIssues": [
-      {
-        "title": "Add org contract plugin",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/172"
-      },
       {
         "title": "Banner extraction should handle all cases",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/139"
@@ -129,10 +125,6 @@
       {
         "title": "scrutinizer.local() fails if target project has no blog or docs folders",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/130"
-      },
-      {
-        "title": "Allow unauthenticated requests to the GitHub API",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/128"
       },
       {
         "title": "scrutinizer.remote() fails without a GITHUB_TOKEN",
@@ -185,10 +177,18 @@
       {
         "title": "Split fs and github backends",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/46"
+      },
+      {
+        "title": "Consider using Typescript",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/43"
+      },
+      {
+        "title": "Backend functions hold all the logic instead of the plugins",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/41"
       }
     ]
   },
-  "version": "3.12.2",
+  "version": "3.13.0",
   "screenshot": null,
   "logo": null
 }
