@@ -55,6 +55,7 @@ import balena from './plugins/balena';
 import orgLogos from './plugins/org-logos';
 import netlifyConfig from './plugins/netlify';
 import contract from './plugins/contract';
+import orgContract from './plugins/org-contract';
 
 const debugLog = debug(`${name}`);
 const dirAsync = promisify(dir);
@@ -105,6 +106,7 @@ const BUILTIN_PLUGINS: Plugins = {
 	'org-logos': orgLogos,
 	netlifyConfig,
 	contract,
+	'org-contract': orgContract,
 };
 
 type valueOf<T> = T[keyof T];
