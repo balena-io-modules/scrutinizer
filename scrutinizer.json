@@ -100,7 +100,7 @@
     "unist-util-visit",
     "yaml"
   ],
-  "lastCommitDate": "2021-11-28T16:39:45Z",
+  "lastCommitDate": "2021-12-14T17:12:26Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
@@ -188,7 +188,7 @@
       }
     ]
   },
-  "version": "4.0.0",
+  "version": "4.1.0",
   "screenshot": null,
   "logo": null
 }
