@@ -77,6 +77,25 @@ software
 Head over to our [docs](https://sound.balenalabs.io) for detailed installation and usage instructions, customization options and more!
 
 `;
+
+const installationStepsExample = `
+# Installation
+
+1. go to project directory
+   \`\`\`bash
+   cd project
+   \`\`\`
+2. Run Landr
+   \`\`\`bash
+   landr build
+   \`\`\`
+3. Deploy the generated site
+   \`\`\`
+   netlfiy deploy
+   \`\`\`
+
+
+`;
 /* eslint-enable */
 
 ava('given a header extracts content until next header', async (t) => {
@@ -112,6 +131,12 @@ ava('removes provided sections from markdown', async (t) => {
 
 ava('extracts installation steps from markdown', async (t) => {
 	const response = await getInstallationSteps(fullTest);
+
+	t.snapshot(response);
+});
+
+ava('extracts installation steps with code from markdown', async (t) => {
+	const response = await getInstallationSteps(installationStepsExample);
 
 	t.snapshot(response);
 });

@@ -174,7 +174,7 @@ const getMarkdownSection = async (
 	});
 
 	if (lastIndex === -1) {
-		lastIndex = restTree.length - 1;
+		lastIndex = restTree.length;
 	}
 
 	const tree = {
@@ -447,9 +447,25 @@ const getInstallationSteps = async (
 	}
 
 	steps = mdast.children?.[listIndex]?.children?.map((listNode) => {
-		return unified()
-			.use(remarkStringify)
-			.stringify({ type: 'root', children: listNode.children });
+		let step = {};
+		listNode.children?.forEach((child) => {
+			if (child.type === 'paragraph') {
+				step = {
+					...step,
+					text: unified()
+						.use(remarkStringify)
+						.stringify({ type: 'root', children: child.children }),
+				};
+			}
+			if (child.type === 'code') {
+				step = {
+					...step,
+					code: child.value,
+				};
+			}
+			return step;
+		});
+		return step;
 	}) as any[];
 
 	footer = unified()
