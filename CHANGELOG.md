@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.1.0 - 2021-12-14
+
+* Mark text and code in installation steps [Amit Solanki]
+
 ## 4.0.0 - 2021-11-28
 
 * Fallback to markdown changelog if yml changelog is not present [Lucian Buzzo]
