@@ -76,7 +76,7 @@ export default class GitHubBackend {
 	 * @example
 	 * const backend = new GitHubBackend('git@github.com:foo/bar.git', 'master')
 	 */
-	constructor(repository: string, reference: string) {
+	constructor(repository: string, reference: string, context?: any) {
 		this.reference = reference;
 
 		const options: OctokitOptions = {
@@ -87,7 +87,11 @@ export default class GitHubBackend {
 			debugGithub('Using $GITHUB_TOKEN as the authentication token');
 			options.auth = `token ${process.env.GITHUB_TOKEN}`;
 		}
-		this.github = new Octokit(options);
+		if (context?.octokit) {
+			this.github = context.octokit;
+		} else {
+			this.github = new Octokit(options);
+		}
 
 		const parsedUrl = repository.match(/([\w-]+)\/([\w-]+)(\.\w+)?$/);
 		this.owner = parsedUrl![1];
