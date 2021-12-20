@@ -276,6 +276,15 @@ export default class GitHubBackend {
 				return null;
 			}
 
+			if (
+				error.status === 403 &&
+				error.message.includes(
+					'The requested blob is too large to fetch via the API',
+				)
+			) {
+				return null;
+			}
+
 			throw error;
 		}
 	}
