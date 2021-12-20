@@ -118,6 +118,7 @@ interface ExamineGitRepoOptions {
 	accumulator: object;
 	reference: string;
 	progress?: (progress: { percentage: number }) => void;
+	context?: any;
 }
 
 /**
@@ -162,6 +163,7 @@ const examineGitRepository = (options: ExamineGitRepoOptions): Promise<any> => {
 			const backend = new options.backend(
 				options.repository,
 				options.reference,
+				options.context,
 			);
 			return backend.init().then(() => {
 				return plugin(backend).then((result: object) => {
@@ -270,6 +272,7 @@ export function remote(
 		reference: string;
 		progress?: (state: { percentage: number }) => void;
 		whitelistPlugins: string[];
+		context?: any;
 	},
 ) {
 	return examineGitRepository({
@@ -279,6 +282,7 @@ export function remote(
 		accumulator: {},
 		progress: options.progress,
 		reference: options.reference,
+		context: options.context,
 	});
 }
 
