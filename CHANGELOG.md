@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.2.0 - 2021-12-20
+
+* Add github context option for remote calls [Amit Solanki]
+
 ## 4.1.0 - 2021-12-14
 
 * Mark text and code in installation steps [Amit Solanki]
