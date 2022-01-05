@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.2.2 - 2022-01-05
+
+* Fix SVG logo image type [Amit Solanki]
+
 ## 4.2.1 - 2021-12-20
 
 * Handle file size too large issue for remote calls [Amit Solanki]
