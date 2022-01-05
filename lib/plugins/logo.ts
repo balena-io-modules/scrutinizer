@@ -149,7 +149,7 @@ const getLogoFromUrl = async (
 		base64Image = `data:${mimeType};base64,${files.logo}`;
 		if (mimeType === 'image/svg') {
 			buffer = await sharp(buffer).png().toBuffer();
-			base64Image = `data:${mimeType};base64,${buffer.toString('base64')}`;
+			base64Image = `data:image/png;base64,${buffer.toString('base64')}`;
 		}
 		logoText = await detectTextFromImage(buffer);
 	}
