@@ -79,9 +79,16 @@ export default class FileSystemBackend {
 	async getRepositoryUrl(): Promise<any> {
 		const content = await this.readFile('package.json');
 		if (!content) {
-			return null;
+			if (this.github) {
+				return this.github.getRepositoryUrl();
+			}
+			return resolve(null);
 		}
-		return get(JSON.parse(content), ['repository', 'url'], null);
+		return get(
+			JSON.parse(content),
+			['repository', 'url'],
+			this.github ? this.github.getRepositoryUrl() : null,
+		);
 	}
 
 	/**
@@ -105,8 +112,11 @@ export default class FileSystemBackend {
 		return this.github.readDirectoryFilePaths(directory);
 	}
 
-	async readOrgFile(_file: string): Promise<any> {
-		return null;
+	async readOrgFile(file: string): Promise<any> {
+		if (!this.github) {
+			return resolve(null);
+		}
+		return this.github.readOrgFile(file);
 	}
 
 	/**
