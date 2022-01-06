@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.3.0 - 2022-01-06
+
+* Export util method to download a repos zip [Amit Solanki]
+
 ## 4.2.2 - 2022-01-05
 
 * Fix SVG logo image type [Amit Solanki]
