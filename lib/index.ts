@@ -286,6 +286,17 @@ export function remote(
 	});
 }
 
+export const utils = {
+	getRepoZipballUrl: async (repo: string, reference: string, context?: any) => {
+		const url = await new GitHubBackend(
+			repo,
+			reference,
+			context,
+		).getZipballArchiveUrl();
+		return url;
+	},
+};
+
 /**
  * @summary Filter whitelist from BUILTIN_PLUGINS
  * @function

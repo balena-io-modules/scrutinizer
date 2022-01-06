@@ -580,4 +580,14 @@ export default class GitHubBackend {
 		openIssuesObj.latestIssues = latestIssues;
 		return openIssuesObj;
 	}
+
+	async getZipballArchiveUrl(): Promise<string> {
+		const result = (await this.github.rest.repos.downloadZipballArchive({
+			owner: this.owner,
+			repo: this.repo,
+			ref: this.reference,
+		})) as { data: string };
+
+		return result.data;
+	}
 }

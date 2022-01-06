@@ -265,4 +265,12 @@ export default class FileSystemBackend {
 
 		return this.github.getOpenIssues();
 	}
+
+	getZipballArchiveUrl(): Promise<any> {
+		if (!this.github) {
+			return resolve(null);
+		}
+
+		return this.github.getZipballArchiveUrl();
+	}
 }
