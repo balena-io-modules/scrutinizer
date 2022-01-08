@@ -24,6 +24,7 @@ import { imageFileExtensions, convertLocalImageToBase64 } from '../utils/image';
 export default class FileSystemBackend {
 	repository: string;
 	reference: string;
+	repositoryUrl: string;
 	github: GitHubBackend;
 	/**
 	 * @summary The file-system based backend
@@ -36,9 +37,25 @@ export default class FileSystemBackend {
 	 * @example
 	 * const backend = new FileSystemBackend('foo/bar', 'master')
 	 */
-	constructor(repository: string, reference: string) {
+	constructor(
+		repository: string,
+		reference: string,
+		context?: any,
+		repositoryUrl?: string,
+	) {
 		this.repository = repository;
 		this.reference = reference;
+
+		if (repositoryUrl) {
+			this.repositoryUrl = repositoryUrl;
+		}
+		if (context) {
+			this.github = new GitHubBackend(
+				this.repositoryUrl,
+				this.reference,
+				context,
+			);
+		}
 	}
 
 	/**
@@ -59,6 +76,9 @@ export default class FileSystemBackend {
 		if (!url) {
 			return resolve();
 		}
+		if (this.github) {
+			return this.github.init();
+		}
 		this.github = new GitHubBackend(url, this.reference);
 		return this.github.init();
 	}
@@ -77,6 +97,9 @@ export default class FileSystemBackend {
 	 * })
 	 */
 	async getRepositoryUrl(): Promise<any> {
+		if (this.repositoryUrl) {
+			return resolve(this.repositoryUrl);
+		}
 		const content = await this.readFile('package.json');
 		if (!content) {
 			if (this.github) {
