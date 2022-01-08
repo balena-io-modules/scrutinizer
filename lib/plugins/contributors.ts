@@ -20,6 +20,9 @@ export default async (backend: Backend) => {
 	const EXCLUDED_CONTRIBUTORS = ['balena-ci'];
 
 	const contributors = await backend.getContributors();
+	if (!contributors) {
+		return { contributors: [] };
+	}
 	const validContributors = contributors.filter(
 		(contributor: { username: string }) => {
 			return !EXCLUDED_CONTRIBUTORS.includes(contributor.username);
