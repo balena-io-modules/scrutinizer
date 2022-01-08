@@ -119,6 +119,7 @@ interface ExamineGitRepoOptions {
 	reference: string;
 	progress?: (progress: { percentage: number }) => void;
 	context?: any;
+	repositoryUrl?: string;
 }
 
 /**
@@ -164,6 +165,7 @@ const examineGitRepository = (options: ExamineGitRepoOptions): Promise<any> => {
 				options.repository,
 				options.reference,
 				options.context,
+				options.repositoryUrl,
 			);
 			return backend.init().then(() => {
 				return plugin(backend).then((result: object) => {
@@ -226,6 +228,23 @@ export async function local(
 	// user's unstaged changes, etc.
 
 	debugLog(`Cloning ${gitRepository} to ${temporaryDirectory}`);
+	const repoRemotes = await git(gitRepository).remote(['-v']);
+	let repoUrls = repoRemotes
+		?.split('\n')
+		.filter((repoRemote) => repoRemote.includes('(fetch)'))
+		.map((line) => {
+			return line.split('\t')[1];
+		});
+	repoUrls = repoUrls
+		?.filter((url) => {
+			return !!url;
+		})
+		.map((url) => {
+			return url.replace(
+				/^(?:https:\/\/|git@|git:\/\/|git:\/\/)?(.*?):(.*?)\.git(.*?)$/,
+				'https://$1/$2',
+			);
+		});
 	const temporaryRepository = await git()
 		.clone(gitRepository, temporaryDirectory as string)
 		.then(constant(temporaryDirectory));
@@ -236,6 +255,7 @@ export async function local(
 		accumulator: {},
 		progress: options.progress,
 		reference: options.reference,
+		repositoryUrl: repoUrls?.[0],
 	});
 }
 
