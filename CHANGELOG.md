@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.4.1 - 2022-01-08
+
+* Determine repo url via git in local mode [Amit Solanki]
+
 ## 4.4.0 - 2022-01-06
 
 * Fallback to github when possible in FS [Amit Solanki]
