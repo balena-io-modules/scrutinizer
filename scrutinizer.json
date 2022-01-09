@@ -100,19 +100,15 @@
     "unist-util-visit",
     "yaml"
   ],
-  "lastCommitDate": "2022-01-08T12:23:30Z",
+  "lastCommitDate": "2022-01-09T10:08:54Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 28,
+    "numberOfIssues": 27,
     "latestIssues": [
       {
         "title": "Fix-packages",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/184"
-      },
-      {
-        "title": "Fix-null-contributors",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/183"
       },
       {
         "title": "Banner extraction should handle all cases",
@@ -185,10 +181,14 @@
       {
         "title": "Consider using Typescript",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/43"
+      },
+      {
+        "title": "Backend functions hold all the logic instead of the plugins",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/41"
       }
     ]
   },
-  "version": "4.4.1",
+  "version": "4.4.2",
   "screenshot": null,
   "logo": null
 }
