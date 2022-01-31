@@ -98,9 +98,10 @@
     "unified",
     "unist-util-is",
     "unist-util-visit",
+    "unzipper",
     "yaml"
   ],
-  "lastCommitDate": "2022-01-09T10:08:54Z",
+  "lastCommitDate": "2022-01-31T06:09:44Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
@@ -188,7 +189,7 @@
       }
     ]
   },
-  "version": "4.4.2",
+  "version": "4.5.0",
   "screenshot": null,
   "logo": null
 }
