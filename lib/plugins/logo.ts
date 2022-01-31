@@ -17,7 +17,7 @@
 import { promisifyAll, props } from 'bluebird';
 import { isString } from 'lodash';
 
-import { convertRemoteImageToBase64 } from '../utils/image';
+import { convertRemoteImageToBase64, mimeTypes } from '../utils/image';
 import { Magic as _Magic, MAGIC_MIME_TYPE } from 'mmmagic';
 const Magic = _Magic;
 const magic = promisifyAll(new Magic(MAGIC_MIME_TYPE));
@@ -129,13 +129,13 @@ const getLogoFromUrl = async (
 		base64Image = await convertRemoteImageToBase64(imageUrl);
 		const { mimeType, data } = base64MimeType(base64Image);
 		let buffer = Buffer.from(data, 'base64');
-		if (mimeType === 'image/svg') {
+		if (mimeType === 'image/svg' || mimeType === 'image/svg+xml') {
 			buffer = await sharp(buffer).png().toBuffer();
 			base64Image = `data:image/png;base64,${buffer.toString('base64')}`;
 		}
 		logoText = await detectTextFromImage(buffer);
 	} else {
-		let localImageUrl = imageUrl;
+		let localImageUrl: string = imageUrl;
 		if (imageUrl.startsWith('./')) {
 			localImageUrl = imageUrl.replace('./', '');
 		}
@@ -145,9 +145,14 @@ const getLogoFromUrl = async (
 			logo: backend.readFile(localImageUrl),
 		});
 		let buffer = Buffer.from(files.logo, 'base64');
-		const mimeType = await magic.detectAsync(buffer);
+
+		const mimeType = localImageUrl.split('.').reverse()[0]
+			? mimeTypes[
+					localImageUrl.split('.').reverse()[0] as keyof typeof mimeTypes
+			  ]
+			: await magic.detectAsync(buffer);
 		base64Image = `data:${mimeType};base64,${files.logo}`;
-		if (mimeType === 'image/svg') {
+		if (mimeType === 'image/svg' || mimeType === 'image/svg+xml') {
 			buffer = await sharp(buffer).png().toBuffer();
 			base64Image = `data:image/png;base64,${buffer.toString('base64')}`;
 		}

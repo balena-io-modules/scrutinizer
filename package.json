@@ -44,6 +44,7 @@
     "@types/js-yaml": "^4.0.2",
     "@types/lodash": "^4.14.171",
     "@types/mmmagic": "^0.4.30",
+    "@types/unzipper": "^0.10.5",
     "@types/puppeteer": "^5.4.4",
     "@types/sharp": "^0.28.5",
     "@types/tmp": "^0.2.1",
@@ -82,6 +83,7 @@
     "unified": "^9.2.2",
     "unist-util-is": "^4.1.0",
     "unist-util-visit": "^2.0.3",
+    "unzipper": "^0.10.11",
     "yaml": "^1.10.2"
   },
   "versionist": {

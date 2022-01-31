@@ -24,6 +24,12 @@ import git from 'simple-git/promise';
 import { promisify, reduce } from 'bluebird';
 import debug from 'debug';
 import { setGracefulCleanup, dir } from 'tmp';
+import { promisify as multiArgPromisify } from 'util';
+import stream from 'stream';
+import fs from 'fs';
+import path from 'path';
+import unzipper from 'unzipper';
+
 import { Backend } from '../typings/types';
 import GitHubBackend from './backends/github';
 import FileSystemBackend from './backends/fs';
@@ -177,6 +183,19 @@ const examineGitRepository = (options: ExamineGitRepoOptions): Promise<any> => {
 	);
 };
 
+const pipeline = multiArgPromisify(stream.pipeline);
+
+export const utils = {
+	getRepoZipballUrl: async (repo: string, reference: string, context?: any) => {
+		const url = await new GitHubBackend(
+			repo,
+			reference,
+			context,
+		).getZipballArchiveUrl();
+		return url;
+	},
+};
+
 /**
  * @summary Examine a local git repository directory
  * @function
@@ -206,6 +225,8 @@ export async function local(
 		reference: string;
 		progress?: (state: { percentage: number }) => void;
 		whitelistPlugins: string[];
+		context?: any;
+		downloadRepo?: boolean;
 	},
 ) {
 	let temporaryDirectory;
@@ -221,33 +242,73 @@ export async function local(
 	} catch (error) {
 		debugLog(error);
 	}
+	let temporaryRepository;
+	let repoUrl;
+
 	// Clone the local repository into a temporary
 	// directory, so we can reset it, modify it, and
 	// traverse it as much as we want without messing
 	// up with the user's original repo, or with the
 	// user's unstaged changes, etc.
+	if (options.downloadRepo && temporaryDirectory) {
+		repoUrl = gitRepository;
+		const repoZipUrl = await utils.getRepoZipballUrl(
+			gitRepository,
+			options.reference,
+			options.context,
+		);
 
-	debugLog(`Cloning ${gitRepository} to ${temporaryDirectory}`);
-	const repoRemotes = await git(gitRepository).remote(['-v']);
-	let repoUrls = repoRemotes
-		?.split('\n')
-		.filter((repoRemote) => repoRemote.includes('(fetch)'))
-		.map((line) => {
-			return line.split('\t')[1];
+		await fs.promises.mkdir(temporaryDirectory, {
+			recursive: true,
 		});
-	repoUrls = repoUrls
-		?.filter((url) => {
-			return !!url;
-		})
-		.map((url) => {
-			return url.replace(
-				/^(?:https:\/\/|git@|git:\/\/|git:\/\/)?(.*?):(.*?)\.git(.*?)$/,
-				'https://$1/$2',
-			);
+		const repoZipPath = path.resolve(temporaryDirectory, 'repo.zip');
+		const repoPath = path.resolve(temporaryDirectory, 'repo');
+		await fs.promises.mkdir(repoPath, {
+			recursive: true,
 		});
-	const temporaryRepository = await git()
-		.clone(gitRepository, temporaryDirectory as string)
-		.then(constant(temporaryDirectory));
+
+		await fs.promises.writeFile(
+			repoZipPath,
+			Buffer.from(repoZipUrl.data as Uint8Array),
+		);
+
+		await pipeline(
+			fs.createReadStream(repoZipPath),
+			unzipper.Extract({
+				path: repoPath,
+			}),
+		);
+		const folderName = (repoZipUrl['headers']['content-disposition'] as string)
+			?.split('=')[1]
+			?.replace('.zip', '');
+		temporaryRepository = path.join(temporaryDirectory, folderName);
+	} else {
+		debugLog(`Cloning ${gitRepository} to ${temporaryDirectory}`);
+		const repoRemotes = await git(gitRepository).remote(['-v']);
+		let repoUrls = repoRemotes
+			?.split('\n')
+			.filter((repoRemote) => repoRemote.includes('(fetch)'))
+			.map((line) => {
+				return line.split('\t')[1];
+			});
+		repoUrls = repoUrls
+			?.filter((url) => {
+				return !!url;
+			})
+			.map((url) => {
+				return url.replace(
+					/^(?:https:\/\/|git@|git:\/\/|git:\/\/)?(.*?):(.*?)\.git(.*?)$/,
+					'https://$1/$2',
+				);
+			});
+
+		repoUrl = repoUrls?.[0];
+
+		temporaryRepository = await git()
+			.clone(gitRepository, temporaryDirectory as string)
+			.then(constant(temporaryDirectory));
+	}
+
 	return await examineGitRepository({
 		repository: temporaryRepository as string,
 		backend: BACKENDS.fs,
@@ -255,7 +316,8 @@ export async function local(
 		accumulator: {},
 		progress: options.progress,
 		reference: options.reference,
-		repositoryUrl: repoUrls?.[0],
+		context: options.context,
+		repositoryUrl: repoUrl,
 	});
 }
 
@@ -306,24 +368,13 @@ export function remote(
 	});
 }
 
-export const utils = {
-	getRepoZipballUrl: async (repo: string, reference: string, context?: any) => {
-		const url = await new GitHubBackend(
-			repo,
-			reference,
-			context,
-		).getZipballArchiveUrl();
-		return url;
-	},
-};
-
 /**
  * @summary Filter whitelist from BUILTIN_PLUGINS
  * @function
  * @private
  *
  * @description
- * Filter BUILTIN_PLUGINS based on a whitelisst
+ * Filter BUILTIN_PLUGINS based on a whitelist
  *
  * @param {String[]} pluginWhitelist - list of plugins to whitelist
  * @returns {Function[]}

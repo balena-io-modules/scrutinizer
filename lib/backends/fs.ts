@@ -19,7 +19,7 @@ import { resolve } from 'bluebird';
 import fs from 'fs';
 import { join } from 'path';
 import GitHubBackend from './github';
-import { imageFileExtensions, convertLocalImageToBase64 } from '../utils/image';
+import { imageFileExtensions } from '../utils/image';
 
 export default class FileSystemBackend {
 	repository: string;
@@ -115,7 +115,7 @@ export default class FileSystemBackend {
 	}
 
 	/**
-	 * @summary Read the contents of a directort
+	 * @summary Read the contents of a directory
 	 * @function
 	 * @public
 	 *
@@ -161,12 +161,13 @@ export default class FileSystemBackend {
 			const fileContent = await fs.promises.readFile(
 				join(this.repository, file),
 				{
-					encoding: 'utf8',
+					encoding: imageFileExtensions.includes(
+						file.split('.').reverse()[0]?.toLowerCase(),
+					)
+						? 'base64'
+						: 'utf8',
 				},
 			);
-			if (imageFileExtensions.includes(file.split('.').reverse()[0])) {
-				return convertLocalImageToBase64(fileContent);
-			}
 			return fileContent;
 		} catch (e) {
 			return null;

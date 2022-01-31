@@ -581,13 +581,13 @@ export default class GitHubBackend {
 		return openIssuesObj;
 	}
 
-	async getZipballArchiveUrl(): Promise<string> {
-		const result = (await this.github.rest.repos.downloadZipballArchive({
+	async getZipballArchiveUrl() {
+		const result = await this.github.rest.repos.downloadZipballArchive({
 			owner: this.owner,
 			repo: this.repo,
 			ref: this.reference,
-		})) as { data: string };
+		});
 
-		return result.data;
+		return result;
 	}
 }
