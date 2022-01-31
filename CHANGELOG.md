@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.5.0 - 2022-01-31
+
+* Provide option to clone a repo before running in local mode [Amit Solanki]
+
 ## 4.4.2 - 2022-01-09
 
 * Return blank array when no contributors are found [Amit Solanki]
