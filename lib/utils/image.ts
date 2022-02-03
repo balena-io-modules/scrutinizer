@@ -21,11 +21,16 @@ import { readFileSync } from 'fs';
 import https from 'https';
 import osInfo from 'linux-os-info';
 import { URL } from 'url';
-import BlueBirdPromise, { promisifyAll } from 'bluebird';
+import BlueBirdPromise, { promisifyAll, props } from 'bluebird';
+import { Backend } from '../../typings/types';
 
 import { Magic, MAGIC_MIME_TYPE } from 'mmmagic';
 const magic = promisifyAll(new Magic(MAGIC_MIME_TYPE));
 
+import { isString } from 'lodash';
+
+import { recognize } from 'tesseract.js';
+import sharp from 'sharp';
 /**
  * @summary Get the base64 representation of a image blob
  * @function
@@ -163,6 +168,142 @@ export const mimeTypes = {
 	pjp: 'image/jpeg',
 	svg: 'image/svg+xml',
 	webp: 'image/webp',
+};
+
+const absoluteUrlRe = new RegExp('^(?:[a-z]+:)?//', 'i');
+
+/**
+ * @summary Detects is the url is absolute or not
+ * @function
+ * @private
+ *
+ * @param {String} url - the URL
+ * @returns {Boolean}
+ *
+ * @example
+ * console.log(isAbsoluteUrl("https://google.com")) // true
+ *
+ * @example
+ * console.log(isAbsoluteUrl("./some-image.png")) // false
+ */
+const isAbsoluteUrl = (url: string): boolean => {
+	return absoluteUrlRe.test(url);
+};
+
+/**
+ * @summary Detects Text from Image using Tesseract OCR
+ * @function
+ * @private
+ *
+ * @param {String} imageUrl - image url
+ * @returns {Promise}
+ *
+ * @example
+ * detectTextFromImage("https://unsplash.com/nature/example.png").then((imageText) => {
+ *    console.log(imageText)
+ * })
+ */
+const detectTextFromImage = async (
+	imageUrl: string | Buffer,
+): Promise<string | null> => {
+	const {
+		data: { text },
+	} = await recognize(imageUrl, 'eng');
+	return text && text.length >= 3 ? text : null;
+};
+
+/**
+ * @summary extracts mimeType and data from base64 encoded strings
+ * @function
+ * @private
+ *
+ * @param {String} encoded - base64 encoded string
+ * @returns {{mimeType: String, data: String}}
+ *
+ * @example
+ * const {mimeType, data} = base64MimeType(string)
+ */
+const base64MimeType = (
+	encoded: string,
+): { mimeType: string | null; data: string } => {
+	if (!isString(encoded)) {
+		return { mimeType: null, data: encoded };
+	}
+
+	const regexMatch = encoded.match(
+		/data:([a-zA-Z0-9]+\/[a-zA-Z0-9-.+]+).*,(.*)/,
+	);
+
+	if (!regexMatch) {
+		return { mimeType: null, data: encoded };
+	}
+
+	return { mimeType: regexMatch[1], data: regexMatch[2] };
+};
+/* eslint-enable */
+
+/**
+ * @summary Get logo Text and base64 image.
+ * @function
+ * @private
+ *
+ * @param {String} imageUrl - image link, either relative or absolute.
+ * @param {Object} backend -
+ * @returns {Promise}
+ *
+ * @example
+ * getLogoFromUrl("https://unsplash.com/nature/tree.jpg").then(({logo}) => {
+ *    console.log(logo);
+ * })
+ */
+export const getLogoFromUrl = async (
+	imageUrl: string,
+	backend: Backend,
+): Promise<{ base64: string; textContent: string | null } | null> => {
+	let logoText = null;
+	let base64Image = null;
+
+	if (isAbsoluteUrl(imageUrl)) {
+		base64Image = await convertRemoteImageToBase64(imageUrl);
+		const { mimeType, data } = base64MimeType(base64Image);
+		let buffer = Buffer.from(data, 'base64');
+		if (mimeType === 'image/svg' || mimeType === 'image/svg+xml') {
+			buffer = await sharp(buffer).png().toBuffer();
+			base64Image = `data:image/png;base64,${buffer.toString('base64')}`;
+		}
+		logoText = await detectTextFromImage(buffer);
+	} else {
+		let localImageUrl: string = imageUrl;
+		if (imageUrl.startsWith('./')) {
+			localImageUrl = imageUrl.replace('./', '');
+		}
+
+		// The image is local to the repo so we can fetch it via the backend
+		const files = await props({
+			logo: backend.readFile(localImageUrl),
+		});
+		if (!files.logo) {
+			return null;
+		}
+		let buffer = Buffer.from(files.logo, 'base64');
+
+		const mimeType = localImageUrl.split('.').reverse()[0]
+			? mimeTypes[
+					localImageUrl.split('.').reverse()[0] as keyof typeof mimeTypes
+			  ]
+			: await magic.detectAsync(buffer);
+		base64Image = `data:${mimeType};base64,${files.logo}`;
+		if (mimeType === 'image/svg' || mimeType === 'image/svg+xml') {
+			buffer = await sharp(buffer).png().toBuffer();
+			base64Image = `data:image/png;base64,${buffer.toString('base64')}`;
+		}
+		logoText = await detectTextFromImage(buffer);
+	}
+
+	return {
+		base64: base64Image,
+		textContent: logoText,
+	};
 };
 
 export {

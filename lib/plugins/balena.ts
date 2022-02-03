@@ -20,14 +20,18 @@ import { Backend } from '../../typings/types';
 import { Entity, injectImages } from '../utils/paths';
 export default async (backend: Backend) => {
 	const files = await props({
-		yml: backend.readFile('balena.yaml') || backend.readFile('balena.yml'),
+		yaml: backend.readFile('balena.yaml'),
+		yml: backend.readFile('balena.yml'),
 	});
-	if (!files.yml) {
+	if (!files.yml && !files.yaml) {
 		return { balena: { yml: null } };
 	}
 	return {
 		balena: {
-			yml: await injectImages(backend)(load(files.yml) as Entity, ''),
+			yml: await injectImages(backend)(
+				load(files.yml ? files.yml : files.yaml) as Entity,
+				'',
+			),
 		},
 	};
 };
