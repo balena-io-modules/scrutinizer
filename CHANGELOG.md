@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.6.0 - 2022-02-03
+
+* Fix local mode, refactor image loading [Amit Solanki]
+
 ## 4.5.0 - 2022-01-31
 
 * Provide option to clone a repo before running in local mode [Amit Solanki]
