@@ -129,10 +129,30 @@ export default class FileSystemBackend {
 	 * })
 	 */
 	async readDirectoryFilePaths(directory: string): Promise<any> {
-		if (!this.github) {
-			return resolve(null);
+		try {
+			await fs.promises.access(
+				join(this.repository, directory),
+				fs.constants.F_OK,
+			);
+			const contents = await fs.promises.readdir(
+				join(this.repository, directory),
+			);
+			const files = [];
+			for (const file of contents) {
+				const stat = await fs.promises.lstat(
+					join(this.repository, directory, file),
+				);
+				if (stat.isFile()) {
+					files.push(join(directory, file));
+				}
+			}
+			return files;
+		} catch {
+			if (!this.github) {
+				return resolve(null);
+			}
+			return this.github.readDirectoryFilePaths(directory);
 		}
-		return this.github.readDirectoryFilePaths(directory);
 	}
 
 	async readOrgFile(file: string): Promise<any> {

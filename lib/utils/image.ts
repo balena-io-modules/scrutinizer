@@ -186,7 +186,7 @@ const absoluteUrlRe = new RegExp('^(?:[a-z]+:)?//', 'i');
  * @example
  * console.log(isAbsoluteUrl("./some-image.png")) // false
  */
-const isAbsoluteUrl = (url: string): boolean => {
+export const isAbsoluteUrl = (url: string): boolean => {
 	return absoluteUrlRe.test(url);
 };
 

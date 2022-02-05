@@ -1,6 +1,7 @@
 import path from 'path';
+import sharp from 'sharp';
 import { Backend } from '../../typings/types';
-import { imageFileExtensions, mimeTypes } from './image';
+import { imageFileExtensions, isAbsoluteUrl, mimeTypes } from './image';
 
 export const isImagePath = (currentPath: string) => {
 	return imageFileExtensions.some((ext) =>
@@ -12,7 +13,7 @@ export const resolveRelativeToRoot = (
 	currentPath: string,
 	currentFolder?: string | string[],
 ): string => {
-	if (!currentFolder) {
+	if (!currentFolder || currentPath.startsWith('/')) {
 		return path.join(currentPath);
 	}
 	if (currentFolder instanceof Array) {
@@ -20,7 +21,13 @@ export const resolveRelativeToRoot = (
 	}
 	return path.join(currentFolder, currentPath);
 };
-export type Entity = Entity[] | string | object | number | null;
+export type Entity =
+	| Entity[]
+	| string
+	| object
+	| number
+	| null
+	| { base64: string };
 
 export const injectImages = (backend: Backend) => {
 	return async function replaceImagePathsToBase64(
@@ -28,19 +35,29 @@ export const injectImages = (backend: Backend) => {
 		currentFolder: string,
 	): Promise<Entity> {
 		if (typeof entity === 'string') {
-			const relativePath = resolveRelativeToRoot(entity);
-			if (isImagePath(relativePath)) {
+			if (
+				isImagePath(entity) &&
+				!entity.startsWith('data:') &&
+				!isAbsoluteUrl(entity)
+			) {
+				const relativePath = resolveRelativeToRoot(entity, currentFolder);
 				const fileContent = await backend.readFile(relativePath, {
 					base64: true,
 				});
+				if (!fileContent) {
+					return entity;
+				}
+				const resizedImage = await sharp(Buffer.from(fileContent, 'base64'))
+					.resize(500, null, { withoutEnlargement: true })
+					.toBuffer();
 				const mimeType =
 					// @ts-expect-error
 					mimeTypes[relativePath.split('.').reverse()[0].toLowerCase()];
 				return {
-					base64: `data:${mimeType};base64,${fileContent}`,
+					base64: `data:${mimeType};base64,${resizedImage.toString('base64')}`,
 				};
 			}
-			return relativePath;
+			return entity;
 		}
 		if (entity instanceof Array) {
 			const arrayEntity = [];
