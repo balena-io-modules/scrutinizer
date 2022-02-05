@@ -282,6 +282,7 @@ export async function local(
 			?.split('=')[1]
 			?.replace('.zip', '');
 		temporaryRepository = path.join(repoPath, folderName);
+		debugLog(`Cloned ${repoUrl} to ${temporaryRepository}`);
 	} else {
 		debugLog(`Cloning ${gitRepository} to ${temporaryDirectory}`);
 		const repoRemotes = await git(gitRepository).remote(['-v']);
