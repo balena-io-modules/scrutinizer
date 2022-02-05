@@ -23,16 +23,18 @@ export default async (backend: Backend) => {
 	let pngFullLogo = null;
 	let pngLogoBrandmark = null;
 
-	svgFullLogo = (await getLogoFromUrl('logo_full.svg', backend)) || null;
+	svgFullLogo = (await getLogoFromUrl('logo_full.svg', backend, true)) || null;
 
 	if (!svgFullLogo) {
-		pngFullLogo = (await getLogoFromUrl('logo_full.png', backend)) || null;
+		pngFullLogo =
+			(await getLogoFromUrl('logo_full.png', backend, true)) || null;
 	}
 
-	svgLogoBrandmark = (await getLogoFromUrl('logo.svg', backend)) || null;
+	svgLogoBrandmark = (await getLogoFromUrl('logo.svg', backend, true)) || null;
 
 	if (!svgLogoBrandmark) {
-		pngLogoBrandmark = (await getLogoFromUrl('logo.png', backend)) || null;
+		pngLogoBrandmark =
+			(await getLogoFromUrl('logo.png', backend, true)) || null;
 	}
 
 	return {
