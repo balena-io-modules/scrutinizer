@@ -101,7 +101,7 @@
     "unzipper",
     "yaml"
   ],
-  "lastCommitDate": "2022-02-05T06:18:19Z",
+  "lastCommitDate": "2022-02-05T06:37:53Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
@@ -189,7 +189,7 @@
       }
     ]
   },
-  "version": "4.7.0",
+  "version": "4.7.1",
   "screenshot": null,
   "logo": null
 }
