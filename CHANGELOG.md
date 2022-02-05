@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.7.0 - 2022-02-05
+
+* Embed images as base64 into docs and blog md files [Amit Solanki]
+
 ## 4.6.0 - 2022-02-03
 
 * Fix local mode, refactor image loading [Amit Solanki]
