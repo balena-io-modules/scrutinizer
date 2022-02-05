@@ -19,6 +19,7 @@ import { isEmpty } from 'lodash';
 import { Backend } from '../../typings/types';
 import {
 	convertHtmlToMD,
+	embedImagesIntoMarkdownAsBase64,
 	extractMetaData,
 	getTableOfContent,
 } from '../utils/markdown';
@@ -35,8 +36,15 @@ export default async (backend: Backend) => {
 		const { frontmatter, contents: markdownContent } = await extractMetaData(
 			post,
 		);
+		const contentWithImageEmbeds = await embedImagesIntoMarkdownAsBase64(
+			backend,
+			markdownContent,
+			'blog',
+		);
 		const contents =
-			((await convertHtmlToMD(markdownContent)).contents || '').trim() || '';
+			((await convertHtmlToMD(contentWithImageEmbeds)).contents || '').trim() ||
+			'';
+
 		const tableOfContent = (await getTableOfContent(markdownContent)) || [];
 		return {
 			filename: path,

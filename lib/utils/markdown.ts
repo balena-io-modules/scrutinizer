@@ -27,6 +27,9 @@ import toString from 'mdast-util-to-string';
 import visit from 'unist-util-visit';
 import remarkFrontmatter from 'remark-frontmatter';
 import yaml from 'yaml';
+import { Backend } from '../../typings/types';
+import { injectImages } from './paths';
+import { isAbsoluteUrl } from './image';
 
 export interface Node {
 	type: string;
@@ -689,6 +692,52 @@ const getSections = async (
 		return list;
 	}, initialValue);
 	return map;
+};
+
+export const embedImagesIntoMarkdownAsBase64 = async (
+	backend: Backend,
+	content: string,
+	baseFolder: string = '',
+) => {
+	const mdast = markdownAST(await convertHtmlToMD(content));
+
+	const images: string[] = [];
+	const imageMap: { [imagePath: string]: string } = {};
+	// @ts-expect-error
+	visit(mdast, 'image', async (node, _position, parent) => {
+		const url = node?.url;
+		if (!url) {
+			return;
+		}
+
+		if (!isAbsoluteUrl(url as string)) {
+			images.push(url as string);
+		}
+	});
+
+	for (const image of images) {
+		const replaceFunc = injectImages(backend);
+		const { base64 } = (await replaceFunc(image, baseFolder)) as {
+			base64: string;
+		};
+		if (base64) {
+			imageMap[image] = base64;
+		}
+	}
+
+	// @ts-expect-error
+	visit(mdast, 'image', async (node, _position, parent) => {
+		const url = node?.url;
+
+		if (!url) {
+			return;
+		}
+
+		node.url = imageMap[url as string];
+	});
+
+	// @ts-expect-error
+	return unified().use(remarkGFM).use(remarkStringify).stringify(mdast);
 };
 
 /**
