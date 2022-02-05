@@ -259,6 +259,7 @@ const base64MimeType = (
 export const getLogoFromUrl = async (
 	imageUrl: string,
 	backend: Backend,
+	org?: boolean,
 ): Promise<{ base64: string; textContent: string | null } | null> => {
 	let logoText = null;
 	let base64Image = null;
@@ -280,7 +281,9 @@ export const getLogoFromUrl = async (
 
 		// The image is local to the repo so we can fetch it via the backend
 		const files = await props({
-			logo: backend.readFile(localImageUrl),
+			logo: org
+				? backend.readOrgFile(localImageUrl)
+				: backend.readFile(localImageUrl),
 		});
 		if (!files.logo) {
 			return null;
