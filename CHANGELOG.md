@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.7.3 - 2022-02-06
+
+* Add debug to fs backend [Amit Solanki]
+
 ## 4.7.2 - 2022-02-05
 
 * Log repo cloning [Amit Solanki]
