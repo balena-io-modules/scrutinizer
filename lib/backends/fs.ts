@@ -18,8 +18,11 @@ import { get } from 'lodash';
 import { resolve } from 'bluebird';
 import fs from 'fs';
 import { join } from 'path';
+import debug from 'debug';
+import { name as _name } from '../../package.json';
 import GitHubBackend from './github';
 import { imageFileExtensions } from '../utils/image';
+const debugScrutinizer = debug(`${_name}`);
 
 export default class FileSystemBackend {
 	repository: string;
@@ -191,6 +194,7 @@ export default class FileSystemBackend {
 			);
 			return fileContent;
 		} catch (e) {
+			debugScrutinizer(e);
 			return null;
 		}
 	}
