@@ -62,6 +62,7 @@ import orgLogos from './plugins/org-logos';
 import netlifyConfig from './plugins/netlify';
 import contract from './plugins/contract';
 import orgContract from './plugins/org-contract';
+import got from 'got';
 
 const debugLog = debug(`${name}`);
 const dirAsync = promisify(dir);
@@ -267,10 +268,19 @@ export async function local(
 			recursive: true,
 		});
 
-		await fs.promises.writeFile(
-			repoZipPath,
-			Buffer.from(repoZipUrl.data as Uint8Array),
+		await pipeline(
+			got.stream(repoZipUrl.url) as unknown as NodeJS.ReadableStream,
+			fs.createWriteStream(repoZipPath),
 		);
+
+		// if (repoZipUrl.data) {
+		//   await fs.promises.writeFile(
+		//     repoZipPath,
+		//     Buffer.from(repoZipUrl.data as Uint8Array)
+		//   );
+		// } else {
+		//   throw new Error("Unable to download repo zip");
+		// }
 
 		await pipeline(
 			fs.createReadStream(repoZipPath),
