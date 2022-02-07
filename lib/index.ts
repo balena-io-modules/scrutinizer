@@ -268,19 +268,18 @@ export async function local(
 			recursive: true,
 		});
 
-		await pipeline(
-			got.stream(repoZipUrl.url) as unknown as NodeJS.ReadableStream,
-			fs.createWriteStream(repoZipPath),
-		);
-
-		// if (repoZipUrl.data) {
-		//   await fs.promises.writeFile(
-		//     repoZipPath,
-		//     Buffer.from(repoZipUrl.data as Uint8Array)
-		//   );
-		// } else {
-		//   throw new Error("Unable to download repo zip");
-		// }
+		if (repoZipUrl.data) {
+			await fs.promises.writeFile(
+				repoZipPath,
+				Buffer.from(repoZipUrl.data as Uint8Array),
+			);
+		} else {
+			// if the response doesn't consist of the data, we download the file
+			await pipeline(
+				got.stream(repoZipUrl.url) as unknown as NodeJS.ReadableStream,
+				fs.createWriteStream(repoZipPath),
+			);
+		}
 
 		await pipeline(
 			fs.createReadStream(repoZipPath),
@@ -288,10 +287,12 @@ export async function local(
 				path: repoPath,
 			}),
 		);
-		const folderName = (repoZipUrl['headers']['content-disposition'] as string)
-			?.split('=')[1]
-			?.replace('.zip', '');
-		temporaryRepository = path.join(repoPath, folderName);
+
+		// git will responded with the whole folder into the zip file.
+		const folders = await fs.promises.readdir(repoPath);
+		const [repoFolder] = folders;
+
+		temporaryRepository = path.join(repoPath, repoFolder);
 		debugLog(`Cloned ${repoUrl} to ${temporaryRepository}`);
 	} else {
 		debugLog(`Cloning ${gitRepository} to ${temporaryDirectory}`);
