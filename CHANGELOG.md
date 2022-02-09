@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.8.0 - 2022-02-09
+
+* Add "terms of service", "master agreement" and "privacy policy" plugins [Amit Solanki]
+
 ## 4.7.5 - 2022-02-07
 
 * Fix extracted repo path for local mode [Amit Solanki]
