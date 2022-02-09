@@ -63,6 +63,9 @@ import netlifyConfig from './plugins/netlify';
 import contract from './plugins/contract';
 import orgContract from './plugins/org-contract';
 import got from 'got';
+import termsOfService from './plugins/terms-of-service';
+import privacyPolicy from './plugins/privacy-policy';
+import masterAgreement from './plugins/master-agreement';
 
 const debugLog = debug(`${name}`);
 const dirAsync = promisify(dir);
@@ -114,6 +117,9 @@ const BUILTIN_PLUGINS: Plugins = {
 	netlifyConfig,
 	contract,
 	'org-contract': orgContract,
+	'terms-of-service': termsOfService,
+	'privacy-policy': privacyPolicy,
+	'master-agreement': masterAgreement,
 };
 
 type valueOf<T> = T[keyof T];
