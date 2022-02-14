@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.8.1 - 2022-02-14
+
+* Add debug logs to tesseract calls [Amit Solanki]
+
 ## 4.8.0 - 2022-02-09
 
 * Add "terms of service", "master agreement" and "privacy policy" plugins [Amit Solanki]
