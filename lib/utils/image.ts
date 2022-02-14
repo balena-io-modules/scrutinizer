@@ -23,14 +23,16 @@ import osInfo from 'linux-os-info';
 import { URL } from 'url';
 import BlueBirdPromise, { promisifyAll, props } from 'bluebird';
 import { Backend } from '../../typings/types';
+import { name } from '../../package.json';
 
 import { Magic, MAGIC_MIME_TYPE } from 'mmmagic';
 const magic = promisifyAll(new Magic(MAGIC_MIME_TYPE));
 
 import { isString } from 'lodash';
 
-import { recognize } from 'tesseract.js';
+import { recognize, setLogging } from 'tesseract.js';
 import sharp from 'sharp';
+import debug from 'debug';
 /**
  * @summary Get the base64 representation of a image blob
  * @function
@@ -206,9 +208,11 @@ export const isAbsoluteUrl = (url: string): boolean => {
 const detectTextFromImage = async (
 	imageUrl: string | Buffer,
 ): Promise<string | null> => {
+	setLogging(true);
+
 	const {
 		data: { text },
-	} = await recognize(imageUrl, 'eng');
+	} = await recognize(imageUrl, 'eng', { logger: debug(`${name}`) });
 	return text && text.length >= 3 ? text : null;
 };
 
