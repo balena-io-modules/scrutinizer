@@ -17,21 +17,25 @@
 import { join } from 'path';
 import { props } from 'bluebird';
 import { Backend } from '../../typings/types';
-import { convertHtmlToMD } from '../utils/markdown';
+import { getMarkdownContent } from '../utils/markdown';
+import { isEmpty } from 'lodash';
 
 export default async (backend: Backend) => {
 	const files = await props({
 		contributing: backend.readFile('CONTRIBUTING.md'),
 		docsContributing: backend.readFile(join('docs', 'CONTRIBUTING.md')),
 	});
-	return {
-		contributing:
-			(
-				(await convertHtmlToMD(files.contributing || '')).contents || ''
-			).trim() ||
-			(
-				(await convertHtmlToMD(files.docsContributing || '')).contents || ''
-			).trim() ||
-			null,
-	};
+	if (isEmpty(files.contributing) && isEmpty(files.docsContributing)) {
+		return { contributing: null };
+	}
+	if (files.contributing) {
+		return {
+			contributing: await getMarkdownContent(files.contributing),
+		};
+	}
+	if (files.docsContributing) {
+		return {
+			contributing: await getMarkdownContent(files.docsContributing),
+		};
+	}
 };

@@ -16,17 +16,25 @@
 
 import { join } from 'path';
 import { props } from 'bluebird';
-import { convertHtmlToMD } from '../utils/markdown';
+import { getMarkdownContent } from '../utils/markdown';
 import { Backend } from '../../typings/types';
+import { isEmpty } from 'lodash';
 export default async (backend: Backend) => {
 	const files = await props({
 		architecture: backend.readFile('ARCHITECTURE.md'),
 		docsArchitecture: backend.readFile(join('docs', 'ARCHITECTURE.md')),
 	});
-	return {
-		architecture:
-			((await convertHtmlToMD(files.architecture)).contents || '').trim() ||
-			((await convertHtmlToMD(files.docsArchitecture)).contents || '').trim() ||
-			null,
-	};
+	if (isEmpty(files.architecture) && isEmpty(files.docsArchitecture)) {
+		return { architecture: null };
+	}
+	if (files.architecture) {
+		return {
+			architecture: await getMarkdownContent(files.architecture),
+		};
+	}
+	if (files.docsArchitecture) {
+		return {
+			architecture: await getMarkdownContent(files.docsArchitecture),
+		};
+	}
 };

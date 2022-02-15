@@ -15,13 +15,18 @@
  */
 
 import { props } from 'bluebird';
+import { isEmpty } from 'lodash';
 import { Backend } from '../../typings/types';
+import { getMarkdownContent } from '../utils/markdown';
 
 export default async (backend: Backend) => {
 	const files = await props({
 		security: backend.readFile('SECURITY.md'),
 	});
+	if (isEmpty(files.security)) {
+		return { security: null };
+	}
 	return {
-		security: files.security || null,
+		security: await getMarkdownContent(files.security),
 	};
 };
