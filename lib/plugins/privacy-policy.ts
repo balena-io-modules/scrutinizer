@@ -17,7 +17,7 @@
 import { props } from 'bluebird';
 import { isEmpty } from 'lodash';
 import { Backend } from '../../typings/types';
-import { convertHtmlToMD } from '../utils/markdown';
+import { extractMetaData, getMarkdownContent } from '../utils/markdown';
 
 export default async (backend: Backend) => {
 	const { privacyPolicy } = await props({
@@ -26,5 +26,14 @@ export default async (backend: Backend) => {
 	if (isEmpty(privacyPolicy)) {
 		return { privacyPolicy: null };
 	}
-	return { privacyPolicy: await convertHtmlToMD(privacyPolicy) };
+
+	const { frontmatter, contents: markdown } = await extractMetaData(
+		privacyPolicy,
+	);
+	return {
+		privacyPolicy: {
+			frontmatter,
+			content: await getMarkdownContent(markdown),
+		},
+	};
 };

@@ -18,7 +18,7 @@ import { map } from 'bluebird';
 import { isEmpty } from 'lodash';
 import { Backend } from '../../typings/types';
 import {
-	convertHtmlToMD,
+	getMarkdownContent,
 	embedImagesIntoMarkdownAsBase64,
 	extractMetaData,
 	getTableOfContent,
@@ -41,9 +41,7 @@ export default async (backend: Backend) => {
 			markdownContent,
 			'blog',
 		);
-		const contents =
-			((await convertHtmlToMD(contentWithImageEmbeds)).contents || '').trim() ||
-			'';
+		const contents = await getMarkdownContent(contentWithImageEmbeds);
 
 		const tableOfContent = (await getTableOfContent(markdownContent)) || [];
 		return {

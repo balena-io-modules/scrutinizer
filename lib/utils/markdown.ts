@@ -754,6 +754,10 @@ const hasDeployButton = (markdown: string, deployUrl: string): boolean => {
 	return markdown.includes(deployUrl);
 };
 
+const getMarkdownContent = async (markdown: string) => {
+	return ((await convertHtmlToMD(markdown)).contents || '').trim() || '';
+};
+
 export {
 	convertHtmlToMD,
 	getMarkdownSection,
@@ -766,4 +770,5 @@ export {
 	getLeftoverReadme,
 	getSections,
 	extractMetaData,
+	getMarkdownContent,
 };

@@ -17,7 +17,7 @@
 import { props } from 'bluebird';
 import { isEmpty } from 'lodash';
 import { Backend } from '../../typings/types';
-import { convertHtmlToMD } from '../utils/markdown';
+import { extractMetaData, getMarkdownContent } from '../utils/markdown';
 
 export default async (backend: Backend) => {
 	const { masterAgreement } = await props({
@@ -26,5 +26,13 @@ export default async (backend: Backend) => {
 	if (isEmpty(masterAgreement)) {
 		return { masterAgreement: null };
 	}
-	return { masterAgreement: await convertHtmlToMD(masterAgreement) };
+	const { frontmatter, contents: markdown } = await extractMetaData(
+		masterAgreement,
+	);
+	return {
+		masterAgreement: {
+			frontmatter,
+			content: await getMarkdownContent(markdown),
+		},
+	};
 };

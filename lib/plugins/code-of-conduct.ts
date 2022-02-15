@@ -15,17 +15,18 @@
  */
 
 import { props } from 'bluebird';
+import { isEmpty } from 'lodash';
 import { Backend } from '../../typings/types';
-import { convertHtmlToMD } from '../utils/markdown';
+import { getMarkdownContent } from '../utils/markdown';
 
 export default async (backend: Backend) => {
 	const files = await props({
 		codeOfConduct: backend.readFile('CODE_OF_CONDUCT.md'),
 	});
+	if (isEmpty(files.codeOfConduct)) {
+		return { codeOfConduct: null };
+	}
 	return {
-		codeOfConduct:
-			(
-				(await convertHtmlToMD(files.codeOfConduct || '')).contents || ''
-			).trim() || null,
+		codeOfConduct: await getMarkdownContent(files.codeOfConduct),
 	};
 };
