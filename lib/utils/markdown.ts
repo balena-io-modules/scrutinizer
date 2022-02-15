@@ -621,6 +621,7 @@ const extractMetaData = async (markdown: string) => {
 		.process(markdown);
 	return {
 		contents: unified()
+			.use(remarkGFM)
 			.use(remarkStringify)
 			.stringify({ type: 'root', children: markdownBody }),
 		frontmatter: yamlContent,
