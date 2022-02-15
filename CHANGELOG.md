@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.9.0 - 2022-02-15
+
+* Refactor markdown parsing [Amit Solanki]
+
 ## 4.8.1 - 2022-02-14
 
 * Add debug logs to tesseract calls [Amit Solanki]
