@@ -229,10 +229,12 @@ const getHighlights = async (
 		.map((highlight) => {
 			return {
 				title: unified()
+					.use(remarkGFM)
 					.use(remarkStringify)
 					.stringify(highlight.title as any),
 				description:
 					unified()
+						.use(remarkGFM)
 						.use(remarkStringify)
 						.stringify(highlight.description as any) || '',
 			};
@@ -293,6 +295,7 @@ const getTagline = async (readme: string): Promise<string> => {
 
 	if (taglineIndex !== -1) {
 		return unified()
+			.use(remarkGFM)
 			.use(remarkStringify)
 			.stringify(mdast as any);
 	}
@@ -400,9 +403,11 @@ const getLeftoverSections = async (
 	return leftoverSections.map((section) => {
 		return {
 			title: unified()
+				.use(remarkGFM)
 				.use(remarkStringify)
 				.stringify({ type: 'root', children: section.title }),
 			description: unified()
+				.use(remarkGFM)
 				.use(remarkStringify)
 				.stringify({ type: 'root', children: section.description }),
 		};
@@ -456,6 +461,7 @@ const getInstallationSteps = async (
 				step = {
 					...step,
 					text: unified()
+						.use(remarkGFM)
 						.use(remarkStringify)
 						.stringify({ type: 'root', children: child.children }),
 				};
@@ -472,6 +478,7 @@ const getInstallationSteps = async (
 	}) as any[];
 
 	footer = unified()
+		.use(remarkGFM)
 		.use(remarkStringify)
 		.stringify({ type: 'root', children: mdast.children.slice(listIndex + 1) });
 
@@ -547,6 +554,7 @@ const getLeftoverReadme = async (readme: string): Promise<string> => {
 	}
 
 	return unified()
+		.use(remarkGFM)
 		.use(remarkStringify)
 		.stringify(mdast as any);
 };
@@ -592,6 +600,7 @@ const getTableOfContent = async (
 		map.push({
 			depth: node.depth as number,
 			content: unified()
+				.use(remarkGFM)
 				.use(remarkStringify)
 				.stringify({ children: node.children, type: 'root' }),
 			id: slug,
