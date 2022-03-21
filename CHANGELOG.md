@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.10.1 - 2022-03-21
+
+* Support github markdown format across all md files [Amit Solanki]
+
 ## 4.10.0 - 2022-02-15
 
 * Add table support to extracted markdown [Amit Solanki]
