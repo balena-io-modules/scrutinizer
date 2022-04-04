@@ -75,6 +75,7 @@
     "capitano",
     "debug",
     "fromnow",
+    "fs-extra",
     "github-slugger",
     "got",
     "js-yaml",
@@ -102,7 +103,7 @@
     "unzipper",
     "yaml"
   ],
-  "lastCommitDate": "2022-03-21T19:16:50Z",
+  "lastCommitDate": "2022-04-04T08:02:13Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
@@ -190,7 +191,7 @@
       }
     ]
   },
-  "version": "4.10.1",
+  "version": "4.11.0",
   "screenshot": null,
   "logo": null
 }
