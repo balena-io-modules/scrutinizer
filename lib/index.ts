@@ -29,7 +29,7 @@ import stream from 'stream';
 import fs from 'fs';
 import path from 'path';
 import unzipper from 'unzipper';
-
+import fsExtra from 'fs-extra';
 import { Backend } from '../typings/types';
 import GitHubBackend from './backends/github';
 import FileSystemBackend from './backends/fs';
@@ -228,10 +228,10 @@ export const utils = {
  */
 export async function local(
 	gitRepository: string,
-	options: {
-		reference: string;
+	options?: {
+		reference?: string;
 		progress?: (state: { percentage: number }) => void;
-		whitelistPlugins: string[];
+		whitelistPlugins?: string[];
 		context?: any;
 		downloadRepo?: boolean;
 	},
@@ -257,11 +257,11 @@ export async function local(
 	// traverse it as much as we want without messing
 	// up with the user's original repo, or with the
 	// user's unstaged changes, etc.
-	if (options.downloadRepo && temporaryDirectory) {
+	if (options?.downloadRepo && temporaryDirectory && options?.reference) {
 		repoUrl = gitRepository;
 		const repoZipUrl = await utils.getRepoZipballUrl(
 			gitRepository,
-			options.reference,
+			options?.reference,
 			options.context,
 		);
 
@@ -301,40 +301,44 @@ export async function local(
 		temporaryRepository = path.join(repoPath, repoFolder);
 		debugLog(`Cloned ${repoUrl} to ${temporaryRepository}`);
 	} else {
-		debugLog(`Cloning ${gitRepository} to ${temporaryDirectory}`);
-		const repoRemotes = await git(gitRepository).remote(['-v']);
-		let repoUrls = repoRemotes
-			?.split('\n')
-			.filter((repoRemote) => repoRemote.includes('(fetch)'))
-			.map((line) => {
-				return line.split('\t')[1];
-			});
-		repoUrls = repoUrls
-			?.filter((url) => {
-				return !!url;
-			})
-			.map((url) => {
-				return url.replace(
-					/^(?:https:\/\/|git@|git:\/\/|git:\/\/)?(.*?):(.*?)\.git(.*?)$/,
-					'https://$1/$2',
-				);
-			});
+		debugLog(`Copy ${gitRepository} to ${temporaryDirectory}`);
+		try {
+			const repoRemotes = await git(gitRepository).remote(['-v']);
+			let repoUrls = repoRemotes
+				?.split('\n')
+				.filter((repoRemote) => repoRemote.includes('(fetch)'))
+				.map((line) => {
+					return line.split('\t')[1];
+				});
+			repoUrls = repoUrls
+				?.filter((url) => {
+					return !!url;
+				})
+				.map((url) => {
+					return url.replace(
+						/^(?:https:\/\/|git@|git:\/\/|git:\/\/)?(.*?):(.*?)\.git(.*?)$/,
+						'https://$1/$2',
+					);
+				});
 
-		repoUrl = repoUrls?.[0];
-
-		temporaryRepository = await git()
-			.clone(gitRepository, temporaryDirectory as string)
-			.then(constant(temporaryDirectory));
+			repoUrl = repoUrls?.[0];
+			temporaryRepository = await git()
+				.clone(gitRepository, temporaryDirectory as string)
+				.then(constant(temporaryDirectory));
+		} catch (error) {
+			temporaryRepository = temporaryDirectory + '/repo';
+			await fsExtra.copy(gitRepository, temporaryRepository);
+		}
 	}
 
 	return await examineGitRepository({
 		repository: temporaryRepository as string,
 		backend: BACKENDS.fs,
-		plugins: filterPlugins(options.whitelistPlugins),
+		plugins: filterPlugins(options?.whitelistPlugins ?? []),
 		accumulator: {},
-		progress: options.progress,
-		reference: options.reference,
-		context: options.context,
+		progress: options?.progress,
+		reference: options?.reference || 'master',
+		context: options?.context,
 		repositoryUrl: repoUrl,
 	});
 }
