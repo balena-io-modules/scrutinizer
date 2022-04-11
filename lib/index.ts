@@ -66,6 +66,7 @@ import got from 'got';
 import termsOfService from './plugins/terms-of-service';
 import privacyPolicy from './plugins/privacy-policy';
 import masterAgreement from './plugins/master-agreement';
+import links from './plugins/links';
 
 const debugLog = debug(`${name}`);
 const dirAsync = promisify(dir);
@@ -120,6 +121,7 @@ const BUILTIN_PLUGINS: Plugins = {
 	'terms-of-service': termsOfService,
 	'privacy-policy': privacyPolicy,
 	'master-agreement': masterAgreement,
+	links,
 };
 
 type valueOf<T> = T[keyof T];
