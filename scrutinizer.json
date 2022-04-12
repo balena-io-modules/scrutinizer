@@ -102,16 +102,12 @@
     "unzipper",
     "yaml"
   ],
-  "lastCommitDate": "2022-04-12T11:19:50Z",
+  "lastCommitDate": "2022-04-12T11:37:25Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 28,
+    "numberOfIssues": 27,
     "latestIssues": [
-      {
-        "title": "Read links.json",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/199"
-      },
       {
         "title": "Fix-packages",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/184"
@@ -187,10 +183,14 @@
       {
         "title": "Consider using Typescript",
         "url": "https://github.com/balena-io-modules/scrutinizer/issues/43"
+      },
+      {
+        "title": "Backend functions hold all the logic instead of the plugins",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/41"
       }
     ]
   },
-  "version": "4.11.2",
+  "version": "4.11.3",
   "screenshot": null,
   "logo": null
 }
