@@ -83,7 +83,6 @@
     "lodash",
     "markdown",
     "mdast-util-to-string",
-    "mmmagic",
     "puppeteer",
     "rehype-raw",
     "rehype-remark",
@@ -103,12 +102,20 @@
     "unzipper",
     "yaml"
   ],
-  "lastCommitDate": "2022-04-04T08:02:13Z",
+  "lastCommitDate": "2022-04-12T10:58:10Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 27,
+    "numberOfIssues": 29,
     "latestIssues": [
+      {
+        "title": "Handle absolute urls while embedding images in MD",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/201"
+      },
+      {
+        "title": "Read links.json",
+        "url": "https://github.com/balena-io-modules/scrutinizer/pull/199"
+      },
       {
         "title": "Fix-packages",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/184"
@@ -180,18 +187,10 @@
       {
         "title": "Split fs and github backends",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/46"
-      },
-      {
-        "title": "Consider using Typescript",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/43"
-      },
-      {
-        "title": "Backend functions hold all the logic instead of the plugins",
-        "url": "https://github.com/balena-io-modules/scrutinizer/issues/41"
       }
     ]
   },
-  "version": "4.11.0",
+  "version": "4.11.1",
   "screenshot": null,
   "logo": null
 }
