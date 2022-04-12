@@ -21,12 +21,9 @@ import { readFileSync } from 'fs';
 import https from 'https';
 import osInfo from 'linux-os-info';
 import { URL } from 'url';
-import BlueBirdPromise, { promisifyAll, props } from 'bluebird';
+import BlueBirdPromise, { props } from 'bluebird';
 import { Backend } from '../../typings/types';
 import { name } from '../../package.json';
-
-import { Magic, MAGIC_MIME_TYPE } from 'mmmagic';
-const magic = promisifyAll(new Magic(MAGIC_MIME_TYPE));
 
 import { isString } from 'lodash';
 
@@ -76,30 +73,6 @@ const convertRemoteImageToBase64 = (
 				reject(err);
 			});
 	});
-};
-
-/**
- * @summary Get the base64 representation of a image blob
- * @function
- * @public
- *
- * @param {File} imageData - FileData of an image
- * @param {String} format - File encoding
- * @returns {Promise}
- *
- * @example
- * convertLocalImageToBase64(File)
- *  .then((imageAsBase64) => {
- *    console.log(imageAsBase64)
- * })
- */
-const convertLocalImageToBase64 = async (
-	imageData: string,
-	format: BufferEncoding = 'utf-8',
-): Promise<string> => {
-	const buffer = Buffer.from(imageData, format);
-	const mimeType = await magic.detectAsync(buffer);
-	return `data:${mimeType};base64,${buffer.toString('base64')}`;
 };
 
 /**
@@ -294,11 +267,13 @@ export const getLogoFromUrl = async (
 		}
 		let buffer = Buffer.from(files.logo, 'base64');
 
-		const mimeType = localImageUrl.split('.').reverse()[0]
-			? mimeTypes[
-					localImageUrl.split('.').reverse()[0] as keyof typeof mimeTypes
-			  ]
-			: await magic.detectAsync(buffer);
+		const imageFileExtension = localImageUrl
+			.split('.')
+			.reverse()[0]
+			.toLowerCase() as keyof typeof mimeTypes;
+
+		const mimeType = mimeTypes[imageFileExtension];
+
 		base64Image = `data:${mimeType};base64,${files.logo}`;
 		if (mimeType === 'image/svg' || mimeType === 'image/svg+xml') {
 			buffer = await sharp(buffer).png().toBuffer();
@@ -313,9 +288,4 @@ export const getLogoFromUrl = async (
 	};
 };
 
-export {
-	imageFileExtensions,
-	convertLocalImageToBase64,
-	convertRemoteImageToBase64,
-	getScreenshot,
-};
+export { imageFileExtensions, convertRemoteImageToBase64, getScreenshot };
