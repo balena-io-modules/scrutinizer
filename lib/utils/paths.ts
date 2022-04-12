@@ -13,7 +13,11 @@ export const resolveRelativeToRoot = (
 	currentPath: string,
 	currentFolder?: string | string[],
 ): string => {
-	if (!currentFolder || currentPath.startsWith('/')) {
+	if (
+		!currentFolder ||
+		currentPath.startsWith('/') ||
+		!currentPath.startsWith('.')
+	) {
 		return path.join(currentPath);
 	}
 	if (currentFolder instanceof Array) {
