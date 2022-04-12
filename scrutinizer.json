@@ -102,16 +102,12 @@
     "unzipper",
     "yaml"
   ],
-  "lastCommitDate": "2022-04-12T10:58:10Z",
+  "lastCommitDate": "2022-04-12T11:19:50Z",
   "latestRelease": null,
   "latestPreRelease": null,
   "openIssues": {
-    "numberOfIssues": 29,
+    "numberOfIssues": 28,
     "latestIssues": [
-      {
-        "title": "Handle absolute urls while embedding images in MD",
-        "url": "https://github.com/balena-io-modules/scrutinizer/pull/201"
-      },
       {
         "title": "Read links.json",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/199"
@@ -187,10 +183,14 @@
       {
         "title": "Split fs and github backends",
         "url": "https://github.com/balena-io-modules/scrutinizer/pull/46"
+      },
+      {
+        "title": "Consider using Typescript",
+        "url": "https://github.com/balena-io-modules/scrutinizer/issues/43"
       }
     ]
   },
-  "version": "4.11.1",
+  "version": "4.11.2",
   "screenshot": null,
   "logo": null
 }
