@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 4.11.3 - 2022-04-12
+
+* Read links.json [Amit Solanki]
+
 ## 4.11.2 - 2022-04-12
 
 * Handle absolute urls while embedding images in MD [Amit Solanki]
