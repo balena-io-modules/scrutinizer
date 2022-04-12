@@ -742,8 +742,9 @@ export const embedImagesIntoMarkdownAsBase64 = async (
 		if (!url) {
 			return;
 		}
-
-		node.url = imageMap[url as string];
+		if (!isAbsoluteUrl(url as string)) {
+			node.url = imageMap[url as string];
+		}
 	});
 
 	// @ts-expect-error
