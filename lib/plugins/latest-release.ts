@@ -31,7 +31,7 @@ const EXTENSIONS_TO_EXCLUDE = [
 
 export default async (backend: Backend) => {
 	const latestRelease = await backend.getLatestRelease();
-	let assets = get(latestRelease, ['asssets']);
+	let assets = get(latestRelease, ['assets']);
 	if (isEmpty(assets)) {
 		return { latestRelease: null };
 	}
@@ -50,8 +50,7 @@ export default async (backend: Backend) => {
 			installerType: getInstallerType(str),
 		};
 	});
-	// TODO: Fix this annoying typo in a new major release
-	latestRelease.asssets = assets;
+	latestRelease.assets = assets;
 	return {
 		latestRelease,
 	};
