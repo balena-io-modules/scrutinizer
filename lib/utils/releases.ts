@@ -1,5 +1,38 @@
 import { includes } from 'lodash';
 
+const LINUX_ARCHS = [
+	'x64',
+	'aarch64',
+	'armv5',
+	'armv6',
+	'armv7',
+	'i386',
+	'x86_64',
+];
+
+function isMacOs(str: string) {
+	return (
+		includes(str, 'darwin') || includes(str, '.dmg') || includes(str, 'mac')
+	);
+}
+
+function isLinux(str: string) {
+	const arch = getArch(str);
+	return (
+		includes(str, 'linux') ||
+		includes(str, '.AppImage') ||
+		includes(str, '.deb') ||
+		includes(str, '.rpm') ||
+		includes(LINUX_ARCHS, arch)
+	);
+}
+
+function isWindows(str: string) {
+	return (
+		includes(str, 'win32') || includes(str, 'windows') || includes(str, '.exe')
+	);
+}
+
 /**
  *
  * @param {String} str - The string to scrutinize
@@ -7,25 +40,14 @@ import { includes } from 'lodash';
  * @example
  * getOS(balenaEtcher-Portable-1.5.63.exe)
  */
-const getOS = (str: any): string => {
-	if (
-		includes(str, 'darwin') ||
-		includes(str, '.dmg') ||
-		includes(str, 'mac')
-	) {
+const getOS = (str: string): string => {
+	if (isMacOs(str)) {
 		return 'macOS';
-	} else if (
-		includes(str, 'win32') ||
-		includes(str, 'windows') ||
-		includes(str, '.exe')
-	) {
+	}
+	if (isWindows(str)) {
 		return 'Windows';
-	} else if (
-		includes(str, 'linux') ||
-		includes(str, '.AppImage') ||
-		includes(str, '.deb') ||
-		includes(str, '.rpm')
-	) {
+	}
+	if (isLinux(str)) {
 		return 'Linux';
 	}
 
@@ -39,14 +61,32 @@ const getOS = (str: any): string => {
  * @example
  * getArch(balenaEtcher-Portable-1.5.63.exe)
  */
-const getArch = (str: any): string => {
+const getArch = (str: string): string => {
 	if (
 		includes(str, 'x64') ||
 		includes(str, 'x86_64') ||
 		includes(str, 'amd64') ||
-		getOS(str) === 'macOS'
+		isMacOs(str)
 	) {
 		return 'x64';
+	}
+	if (includes(str, 'aarch64')) {
+		return 'aarch64';
+	}
+	if (includes(str, 'armv5')) {
+		return 'armv5';
+	}
+	if (includes(str, 'armv6')) {
+		return 'armv6';
+	}
+	if (includes(str, 'armv7')) {
+		return 'armv7';
+	}
+	if (includes(str, 'i386')) {
+		return 'i386';
+	}
+	if (includes(str, 'x86_64')) {
+		return 'x86_64';
 	}
 	return 'x86';
 };
@@ -58,7 +98,7 @@ const getArch = (str: any): string => {
  * @example
  * getArchString(balenaEtcher-Portable-1.5.63.exe)
  */
-const getArchString = (str: any): string => {
+const getArchString = (str: string): string => {
 	switch (getArch(str)) {
 		case 'x86':
 			return '(32-bit)';
@@ -76,12 +116,16 @@ const getArchString = (str: any): string => {
  * @example
  * getInstallerType(balenaEtcher-Portable-1.5.63.exe)
  */
-const getInstallerType = (str: any): string | null => {
-	if (getOS(str) === 'macOS') {
+const getInstallerType = (str: string): string | null => {
+	if (includes(str, 'tar.gz')) {
 		return null;
 	}
 
-	if (getOS(str) === 'Linux') {
+	if (isMacOs(str)) {
+		return null;
+	}
+
+	if (isLinux(str)) {
 		return '(AppImage)';
 	}
 
