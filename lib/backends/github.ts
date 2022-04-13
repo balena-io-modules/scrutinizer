@@ -460,7 +460,7 @@ export default class GitHubBackend {
 			}
 			return {
 				tagName: results.data.tag_name,
-				asssets: releaseAssets,
+				assets: releaseAssets,
 			};
 		} catch (error: any | RequestError) {
 			if (error.status === 404) {
