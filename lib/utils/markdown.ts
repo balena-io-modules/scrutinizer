@@ -439,6 +439,7 @@ const getInstallationSteps = async (
 	const mdast = unified()
 		.use(remarkParse)
 		.use(remarkGFM)
+		.use(mermaid)
 		.parse(content) as unknown as {
 		children: Node[];
 	};
