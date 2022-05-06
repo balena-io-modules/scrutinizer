@@ -19,6 +19,7 @@ import remarkParse from 'remark-parse';
 import remarkGFM from 'remark-gfm';
 import remarkStringify from 'remark-stringify';
 import remark2rehype from 'remark-rehype';
+import mermaid from 'remark-mermaid';
 import raw from 'rehype-raw';
 import rehype2remark from 'rehype-remark';
 import Slugger from 'github-slugger';
@@ -438,6 +439,7 @@ const getInstallationSteps = async (
 	const mdast = unified()
 		.use(remarkParse)
 		.use(remarkGFM)
+		.use(mermaid)
 		.parse(content) as unknown as {
 		children: Node[];
 	};
@@ -521,6 +523,7 @@ const getLeftoverReadme = async (readme: string): Promise<string> => {
 	const mdast = unified()
 		.use(remarkParse)
 		.use(remarkGFM)
+		.use(mermaid)
 		.parse(content) as Node;
 	if (!mdast.children) {
 		return '';
