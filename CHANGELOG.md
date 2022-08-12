@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 5.0.1 - 2022-08-12
+
+* Test if works for cloudflare environment [Anuj Deshpande]
+
 ## 5.0.0 - 2022-04-13
 
 * Fix assets typo in latestRelease [Amit Solanki]
