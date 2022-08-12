@@ -310,7 +310,7 @@ export async function local(
 				?.split('\n')
 				.filter((repoRemote) => repoRemote.includes('(fetch)'))
 				.map((line) => {
-					return line.split('\t')[1];
+					return line.replace(/[\t|\s]+/, ' ').split(' ')[1];
 				});
 			repoUrls = repoUrls
 				?.filter((url) => {
