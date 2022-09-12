@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 5.1.0 - 2022-09-12
+
+* Update dependency simple-git to 3.5.0 [SECURITY] [Renovate Bot]
+
 ## 5.0.0 - 2022-04-13
 
 * Fix assets typo in latestRelease [Amit Solanki]
