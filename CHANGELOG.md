@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2018-01-17
 
+## 5.1.0 - 2022-09-12
+
+* Update dependency sharp to 0.30.5 [SECURITY] [Renovate Bot]
+
 ## 5.0.0 - 2022-04-13
 
 * Fix assets typo in latestRelease [Amit Solanki]
